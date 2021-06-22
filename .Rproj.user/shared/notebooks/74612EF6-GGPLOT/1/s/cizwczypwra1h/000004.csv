@@ -1,0 +1,7 @@
+"0","ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+"
+"0","         geom_bar(width = 0.5)+"
+"0","  xlab(""Colegio"") + ylab(""Número"")+"
+"0","  ggtitle(""Encuestados \n Por \n Colegios"")+"
+"0","  theme (text = element_text(size=8))+ #tamaño letra por defecto"
+"0","  theme(plot.title = TemaTitulo)+"
+"0","  theme(axis.title = ejesTitulo)"

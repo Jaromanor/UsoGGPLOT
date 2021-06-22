@@ -1,0 +1,6 @@
+"0","ggplot(esc1,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+"
+"0","  geom_bar(stat = ""identity"", width = 0.5)+"
+"0","  geom_text(aes(y = CANTIDAD, ymax = CANTIDAD, label = CANTIDAD),"
+"0","            position = position_dodge(width = 1), # crea un espacio a ambos lados del gráfico"
+"0","            size=3, vjust=-0.5, hjust=0.5 ,col=""black"")"
+"2","Ignoring unknown aesthetics: ymax"
