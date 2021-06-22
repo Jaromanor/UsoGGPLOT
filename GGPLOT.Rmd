@@ -184,6 +184,19 @@ ggplot(esc2,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
   geom_text(aes(label=Porcentaje),vjust=-0.5,col="red",size=2)
 ```
 
+## GRÁFICOS DE BARRAS (2 FACTORES)
+
+En esta sección se mostrarán las distintas formas de trabajar con gráficos de barras: apiladas, bloques, paneles y acomodadas por renglones. Nuevamente se hará uso de la data sobre el Endomarketing.
+
+El primer paso es crear un nuevo dataframe con las dos variables tipo factor, otra variable que muestre la cantidad y la otra el porcentaje.
+
+```{r}
+frec1 <- table(final$SEXO)
+Porcsex <- paste(round(prop.table(frec1)*100,2),"%",sep = "")
+sex <- data.frame(frec1,Porcsex)
+names(sex)=c("SEXO","CANTIDAD","PORCSEX")
+sex
+```
 
 
 
