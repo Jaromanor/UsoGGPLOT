@@ -42,6 +42,8 @@ En este caso para efectos prácticos se va analizar la cantidad de encuestados p
 str(final)
 ```
 
+## Salto de línea en título
+
 Ahora realicemos la gráfica inicial con los respectivos nombres para cada eje y el título del mismo. Por ahora no nos preocupemos por la presentación del gráfico. Pero si es importante considerar que la barra invertida + n es un salto de línea.
 
 ```{r warning=FALSE}
@@ -50,6 +52,8 @@ ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
   xlab("Colegio") + ylab("Número")+
   ggtitle("Encuestados \n Por \n Colegios", subtitle = "Colegios")
 ```
+
+## Título Subtítulo y Derechos de autotor
 
 La documentación sobre la función ggtitle indica que se pueden agregar subtítulos, poner el título en la parte inferior derecha (especial para derechos de autor), agregar una etiqueta o simplemente, bloquear poner algún título.
 
@@ -61,6 +65,8 @@ ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
   xlab("Colegio") + ylab("Número")+ggtitle("Encuestados \n Por \n Colegios", subtitle = "Colegios")+
   labs(caption="Figura 10. Encuestados por colegio. Fuente: xxxx, 2021")
 ```
+
+## Personalizar Tïtulo
 
 Siguiendo con la manipulación del estilo del gráfico, se le puede realizar una personilación y se le agrega al gráfico como una nueva capa. Primero vamos a definir la personalización del título.
 
@@ -87,6 +93,8 @@ ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
   theme(plot.title = TemaTitulo)
 ```
 
+## Reducir Tamaño de la letra
+
 Ahora vamos a reducir el tamaño de la letra:
 
 ```{r warning=FALSE}
@@ -96,6 +104,8 @@ ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
   ggtitle("Encuestados \n Por \n Colegios")+
   theme(plot.title = TemaTitulo)+theme (text = element_text(size=3))
 ```
+
+## Manipular títulos de ejes y etiquetas
 
 Una vez manipulemos el título del gráfico, vamos a personalizar los títulos de los ejes.
 
@@ -124,6 +134,19 @@ ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
   theme(axis.title = ejesTitulo)
 ```
 
+## Quitar leyenda del eje (valores y que no queden líneas)
+
+theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())
+
+## Quitar tabla de leyenda
+
+```{r}
+ggplot(esc2,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
+  geom_bar(stat = "identity", width = 0.5)+
+  theme(legend.position = "none")
+```
+
+
 
 ## AGREGAR TEXTO AL INTERIOR DEL GRÁFICO Y CANTIDADES
 
@@ -145,7 +168,7 @@ esc1 <- data.frame(esc)
 names(esc1)=c("COLEGIO","CANTIDAD")
 ```
 
-Es importante establacer stat="identity" para que asuma la barra el valor e "y".
+Es importante establecer stat="identity" para que asuma la barra el valor e "y".
 
 ```{r warning=FALSE}
 ggplot(esc1,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
@@ -153,14 +176,14 @@ ggplot(esc1,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
   geom_text(aes(y = CANTIDAD, ymax = CANTIDAD, label = CANTIDAD))
 ```
 
-Como se ve las cantidades no están en un lugar apropiado, por lo tanto deben moverse.
+Como se ve las cantidades no están en un lugar apropiado, por lo tanto deben moverse. Pero además se requiere ordenar las barras por cantidad. Se utiliza "reorder". Además vamos a eliminar la leyenda
 
 ```{r warning=FALSE}
-ggplot(esc1,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
+ggplot(esc1,aes(x=reorder(COLEGIO,CANTIDAD),y=CANTIDAD,fill=COLEGIO))+
   geom_bar(stat = "identity", width = 0.5)+
   geom_text(aes(y = CANTIDAD, ymax = CANTIDAD, label = CANTIDAD),
             position = position_dodge(width = 1), # crea un espacio a ambos lados del gráfico
-            size=3, vjust=-0.5, hjust=0.5 ,col="black")
+            size=3, vjust=-0.5, hjust=0.5 ,col="black")+theme(legend.position = "none")
 ```
 
 Ahora se requiere que las barrar lleven porcentaje en vez cantidad. Se calcula la proporción y se adjunta al dataframe.
@@ -198,10 +221,23 @@ names(sex)=c("SEXO","CANTIDAD","PORCSEX")
 sex
 ```
 
+### Poner las barras horizontales
 
 
+```{r}
+ggplot(esc2,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
+  geom_bar(stat = "identity", width = 0.5)+
+  coord_flip()
+```
 
 
+### Reordenar barrar por cantidad (Recomiendo mirar anexo web)
+
+
+```{r}
+ggplot(esc2,aes(x=reorder(COLEGIO,-CANTIDAD),y=CANTIDAD,fill=COLEGIO))+
+  geom_bar(stat = "identity", width = 0.5)
+```
 
 
 
