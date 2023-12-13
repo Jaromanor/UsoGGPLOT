@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://handsondataviz.org/ -->
+<html lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hands-On Data Visualization</title>
+  <meta name="description" content="Tell your story and show it with data, using free and easy-to-learn tools on the web. This introductory book teaches you how to design interactive charts and customized maps for your website, beginning with easy drag-and-drop tools, such as Google Sheets, Datawrapper, and Tableau Public. You will also gradually learn how to edit open-source code templates built with Chart.js, Highcharts, and Leaflet on GitHub. Follow along with the step-by-step tutorials, real-world examples, and online resources. This book is ideal for students, non-profit organizations, small business owners, local governments, journalists, academics, or anyone who wants to tell their story and show the data. No coding experience is required.">
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Hands-On Data Visualization">
+  <meta property="og:type" content="book">
+  <meta property="og:image" content="http://handsondataviz.github.io//images/cover-400wide.jpg">
+  <meta property="og:description" content="Tell your story and show it with data, using free and easy-to-learn tools on the web. This introductory book teaches you how to design interactive charts and customized maps for your website, beginning with easy drag-and-drop tools, such as Google Sheets, Datawrapper, and Tableau Public. You will also gradually learn how to edit open-source code templates built with Chart.js, Highcharts, and Leaflet on GitHub. Follow along with the step-by-step tutorials, real-world examples, and online resources. This book is ideal for students, non-profit organizations, small business owners, local governments, journalists, academics, or anyone who wants to tell their story and show the data. No coding experience is required.">
+  <meta name="github-repo" content="handsondataviz/book">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hands-On Data Visualization">
+  <meta name="twitter:site" content="@handsondataviz">
+  <meta name="twitter:description" content="Tell your story and show it with data, using free and easy-to-learn tools on the web. This introductory book teaches you how to design interactive charts and customized maps for your website, beginning with easy drag-and-drop tools, such as Google Sheets, Datawrapper, and Tableau Public. You will also gradually learn how to edit open-source code templates built with Chart.js, Highcharts, and Leaflet on GitHub. Follow along with the step-by-step tutorials, real-world examples, and online resources. This book is ideal for students, non-profit organizations, small business owners, local governments, journalists, academics, or anyone who wants to tell their story and show the data. No coding experience is required.">
+  <meta name="twitter:image" content="http://handsondataviz.github.io//images/cover-400wide.jpg">
+
+<meta name="author" content="Jack Dougherty">
+<meta name="author" content="Ilya Ilyankou">
+
+
+<meta name="date" content="2023-01-22">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="https://handsondataviz.org/images/favicon.png" type="image/x-icon">
+
+<link rel="next" href="https://handsondataviz.org/audience-overview.html">
+<script src="./Hands-On Data Visualization_files/jquery-3.6.0.min.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/fuse.min.js.descargar"></script>
+<link href="./Hands-On Data Visualization_files/style.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/plugin-table.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/plugin-bookdown.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/plugin-highlight.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/plugin-search.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/plugin-fontsettings.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/plugin-clipboard.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<link href="./Hands-On Data Visualization_files/anchor-sections.css" rel="stylesheet">
+<link href="./Hands-On Data Visualization_files/anchor-sections-hash.css" rel="stylesheet">
+<script src="./Hands-On Data Visualization_files/anchor-sections.js.descargar"></script><style type="text/css" id="operaUserStyle"></style>
+<!-- Google tag (gtag.js) -->
+<script async="" src="./Hands-On Data Visualization_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VZPC0W0BG5');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="./Hands-On Data Visualization_files/style(1).css" type="text/css">
+<style type="text/css">:root zeus-ad, :root topadblock, :root span[id^="ezoic-pub-ad-placeholder-"], :root guj-ad, :root gpt-ad, :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root div[id^="zergnet-widget"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="sticky_ad_"], :root div[id^="rc-widget-"], :root div[id^="lazyad-"], :root div[id^="gpt_ad_"], :root div[id^="ezoic-pub-ad-"], :root div[id^="div-gpt-"], :root div[id^="dfp-ad-"], :root div[id^="adspot-"], :root div[id^="ads300_250-widget-"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="adngin-"], :root div[id^="_vdo_ads_player_ai_"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-native_ad], :root div[data-mpu1], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-google-query-id], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-content="Advertisement"], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-ad-wrapper], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="native-ad-"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="Adstyled__AdWrapper-"], :root div[aria-label="Ads"], :root display-ads, :root display-ad-component, :root aside[id^="adrotate_widgets-"], :root article.ad, :root ark-top-ad, :root app-advertisement, :root app-ad, :root amp-fx-flying-carpet, :root amp-embed[type="taboola"], :root amp-connatix-player, :root amp-ad-custom, :root ad-shield-ads, :root ad-desktop-sidebar, :root a[href^="https://banners.livepartners.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://yogacomplyfuel.com/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://t.aslnk.link/"], :root a[href^="https://www.sweetdeals.com"], :root div[class^="Display_displayAd"], :root a[href^="https://www.bang.com/?aff="], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://bngpt.com/"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://financeads.net/tc.php?"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://t.grtyi.com/"], :root a[href^="https://www.highperformancecpmgate.com/"], :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root [data-template-type="nativead"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://webroutetrk.com/"], :root a[href^="https://wantopticalfreelance.com/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://tsartech.g2afse.com/"], :root a[href^="https://tragency-clesburg.icu/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://track.adform.net/"], :root a[href^="https://torguard.net/aff.php"] > img, :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root a[href^="https://thaudray.com/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://go.trackitalltheway.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://syndication.exoclick.com/"], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://refpazkjixes.top/"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://refpa4903566.top/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root [href^="https://r.kraken.com/"], :root a[href^="https://mmwebhandler.aff-online.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root iframe[id^="google_ads_frame"], :root a[href^="https://pb-track.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root div[id^="ad_position_"], :root a[href^="https://ovb.im/"], :root div[id^="ad-div-"], :root a[href^="https://newbinotracs.com/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root [href^="https://stvkr.com/"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root a[href^="https://loboclick.com"], :root [href^="https://routewebtk.com/"], :root a[href^="https://see.kmisln.com/"], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://clk.wrenchsound.store/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root a[href^="https://go.xxxiijmp.com"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://ismlks.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root a[href^="https://go.xlirdr.com"], :root [data-css-class="dfp-inarticle"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="//lambingsyddir.com/"], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="https://go.dmzjmp.com"], :root a[href^="https://go.admjmp.com/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a-ad, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root a[href^="https://go.gldrdr.com/"], :root [id^="ad_sky"], :root a[href^="https://funkydaters.com/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://www.mrskin.com/account/"], :root bottomadblock, :root a[href^="https://fertilitycommand.com/"], :root div[data-native-ad], :root a[href^="https://engine.trackingdesks.com/"], :root [href^="https://totlnkcl.com/"], :root a[href^="https://www.adskeeper.com"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://www.reimageplus.com/"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="https://engine.blueistheneworanges.com/"], :root a[href^="https://clixtrac.com/"], :root div.fadeInDown[id$="____equal"][class$="____equal"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://click.linksynergy.com/fs-bin/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root a[href^="https://track.totalav.com/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="https://claring-loccelkin.com/"], :root [class^="s2nPlayer"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://www.onlineusershielder.com/"], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://cams.imagetwist.com/in/?track="], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://bluedelivery.pro/"], :root #topstuff > #tads, :root a[href^="https://black77854.com/"], :root a[href^="https://burpee.xyz/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://batheunits.com/"], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://m.do.co/c/"] > img, :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root a[href^="https://albionsoftwares.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ads.ad4game.com/"], :root [id^="google_ads_iframe"], :root a[href^="https://syndication.optimizesrv.com/"], :root a[href^="https://affpa.top/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://adjoincomprise.com/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="https://adswick.com/"], :root a[href^="//go.xlviiirdr.com"], :root a[href^="https://a.bestcontentoperation.top/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root [href="https://ourgoldguy.com/contact/"] img, :root a[href^="https://brightadnetwork.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="http://trk.globwo.online/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="http://tour.mrskin.com/"], :root a[href^="https://join.virtualtaboo.com/track/"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="https://cagothie.net/"], :root div[id^="google_dfp_"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://awentw.com/"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="http://deloplen.com/"], :root a[href^="https://agacelebir.com/"], :root a[href^="https://spygasm.com/track?"], :root a[href^="http://d2.zedo.com/"], :root .rc-cta[data-target], :root [href^="http://go.cm-trk2.com/"], :root a[href^="http://adtrack1.club/"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://porngames.adult/?SID="], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://misspkl.com/"], :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="http://bc.vc/?r="], :root .trc_rbox_border_elm .syndicatedItem, :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root a[href^="http://adf.ly/?id="], :root [href^="http://homemoviestube.com/"], :root a[href^="http://ad.doubleclick.net/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="//syndication.dynsrvtbg.com/"], :root a[href^="https://a2.adform.net/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root a[href^="https://a.adtng.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root div[data-adname], :root a[href^="https://thechleads.pro/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root a[href^="https://tour.mrskin.com/"], :root a[href^="http://allaptair.club/"], :root a[href^="//go.eabids.com/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root [data-dynamic-ads], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="https://axdsz.pro/"], :root a[href^="http://bodelen.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root a[href^="http://wct.link/"], :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root [id^="section-ad-banner"], :root .commercial-unit-mobile-top > div[data-pla="1"], :root [id^="chp_ads_block"], :root a[href^="https://go.julrdr.com/"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root [href^="https://www.targetingpartner.com/"], :root [href^="https://detachedbates.com/"], :root a[href^="https://fourwhenstatistics.com/"], :root [href^="https://www.restoro.com/"], :root div[id^="ad-position-"], :root a[href^="http://adultfriendfinder.com/go/page/landing"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://leg.xyz/?track="], :root div[id^="crt-"][style], :root a[href^="http://adultgames.xxx/"], :root a[href^="https://traffic.bannerator.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href^="https://losingoldfry.com/"], :root .scroll-fixable.rail-right > .deals-rail, :root a[href^="https://oackoubs.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://go.goasrv.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root [href^="http://mypillow.com/"] > img, :root a[href^="http://bongacams.com/track?"], :root a[href^="https://fleshlight.sjv.io/"], :root [data-ad-manager-id], :root a[href^="https://promo-bc.com/"], :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://noqreport.com/"] > img, :root a[href^="https://go.hpyjmp.com"], :root ADS-RIGHT, :root [href^="https://mystore.com/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root [href^="https://mylead.global/stl/"] > img, :root #leader-companion > a[href], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root .vid-present > .van_vid_carousel__padding, :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root [href^="https://www.hostg.xyz/"] > img, :root .section-subheader > .section-hotel-prices-header, :root [href^="https://go.affiliatexe.com/"], :root [href^="https://go.4rabettraff.com/"], :root [href^="https://glersakr.com/"], :root a[href^="https://1startfiledownload1.com/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://k2s.cc/pr/"], :root [href^="https://affect3dnetwork.com/track/"], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root [href^="https://v.investologic.co.uk/"], :root [href^="https://cipledecline.buzz/"], :root [href^="http://join.trannies-fuck.com/"], :root [href^="http://www.fleshlightgirls.com/"], :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root div[data-role="sidebarAd"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [href^="http://trafficare.net/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://adserver.adreactor.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="http://join.shemale.xxx/"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root .trc_rbox .syndicatedItem, :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://cpmspace.com/"], :root [href^="https://freecourseweb.com/"] > .sitefriend, :root [class^="chp_ads_block"], :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root [href^="http://join.rodneymoore.com/"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href*=".trust.zone"], :root [href^="https://shrugartisticelder.com"], :root [href^="https://go.xlrdr.com"], :root [name^="google_ads_iframe"], :root [href^="https://safer-redirection.com"], :root [href^="https://optimizedelite.com/"] > img, :root [data-name="adaptiveConstructorAd"], :root [href^="//ngeoziadiyc4hi2e.com/"], :root a[href^="https://go.xxxjmp.com"], :root [data-desktop-ad-id], :root [href^="https://wct.link/"], :root [href^="https://traffserve.com/"], :root #kt_player > a[target="_blank"], :root [href="https://www.masstortfinancing.com/"] > img, :root .ob_container .item-container-obpd, :root [id^="div-gpt-ad"], :root [href^="https://mypillow.com/"] > img, :root [href^="https://ad.admitad.com/"], :root a[href^="https://u.expresstech.io/"], :root [href="https://jdrucker.com/gold"] > img, :root a[href^="https://www.iyalc.com/"], :root a[href^="https://track.ultravpn.com/"], :root [href^="https://goldcometals.com/clk.trk"], :root [data-mobile-ad-id], :root a[href^="http://tc.tradetracker.net/"] > img, :root a[href^="https://www.geekbuying.com/dynamic-ads/"], :root a[href^="http://affiliates.thrixxx.com/"], :root #searchResultsList > div > div[onclick$="'inline.ad'});"], :root a[href^="https://go.xlivrdr.com"], :root [data-freestar-ad], :root [data-ez-name], :root AMP-AD, :root [data-ad-cls], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root [id^="ad-wrap-"], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root [onclick*="content.ad/"], :root [href^="http://residenceseeingstanding.com/"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root [class^="amp-ad-"], :root a[href^="http://go.xtbaffiliates.com/"], :root .grid > .container > #aside-promotion, :root DFP-AD, :root AD-SLOT, :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root [href^="https://click2cvs.com/"], :root .trc_related_container div[data-item-syndicated="true"], :root [href^="http://join.shemalepornstar.com/"], :root a[href^="https://go.xlviiirdr.com"], :root .trc_rbox_div .syndicatedItem, :root [data-ad-module], :root a[href^="https://go.cmtaffiliates.com/"], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root a[href*="//lkstrck2.com/"], :root .plistaList > .itemLinkPET, :root atf-ad-slot, :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href^="http://partners.etoro.com/"], :root [data-advadstrackid], :root [href^="https://affiliate.fastcomet.com/"] > img, :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href^="https://traffdaq.com/"], :root a[href^="https://tm-offers.gamingadult.com/"], :root [class^="div-gpt-ad"], :root a[href^="https://bs.serving-sys.com"], :root a[href^="https://join.virtuallust3d.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root [data-adblockkey], :root [href^="https://www.cloudways.com/en/?id"] { display: none !important; }</style></head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary"><div class="book-search" role="search"><label for="search-box" aria-hidden="false" hidden="hidden">Type to search</label><input id="search-box" type="search" class="form-control" placeholder="Type to search (Enter for navigation)" title="Use Enter or the &lt;Down&gt; key to navigate to the next match, or the &lt;Up&gt; key to the previous match"></div>
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://handsondataviz.org/"><strong>Hands-On Data Visualization</strong><br>by Jack Dougherty &amp; Ilya Ilyankou</a></li>
+
+<li class="divider"></li>
+<li class="chapter active" data-level="" data-path="index.html"><a href="https://handsondataviz.org/index.html"><i class="fa fa-check"></i>Preface</a>
+<ul style="">
+<li class="chapter" data-level="" data-path="audience-overview.html"><a href="https://handsondataviz.org/audience-overview.html"><i class="fa fa-check"></i>Audience and Overview</a></li>
+<li class="chapter" data-level="" data-path="authors.html"><a href="https://handsondataviz.org/authors.html"><i class="fa fa-check"></i>Authors &amp; Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="open-access.html"><a href="https://handsondataviz.org/open-access.html" title="Our Open-Access Web Edition: Why and How"><i class="fa fa-check"></i>Our Open-Access Web Edition: Why and How</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="https://handsondataviz.org/introduction.html"><i class="fa fa-check"></i>Introduction: Why Data Visualization?</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="believe.html"><a href="https://handsondataviz.org/believe.html"><i class="fa fa-check"></i>What Can You Believe?</a></li>
+<li class="chapter" data-level="" data-path="persuasive.html"><a href="https://handsondataviz.org/persuasive.html"><i class="fa fa-check"></i>Some Pictures Are More Persuasive</a></li>
+<li class="chapter" data-level="" data-path="shades.html"><a href="https://handsondataviz.org/shades.html"><i class="fa fa-check"></i>Different Shades of the Truth</a></li>
+<li class="chapter" data-level="" data-path="organization.html"><a href="https://handsondataviz.org/organization.html"><i class="fa fa-check"></i>Organization of the Book</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="choose.html"><a href="https://handsondataviz.org/choose.html"><i class="fa fa-check"></i><b>1</b> Choose Tools to Tell Your Story</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="sketch.html"><a href="https://handsondataviz.org/sketch.html"><i class="fa fa-check"></i>Start Sketching Your Data Story</a></li>
+<li class="chapter" data-level="" data-path="tool-factors.html"><a href="https://handsondataviz.org/tool-factors.html"><i class="fa fa-check"></i>Ten Factors When Considering Tools</a></li>
+<li class="chapter" data-level="" data-path="recommended-tools.html"><a href="https://handsondataviz.org/recommended-tools.html"><i class="fa fa-check"></i>Our Recommended Tools</a></li>
+<li class="chapter" data-level="" data-path="password-manager.html"><a href="https://handsondataviz.org/password-manager.html"><i class="fa fa-check"></i>Use a Password Manager</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="spreadsheet.html"><a href="https://handsondataviz.org/spreadsheet.html"><i class="fa fa-check"></i><b>2</b> Strengthen Your Spreadsheet Skills</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="spreadsheet-tools.html"><a href="https://handsondataviz.org/spreadsheet-tools.html"><i class="fa fa-check"></i>Select your Spreadsheet Tools</a></li>
+<li class="chapter" data-level="" data-path="csv.html"><a href="https://handsondataviz.org/csv.html"><i class="fa fa-check"></i>Download to CSV or ODS Format</a></li>
+<li class="chapter" data-level="" data-path="copy.html"><a href="https://handsondataviz.org/copy.html"><i class="fa fa-check"></i>Make a Copy of a Google Sheet</a></li>
+<li class="chapter" data-level="" data-path="share.html"><a href="https://handsondataviz.org/share.html"><i class="fa fa-check"></i>Share Your Google Sheets</a></li>
+<li class="chapter" data-level="" data-path="upload.html"><a href="https://handsondataviz.org/upload.html"><i class="fa fa-check"></i>Upload and Convert to Google Sheets</a></li>
+<li class="chapter" data-level="" data-path="geocode.html"><a href="https://handsondataviz.org/geocode.html"><i class="fa fa-check"></i>Geocode Addresses in Google Sheets</a></li>
+<li class="chapter" data-level="" data-path="forms.html"><a href="https://handsondataviz.org/forms.html"><i class="fa fa-check"></i>Collect Data with Google Forms</a></li>
+<li class="chapter" data-level="" data-path="sort.html"><a href="https://handsondataviz.org/sort.html"><i class="fa fa-check"></i>Sort and Filter Data</a></li>
+<li class="chapter" data-level="" data-path="calculate.html"><a href="https://handsondataviz.org/calculate.html"><i class="fa fa-check"></i>Calculate with Formulas</a></li>
+<li class="chapter" data-level="" data-path="pivot.html"><a href="https://handsondataviz.org/pivot.html"><i class="fa fa-check"></i>Summarize Data with Pivot Tables</a></li>
+<li class="chapter" data-level="" data-path="vlookup.html"><a href="https://handsondataviz.org/vlookup.html"><i class="fa fa-check"></i>Match Columns with VLOOKUP</a></li>
+<li class="chapter" data-level="" data-path="database.html"><a href="https://handsondataviz.org/database.html"><i class="fa fa-check"></i>Spreadsheet vs.&nbsp;Relational Database</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="find.html"><a href="https://handsondataviz.org/find.html"><i class="fa fa-check"></i><b>3</b> Find and Question Your Data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="guiding.html"><a href="https://handsondataviz.org/guiding.html"><i class="fa fa-check"></i>Guiding Questions for Your Search</a></li>
+<li class="chapter" data-level="" data-path="public.html"><a href="https://handsondataviz.org/public.html"><i class="fa fa-check"></i>Public and Private Data</a></li>
+<li class="chapter" data-level="" data-path="mask-aggregate.html"><a href="https://handsondataviz.org/mask-aggregate.html"><i class="fa fa-check"></i>Mask or Aggregate Sensitive Data</a></li>
+<li class="chapter" data-level="" data-path="opendata.html"><a href="https://handsondataviz.org/opendata.html"><i class="fa fa-check"></i>Open Data Repositories</a></li>
+<li class="chapter" data-level="" data-path="source.html"><a href="https://handsondataviz.org/source.html"><i class="fa fa-check"></i>Source Your Data</a></li>
+<li class="chapter" data-level="" data-path="bad-data.html"><a href="https://handsondataviz.org/bad-data.html"><i class="fa fa-check"></i>Recognize Bad Data</a></li>
+<li class="chapter" data-level="" data-path="question.html"><a href="https://handsondataviz.org/question.html"><i class="fa fa-check"></i>Question Your Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="clean.html"><a href="https://handsondataviz.org/clean.html"><i class="fa fa-check"></i><b>4</b> Clean Up Messy Data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="smart-cleanup.html"><a href="https://handsondataviz.org/smart-cleanup.html"><i class="fa fa-check"></i>Smart Cleanup with Google Sheets</a></li>
+<li class="chapter" data-level="" data-path="find-and-replace.html"><a href="https://handsondataviz.org/find-and-replace.html"><i class="fa fa-check"></i>Find and Replace with Blank</a></li>
+<li class="chapter" data-level="" data-path="transpose.html"><a href="https://handsondataviz.org/transpose.html"><i class="fa fa-check"></i>Transpose Rows and Columns</a></li>
+<li class="chapter" data-level="" data-path="split-data.html"><a href="https://handsondataviz.org/split-data.html"><i class="fa fa-check"></i>Split Data into Separate Columns</a></li>
+<li class="chapter" data-level="" data-path="combine-data.html"><a href="https://handsondataviz.org/combine-data.html"><i class="fa fa-check"></i>Combine Data into One Column</a></li>
+<li class="chapter" data-level="" data-path="numbers-to-text.html"><a href="https://handsondataviz.org/numbers-to-text.html"><i class="fa fa-check"></i>Numbers-to-Text and Remove Characters</a></li>
+<li class="chapter" data-level="" data-path="tabula.html"><a href="https://handsondataviz.org/tabula.html"><i class="fa fa-check"></i>Extract Tables from PDFs with Tabula</a></li>
+<li class="chapter" data-level="" data-path="open-refine.html"><a href="https://handsondataviz.org/open-refine.html"><i class="fa fa-check"></i>Clean Data with OpenRefine</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="comparisons.html"><a href="https://handsondataviz.org/comparisons.html"><i class="fa fa-check"></i><b>5</b> Make Meaningful Comparisons</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="describe-comparisons.html"><a href="https://handsondataviz.org/describe-comparisons.html"><i class="fa fa-check"></i>Precisely Describe Comparisons</a></li>
+<li class="chapter" data-level="" data-path="normalize.html"><a href="https://handsondataviz.org/normalize.html"><i class="fa fa-check"></i>Normalize Your Data</a></li>
+<li class="chapter" data-level="" data-path="biased-comparisons.html"><a href="https://handsondataviz.org/biased-comparisons.html"><i class="fa fa-check"></i>Beware of Biased Comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chart.html"><a href="https://handsondataviz.org/chart.html"><i class="fa fa-check"></i><b>6</b> Chart Your Data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="chart-design.html"><a href="https://handsondataviz.org/chart-design.html"><i class="fa fa-check"></i>Chart Design Principles</a></li>
+<li class="chapter" data-level="" data-path="chart-google.html"><a href="https://handsondataviz.org/chart-google.html"><i class="fa fa-check"></i>Google Sheets Charts</a></li>
+<li class="chapter" data-level="" data-path="bar-column-google.html"><a href="https://handsondataviz.org/bar-column-google.html"><i class="fa fa-check"></i>- Bar and Column Charts</a></li>
+<li class="chapter" data-level="" data-path="histogram-google.html"><a href="https://handsondataviz.org/histogram-google.html"><i class="fa fa-check"></i>- Histograms</a></li>
+<li class="chapter" data-level="" data-path="pie-line-area-google.html"><a href="https://handsondataviz.org/pie-line-area-google.html"><i class="fa fa-check"></i>- Pie, Line, and Area Charts</a></li>
+<li class="chapter" data-level="" data-path="chart-datawrapper.html"><a href="https://handsondataviz.org/chart-datawrapper.html"><i class="fa fa-check"></i>Datawrapper Charts</a></li>
+<li class="chapter" data-level="" data-path="annotated-datawrapper.html"><a href="https://handsondataviz.org/annotated-datawrapper.html"><i class="fa fa-check"></i>- Annotated Charts</a></li>
+<li class="chapter" data-level="" data-path="range-datawrapper.html"><a href="https://handsondataviz.org/range-datawrapper.html"><i class="fa fa-check"></i>- Range Charts</a></li>
+<li class="chapter" data-level="" data-path="scatter-bubble-datawrapper.html"><a href="https://handsondataviz.org/scatter-bubble-datawrapper.html"><i class="fa fa-check"></i>- Scatter and Bubble Charts</a></li>
+<li class="chapter" data-level="" data-path="chart-tableau.html"><a href="https://handsondataviz.org/chart-tableau.html"><i class="fa fa-check"></i>Tableau Public Charts</a></li>
+<li class="chapter" data-level="" data-path="scatter-tableau.html"><a href="https://handsondataviz.org/scatter-tableau.html"><i class="fa fa-check"></i>- Scatter Chart</a></li>
+<li class="chapter" data-level="" data-path="filtered-line-tableau.html"><a href="https://handsondataviz.org/filtered-line-tableau.html"><i class="fa fa-check"></i>- Filtered Line Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="map.html"><a href="https://handsondataviz.org/map.html"><i class="fa fa-check"></i><b>7</b> Map Your Data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="map-design.html"><a href="https://handsondataviz.org/map-design.html"><i class="fa fa-check"></i>Map Design Principles</a></li>
+<li class="chapter" data-level="" data-path="design-choropleth.html"><a href="https://handsondataviz.org/design-choropleth.html"><i class="fa fa-check"></i>Design Choropleth Colors &amp; Intervals</a></li>
+<li class="chapter" data-level="" data-path="normalize-choropleth.html"><a href="https://handsondataviz.org/normalize-choropleth.html"><i class="fa fa-check"></i>Normalize Choropleth Map Data</a></li>
+<li class="chapter" data-level="" data-path="mymaps.html"><a href="https://handsondataviz.org/mymaps.html"><i class="fa fa-check"></i>Point Map with Google My Maps</a></li>
+<li class="chapter" data-level="" data-path="locatormap-datawrapper.html"><a href="https://handsondataviz.org/locatormap-datawrapper.html"><i class="fa fa-check"></i>Locator Map with Datawrapper</a></li>
+<li class="chapter" data-level="" data-path="symbolmap-datawrapper.html"><a href="https://handsondataviz.org/symbolmap-datawrapper.html"><i class="fa fa-check"></i>Symbol Point Map with Datawrapper</a></li>
+<li class="chapter" data-level="" data-path="choropleth-datawrapper.html"><a href="https://handsondataviz.org/choropleth-datawrapper.html"><i class="fa fa-check"></i>Choropleth Map with Datawrapper</a></li>
+<li class="chapter" data-level="" data-path="map-tableau.html"><a href="https://handsondataviz.org/map-tableau.html"><i class="fa fa-check"></i>Choropleth Map with Tableau Public</a></li>
+<li class="chapter" data-level="" data-path="map-socrata.html"><a href="https://handsondataviz.org/map-socrata.html"><i class="fa fa-check"></i>Current Map with Socrata Open Data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="table.html"><a href="https://handsondataviz.org/table.html"><i class="fa fa-check"></i><b>8</b> Table Your Data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="table-design.html"><a href="https://handsondataviz.org/table-design.html"><i class="fa fa-check"></i>Table Design Principles</a></li>
+<li class="chapter" data-level="" data-path="table-datawrapper.html"><a href="https://handsondataviz.org/table-datawrapper.html"><i class="fa fa-check"></i>Datawrapper Table with Sparklines</a></li>
+<li class="chapter" data-level="" data-path="other-table-tools.html"><a href="https://handsondataviz.org/other-table-tools.html"><i class="fa fa-check"></i>Other Table-Making Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="embed.html"><a href="https://handsondataviz.org/embed.html"><i class="fa fa-check"></i><b>9</b> Embed On the Web</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="static.html"><a href="https://handsondataviz.org/static.html"><i class="fa fa-check"></i>Static Image vs Interactive iframe</a></li>
+<li class="chapter" data-level="" data-path="embed-code.html"><a href="https://handsondataviz.org/embed-code.html"><i class="fa fa-check"></i>Get the Embed Code or iframe Tag</a></li>
+<li class="chapter" data-level="" data-path="paste-code.html"><a href="https://handsondataviz.org/paste-code.html"><i class="fa fa-check"></i>Paste Code or iframe to Website</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="github.html"><a href="https://handsondataviz.org/github.html"><i class="fa fa-check"></i><b>10</b> Edit and Host Code with GitHub</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="copy-leaflet.html"><a href="https://handsondataviz.org/copy-leaflet.html"><i class="fa fa-check"></i>Copy, Edit, and Host a Simple Leaflet Map Template</a></li>
+<li class="chapter" data-level="" data-path="gh-pages-link-to-iframe.html"><a href="https://handsondataviz.org/gh-pages-link-to-iframe.html"><i class="fa fa-check"></i>Convert GitHub Pages Link to iframe</a></li>
+<li class="chapter" data-level="" data-path="create-repo.html"><a href="https://handsondataviz.org/create-repo.html"><i class="fa fa-check"></i>Create a New Repo and Upload Files on GitHub</a></li>
+<li class="chapter" data-level="" data-path="github-desktop-atom.html"><a href="https://handsondataviz.org/github-desktop-atom.html"><i class="fa fa-check"></i>GitHub Desktop and Atom Editor to Code Efficiently</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chartcode.html"><a href="https://handsondataviz.org/chartcode.html"><i class="fa fa-check"></i><b>11</b> Chart.js and Highcharts Templates</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="chartjs-bar-column.html"><a href="https://handsondataviz.org/chartjs-bar-column.html"><i class="fa fa-check"></i>Bar or Column Chart with Chart.js</a></li>
+<li class="chapter" data-level="" data-path="chartjs-error-bars.html"><a href="https://handsondataviz.org/chartjs-error-bars.html"><i class="fa fa-check"></i>Error Bars with Chart.js</a></li>
+<li class="chapter" data-level="" data-path="chartjs-line.html"><a href="https://handsondataviz.org/chartjs-line.html"><i class="fa fa-check"></i>Line Chart with Chart.js</a></li>
+<li class="chapter" data-level="" data-path="highcharts-annotated-line.html"><a href="https://handsondataviz.org/highcharts-annotated-line.html"><i class="fa fa-check"></i>Annotated Line Chart with Highcharts</a></li>
+<li class="chapter" data-level="" data-path="chartjs-scatter.html"><a href="https://handsondataviz.org/chartjs-scatter.html"><i class="fa fa-check"></i>Scatter Chart with Chart.js</a></li>
+<li class="chapter" data-level="" data-path="chartjs-bubble.html"><a href="https://handsondataviz.org/chartjs-bubble.html"><i class="fa fa-check"></i>Bubble Chart with Chart.js</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="leaflet.html"><a href="https://handsondataviz.org/leaflet.html"><i class="fa fa-check"></i><b>12</b> Leaflet Map Templates</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="leaflet-maps-with-google-sheets.html"><a href="https://handsondataviz.org/leaflet-maps-with-google-sheets.html"><i class="fa fa-check"></i>Leaflet Maps with Google Sheets</a></li>
+<li class="chapter" data-level="" data-path="leaflet-storymaps-with-google-sheets.html"><a href="https://handsondataviz.org/leaflet-storymaps-with-google-sheets.html"><i class="fa fa-check"></i>Leaflet Storymaps with Google Sheets</a></li>
+<li class="chapter" data-level="" data-path="google-sheets-api-key.html"><a href="https://handsondataviz.org/google-sheets-api-key.html"><i class="fa fa-check"></i>Get Your Google Sheets API Key</a></li>
+<li class="chapter" data-level="" data-path="leaflet-maps-with-csv.html"><a href="https://handsondataviz.org/leaflet-maps-with-csv.html"><i class="fa fa-check"></i>Leaflet Maps with CSV Data</a></li>
+<li class="chapter" data-level="" data-path="leaflet-heatmap.html"><a href="https://handsondataviz.org/leaflet-heatmap.html"><i class="fa fa-check"></i>Leaflet Heatmap Points with CSV Data</a></li>
+<li class="chapter" data-level="" data-path="leaflet-searchable-map.html"><a href="https://handsondataviz.org/leaflet-searchable-map.html"><i class="fa fa-check"></i>Leaflet Searchable Point Map</a></li>
+<li class="chapter" data-level="" data-path="leaflet-maps-open-data-apis.html"><a href="https://handsondataviz.org/leaflet-maps-open-data-apis.html"><i class="fa fa-check"></i>Leaflet Maps with Open Data APIs</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="transform.html"><a href="https://handsondataviz.org/transform.html"><i class="fa fa-check"></i><b>13</b> Transform Your Map Data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="geojson.html"><a href="https://handsondataviz.org/geojson.html"><i class="fa fa-check"></i>Geospatial Data and GeoJSON</a></li>
+<li class="chapter" data-level="" data-path="find-geojson.html"><a href="https://handsondataviz.org/find-geojson.html"><i class="fa fa-check"></i>Find GeoJSON Boundary Files</a></li>
+<li class="chapter" data-level="" data-path="geojsonio.html"><a href="https://handsondataviz.org/geojsonio.html"><i class="fa fa-check"></i>Draw and Edit with GeoJson.io</a></li>
+<li class="chapter" data-level="" data-path="mapshaper.html"><a href="https://handsondataviz.org/mapshaper.html"><i class="fa fa-check"></i>Edit and Join with Mapshaper</a></li>
+<li class="chapter" data-level="" data-path="convert-kmz.html"><a href="https://handsondataviz.org/convert-kmz.html"><i class="fa fa-check"></i>Convert Compressed KMZ to KML</a></li>
+<li class="chapter" data-level="" data-path="mapwarper.html"><a href="https://handsondataviz.org/mapwarper.html"><i class="fa fa-check"></i>Georeference with Map Warper</a></li>
+<li class="chapter" data-level="" data-path="bulk-geocode.html"><a href="https://handsondataviz.org/bulk-geocode.html"><i class="fa fa-check"></i>Bulk Geocode with US Census</a></li>
+<li class="chapter" data-level="" data-path="pivot-point-to-polygon.html"><a href="https://handsondataviz.org/pivot-point-to-polygon.html"><i class="fa fa-check"></i>Pivot Points into Polygon Data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="detect.html"><a href="https://handsondataviz.org/detect.html"><i class="fa fa-check"></i><b>14</b> Detect Lies and Reduce Bias</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="how-to-lie-with-charts.html"><a href="https://handsondataviz.org/how-to-lie-with-charts.html"><i class="fa fa-check"></i>How to Lie with Charts</a></li>
+<li class="chapter" data-level="" data-path="how-to-lie-with-maps.html"><a href="https://handsondataviz.org/how-to-lie-with-maps.html"><i class="fa fa-check"></i>How to Lie with Maps</a></li>
+<li class="chapter" data-level="" data-path="data-bias.html"><a href="https://handsondataviz.org/data-bias.html"><i class="fa fa-check"></i>Recognize and Reduce Data Bias</a></li>
+<li class="chapter" data-level="" data-path="spatial-bias.html"><a href="https://handsondataviz.org/spatial-bias.html"><i class="fa fa-check"></i>Recognize and Reduce Spatial Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="story.html"><a href="https://handsondataviz.org/story.html"><i class="fa fa-check"></i><b>15</b> Tell and Show Your Data Story</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="storyboard.html"><a href="https://handsondataviz.org/storyboard.html"><i class="fa fa-check"></i>Build a Narrative on a Storyboard</a></li>
+<li class="chapter" data-level="" data-path="draw-attention.html"><a href="https://handsondataviz.org/draw-attention.html"><i class="fa fa-check"></i>Draw Attention to Meaning</a></li>
+<li class="chapter" data-level="" data-path="sources-uncertainty.html"><a href="https://handsondataviz.org/sources-uncertainty.html"><i class="fa fa-check"></i>Acknowledge Sources &amp; Uncertainty</a></li>
+<li class="chapter" data-level="" data-path="story-format.html"><a href="https://handsondataviz.org/story-format.html"><i class="fa fa-check"></i>Decide On Your Data Story Format</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="fix.html"><a href="https://handsondataviz.org/fix.html"><i class="fa fa-check"></i><b>A</b> Fix Common Problems</a>
+<ul style="display: none;">
+<li class="chapter" data-level="A.1" data-path="fix-tool.html"><a href="https://handsondataviz.org/fix-tool.html"><i class="fa fa-check"></i><b>A.1</b> Tool or platform problems</a></li>
+<li class="chapter" data-level="A.2" data-path="fix-browser.html"><a href="https://handsondataviz.org/fix-browser.html"><i class="fa fa-check"></i><b>A.2</b> Try a different browser</a></li>
+<li class="chapter" data-level="A.3" data-path="fix-developer-tools.html"><a href="https://handsondataviz.org/fix-developer-tools.html"><i class="fa fa-check"></i><b>A.3</b> Diagnose with developer tools</a></li>
+<li class="chapter" data-level="A.4" data-path="fix-computer.html"><a href="https://handsondataviz.org/fix-computer.html"><i class="fa fa-check"></i><b>A.4</b> Mac or Chromebook problems</a></li>
+<li class="chapter" data-level="A.5" data-path="fix-data.html"><a href="https://handsondataviz.org/fix-data.html"><i class="fa fa-check"></i><b>A.5</b> Watch out for bad data</a></li>
+<li class="chapter" data-level="A.6" data-path="fix-iframe.html"><a href="https://handsondataviz.org/fix-iframe.html"><i class="fa fa-check"></i><b>A.6</b> Common iframe errors</a></li>
+<li class="chapter" data-level="A.7" data-path="fix-code.html"><a href="https://handsondataviz.org/fix-code.html"><i class="fa fa-check"></i><b>A.7</b> Fix your code on GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="bookdown.html"><a href="https://handsondataviz.org/bookdown.html"><i class="fa fa-check"></i><b>B</b> Publishing with Bookdown</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="install.html"><a href="https://handsondataviz.org/install.html"><i class="fa fa-check"></i>Install and Set Up Bookdown</a></li>
+<li class="chapter" data-level="" data-path="structure.html"><a href="https://handsondataviz.org/structure.html"><i class="fa fa-check"></i>File Structure and Headers</a></li>
+<li class="chapter" data-level="" data-path="style-guide.html"><a href="https://handsondataviz.org/style-guide.html"><i class="fa fa-check"></i>Style Guide for <em>Hands-On Data Visualization</em></a></li>
+<li class="chapter" data-level="" data-path="images.html"><a href="https://handsondataviz.org/images.html"><i class="fa fa-check"></i>Images and R Code-chunk Formatting</a></li>
+<li class="chapter" data-level="" data-path="tables.html"><a href="https://handsondataviz.org/tables.html"><i class="fa fa-check"></i>Tables in Markdown Format</a></li>
+<li class="chapter" data-level="" data-path="zotero.html"><a href="https://handsondataviz.org/zotero.html"><i class="fa fa-check"></i>Zotero and Better BibTeX for Notes and Biblio</a></li>
+<li class="chapter" data-level="" data-path="alternative.html"><a href="https://handsondataviz.org/alternative.html"><i class="fa fa-check"></i>Alternative Book Publishing Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="https://handsondataviz.org/references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li style="padding: 10px 15px; font-weight: bold;">Open-access web edition</li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./Hands-On Data Visualization_files/88x31.png"></a></li>
+<li><a href="https://bookdown.org/" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body fixed">
+      <div class="body-inner">
+        <div class="book-header fixed" role="navigation" style="background-color: rgb(255, 255, 255);">
+          <a class="btn pull-left js-toolbar-action" aria-label="Toggle Sidebar" title="Toggle Sidebar" href="https://handsondataviz.org/#"><i class="fa fa-align-justify"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Search" title="Search" href="https://handsondataviz.org/#"><i class="fa fa-search"></i></a><a class="btn pull-right js-toolbar-action" aria-label="Github" title="Github" href="https://handsondataviz.org/#"><i class="fa fa-github"></i></a><a class="btn pull-right js-toolbar-action" aria-label="Twitter" title="Twitter" href="https://handsondataviz.org/#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" title="Font Settings" href="https://handsondataviz.org/#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><a class="btn pull-left js-toolbar-action" aria-label="View Source" title="View Source" href="https://handsondataviz.org/#"><i class="fa fa-eye"></i></a><a class="btn pull-left js-toolbar-action" aria-label="PDF" title="PDF" href="https://handsondataviz.org/#"><i class="fa fa-file-pdf-o"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Information about the toolbar" title="Information about the toolbar" href="https://handsondataviz.org/#"><i class="fa fa-info"></i></a><h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="https://handsondataviz.org/">Hands-On Data Visualization</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<header>
+
+  <p style="background-color: #0057B8; margin: 0; padding: 10px 20px; color: white; text-align: center">
+    #StandWithUkraine - Stop the Russian invasion
+  </p>
+
+  <p style="background-color: #FFD700; margin: 0; padding: 10px 20px; text-align: center">
+    Join us and donate. We are contributing all book royalties from 2022 to present to:<br> <a href="https://savelife.in.ua/en/donate/" target="_blank">Save Life in Ukraine</a> and <a href="https://www.dec.org.uk/appeal/ukraine-humanitarian-appeal" target="_blank">Ukraine Humanitarian Appeal</a>. 
+  </p>
+
+</header>
+<div id="header">
+<h1 class="title">Hands-On Data Visualization</h1>
+<h2 class="subtitle"><em>Interactive Storytelling from Spreadsheets to Code</em></h2>
+<p class="author"><em>Jack Dougherty</em></p>
+<p class="author"><em>Ilya Ilyankou</em></p>
+<p class="date"><em>2023-01-22</em></p>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1 class="hasAnchor">Preface<a href="https://handsondataviz.org/index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- R global options: R chunk images display without code (no echo); show PDF image over JPG/PNG when available in PDF output -->
+<div class="figure">
+<img src="./Hands-On Data Visualization_files/cover-400wide.jpg" alt="">
+<p class="caption">Book cover: Read about the <a href="https://en.wikipedia.org/wiki/Hoatzin">hoatzin “reptile bird”</a></p>
+</div>
+<p><strong>Last updated on: 22 Jan 2023</strong>.</p>
+<p>Tell your story and show it with data, using free and easy-to-learn tools on the web. This introductory book teaches you how to design interactive charts and customized maps for your website, beginning with easy drag-and-drop tools, such as Google Sheets, Datawrapper, and Tableau Public. You’ll also gradually learn how to edit open-source code templates built with Chart.js, Highcharts, and Leaflet on GitHub.</p>
+<p><em>Hands-On Data Visualization</em> takes you step-by-step through tutorials, real-world examples, and online resources. This book is ideal for students, educators, community activists, non-profit organizations, small business owners, local governments, journalists, researchers, or anyone who wants to take data out of spreadsheets and turn it into lively interactive stories. No coding experience is required.</p>
+<div class="figure">
+<img src="./Hands-On Data Visualization_files/belly-scratcher.gif" alt="">
+<p class="caption">Buy the book and get a free belly scratcher!</p>
+</div>
+<p><strong>Buy the print book</strong> at <a href="https://www.amazon.com/Hands-Data-Visualization-Storytelling-Spreadsheets/dp/1492086002/">Amazon</a> - <a href="https://www.barnesandnoble.com/w/hands-on-data-visualization-jack-dougherty/1137725933">Barnes &amp; Noble</a> - <a href="https://bookshop.org/books/hands-on-data-visualization-interactive-storytelling-from-spreadsheets-to-code/9781492086000">Bookshop</a> - <a href="https://www.powells.com/book/hands-on-data-visualization-9781492086000">Powell’s</a> - your local bookstore.</p>
+<p><strong>Or begin a 30-day free trial</strong> to <a href="https://learning.oreilly.com/get-learning/?code=HODV21">all books and digital content on the O’Reilly online learning platform</a>.</p>
+<p>Learn more about this <a href="https://handsondataviz.org/open-access.html">open-access web edition</a>, based on the book manuscript we submitted to our publisher, O’Reilly Media, Inc., which we have permission to freely share under the terms of our contract. Readers may purchase the publisher’s improved and copyedited version, in print or ebook editions. Figure numbering and other details vary between this open-access web edition and the publisher’s editions.</p>
+<div style="text-align:center">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="./Hands-On Data Visualization_files/88x31(1).png">
+</a>
+</div>
+<div style="text-align:left">
+<p><strong>Hands-On Data Visualization</strong> is copyrighted
+by <a href="https://handsondataviz.org/authors">Jack Dougherty and Ilya Ilyankou</a>
+and distributed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>.
+You may freely share this content for non-commercial purposes, with a source credit to <a href="http://handsondataviz.org/">http://HandsOnDataViz.org</a>.</p>
+<div id="disclaimer" class="section level4 unnumbered">
+<h4 class="hasAnchor">Disclaimer<a href="https://handsondataviz.org/index.html#disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The information is this book is provided without warranty. The authors and publisher have neither liability nor responsibility to any person or entity related to any loss or damages arising from the information contained in this book.</p>
+</div>
+</div>
+<footer style="margin-top: 60px; font-size: 0.8em; padding: 10px; background-color: rgba(0,0,0,0.08); display: table; width: 98%">
+
+  <a href="https://www.amazon.com/Hands-Data-Visualization-Storytelling-Spreadsheets/dp/1492086002/" style="width: 80px; margin-left: auto; margin-right: auto;" class="db dtc-ns">
+    <img src="./Hands-On Data Visualization_files/cover-400wide.jpg" alt="O&#39;Reilly Book Cover" style="width: 100px;">
+  </a>
+
+  <div style="padding: 0 15px;" class="db dtc-ns">
+    <p>
+      Buy the print book at
+      <a href="https://www.amazon.com/Hands-Data-Visualization-Storytelling-Spreadsheets/dp/1492086002/">Amazon</a> -
+      <a href="https://www.barnesandnoble.com/w/hands-on-data-visualization-jack-dougherty/1137725933">Barnes &amp; Noble</a> -
+      <a href="https://bookshop.org/books/hands-on-data-visualization-interactive-storytelling-from-spreadsheets-to-code/9781492086000">Bookshop</a> -
+      <a href="https://www.powells.com/book/hands-on-data-visualization-9781492086000">Powell's</a> - or your local bookstore.<br>
+      Or begin a 30-day free trial to all books and digital content on the <a href="https://learning.oreilly.com/get-learning/?code=HODV21">O'Reilly online learning platform</a>.<br>
+      Share your feedback about the book by tagging <a href="https://twitter.com/handsondataviz" target="_blank">@handsondataviz on Twitter</a> or
+      <a href="https://handsondataviz.org/authors.html">contact the authors</a>.
+    </p>
+
+    <p style="color: rgba(0,0,0,0.4)">
+      © 2021 Jack Dougherty &amp; Ilya Ilyankou / Picturedigits Ltd.
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer a:hover img {
+    transform: rotate(1deg);
+  }
+
+  .db {
+    display: block;
+  }
+
+  @media screen and (min-width: 30em) {
+    .dtc-ns {
+      display: table-cell;
+      vertical-align: middle;
+    }
+}
+</style>
+            </div></section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="https://handsondataviz.org/audience-overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page" style="margin-right: 15px;"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="./Hands-On Data Visualization_files/app.min.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/clipboard.min.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/plugin-search.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/plugin-sharing.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/plugin-fontsettings.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/plugin-bookdown.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/jquery.highlight.js.descargar"></script>
+<script src="./Hands-On Data Visualization_files/plugin-clipboard.js.descargar"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/handsondataviz/book/blob/main/index.Rmd",
+"text": null
+},
+"download": ["HandsOnDataViz.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+
+
+
+</body></html>

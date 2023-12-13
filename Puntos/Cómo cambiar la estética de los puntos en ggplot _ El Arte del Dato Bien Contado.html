@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/ -->
+<html lang="es-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo">
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Paula L. Casado">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="En el último post vimos cómo cambiar el color en un gráfico de ggplot. Pero además del color, existen otros aspectos interesantes sobre la estética de los puntos que se pueden ser la forma, tamaño, transparencia o incluso el borde del punto.">
+
+  
+  <link rel="alternate" hreflang="es-es" href="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/">
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#fffb00">
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="all" onload="this.media=&#39;all&#39;">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/monokai.min.css" crossorigin="anonymous" title="hl-light" media="all" onload="this.media=&#39;all&#39;">
+        <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/monokai.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media=&#39;all&#39;" disabled="">
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="all" onload="this.media=&#39;all&#39;">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/css2">
+      <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/css2" media="all" onload="this.media=&#39;all&#39;">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/wowchemy.9db8887461853271ce2ccce81985dfa5.css">
+
+  
+
+
+
+
+<script async="" src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-WNPDSHF89B', { 'anonymize_ip': true });
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="https://elartedeldato.com/manifest.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="https://elartedeldato.com/media/icon_hucfddd6860c0b4900a5acb8e924657868_6422_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="https://elartedeldato.com/media/icon_hucfddd6860c0b4900a5acb8e924657868_6422_180x180_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/">
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+    <meta property="twitter:site" content="@elartedeldato">
+    <meta property="twitter:creator" content="@elartedeldato">
+  
+  <meta property="og:site_name" content="El Arte del Dato Bien Contado">
+  <meta property="og:url" content="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/">
+  <meta property="og:title" content="Cómo cambiar la estética de los puntos en ggplot | El Arte del Dato Bien Contado">
+  <meta property="og:description" content="En el último post vimos cómo cambiar el color en un gráfico de ggplot. Pero además del color, existen otros aspectos interesantes sobre la estética de los puntos que se pueden ser la forma, tamaño, transparencia o incluso el borde del punto."><meta property="og:image" content="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/featured-ggplot-shapes.png">
+    <meta property="twitter:image" content="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/featured-ggplot-shapes.png"><meta property="og:locale" content="es-es">
+  
+    
+      <meta property="article:published_time" content="2021-12-12T00:00:00+00:00">
+    
+    <meta property="article:modified_time" content="2021-12-12T10:10:56+01:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/"
+  },
+  "headline": "Cómo cambiar la estética de los puntos en ggplot",
+  
+  "image": [
+    "https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/featured-ggplot-shapes.png"
+  ],
+  
+  "datePublished": "2021-12-12T00:00:00Z",
+  "dateModified": "2021-12-12T10:10:56+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Paula L. Casado"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "El arte del dato bien contado",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://elartedeldato.com/media/logo_hucfddd6860c0b4900a5acb8e924657868_6422_192x192_fit_lanczos_3.png"
+    }
+  },
+  "description": "En el último post vimos cómo cambiar el color en un gráfico de ggplot. Pero además del color, existen otros aspectos interesantes sobre la estética de los puntos que se pueden ser la forma, tamaño, transparencia o incluso el borde del punto."
+}
+</script>
+
+  
+
+  
+
+  
+  
+  
+  
+  
+    <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/cookieconsent.min.js.descargar" integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/cookieconsent.min.css" integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin="anonymous">
+  
+  <script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#fffb00",
+          "text": "#fff"
+        },
+        "button": {
+          "background": "#fff",
+          "text": "#fffb00"
+        }
+      },
+      "theme": "classic",
+      "content": {
+        "message": "Este sitio web utiliza cookies para garantizarle una mejor experiencia.",
+        "dismiss": "Entendido!",
+        "link": "Más información",
+        "href": "/politica-de-privacidad/"
+      }
+    })});
+  </script>
+
+
+  
+
+
+
+
+
+  <title>Cómo cambiar la estética de los puntos en ggplot | El Arte del Dato Bien Contado</title>
+<style type="text/css">.medium-zoom-overlay{position:fixed;top:0;right:0;bottom:0;left:0;opacity:0;transition:opacity .3s;will-change:opacity}.medium-zoom--opened .medium-zoom-overlay{cursor:pointer;cursor:zoom-out;opacity:1}.medium-zoom-image{cursor:pointer;cursor:zoom-in;transition:transform .3s cubic-bezier(.2,0,.2,1)!important}.medium-zoom-image--hidden{visibility:hidden}.medium-zoom-image--opened{position:relative;cursor:pointer;cursor:zoom-out;will-change:transform}</style><style type="text/css">:root zeus-ad, :root topadblock, :root span[id^="ezoic-pub-ad-placeholder-"], :root guj-ad, :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="rc-widget-"], :root div[id^="lazyad-"], :root div[id^="js-dfp-"], :root div[id^="gtm-ad-"], :root div[id^="gpt_ad_"], :root div[id^="div-gpt-"], :root div[id^="dfp-slot-"], :root div[id^="dfp-ad-"], :root div[id^="bunyad-widget-ads-"], :root div[id^="advads_"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="adngin-"], :root div[id^="adfox_"], :root div[id^="ad_script_"], :root div[id^="ad-server-"], :root div[id^="ad-gpt-"], :root div[id^="ad-div-"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-test-id="AdBannerWrapper"], :root div[data-subscript="Advertising"], :root div[data-mpu1], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-google-query-id], :root div[data-content="Advertisement"], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-adname], :root div[data-ad-wrapper], :root div[data-ad-underplayer], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="sp-adslot-"], :root div[class^="s-dfp-"], :root div[class^="pane-adsense-managed-"], :root div[class^="native-ad-"], :root div[class^="largeRectangleAd_"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="index_displayAd_"], :root div[class^="index_adAfterContent_"], :root div[class^="block-openx-"], :root div[id^="adspot-"], :root div[class^="adsbutt_wrapper_"], :root div[class^="ads-partner-"], :root div[class^="adpubs-"], :root div[class^="adbanner_"], :root div[class^="ad_border_"], :root hl-adsense, :root div[data-contentexchange-widget], :root div[class^="adUnit_"], :root div[class^="StickyHeroAdWrapper-"], :root div[class^="BannerAd_"], :root div[class^="AdCard_"], :root div[class^="ad_position_"], :root div[aria-label="Ads"], :root display-ads, :root div[id^="ad-cid-"], :root aside[id^="advads_ad_widget-"], :root aside[id^="adrotate_widgets-"], :root article.ad, :root ark-top-ad, :root app-advertisement, :root app-ad, :root amp-fx-flying-carpet, :root amp-embed[type="taboola"], :root amp-ad-custom, :root ad-shield-ads, :root ad-desktop-sidebar, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://www.vfreecams.com/in/?track="], :root a[href^="https://www.rabbits.webcam/?id="], :root div[data-test-id="AdDisplayWrapper"], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.passeura.com/"], :root a[href^="https://www.oneclickroot.com/?tap_a="] > img, :root a[href^="https://www.oboom.com/ref/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.jackery.com?aff="] > img, :root a[href^="https://www.iyalc.com/"], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highperformancegate.com/"], :root a[href^="https://www.healthrangerstore.com/"] > img, :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.clicktraceclick.com/"], :root a[href^="https://www.camsoda.com/enter.php?id="], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root a[href^="https://www.bebi.com"], :root div[class^="Display_displayAd"], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://www.bang.com/?aff="], :root a[href^="https://www.arthrozene.com/"][href*="?tid="], :root a[href^="https://webroutetrk.com/"], :root iframe[src^="http://ad.yieldmanager.com/"], :root a[href^="https://wantopticalfreelance.com/"], :root a[href^="https://waisheph.com/"], :root a[href^="https://uncensored.game/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://tupitea.co/"], :root a[href^="https://ttf.trmobc.com/"], :root a[href^="https://trusted-click-host.com/"], :root a[href^="https://trk.moviesflix4k.xyz/"], :root a[href^="https://trf.bannerator.com/"], :root a[href^="https://trappist-1d.com/"], :root a[href^="https://tragency-clesburg.icu/"], :root a[href^="https://traffdaq.com/"], :root a[href^="https://tracking.trackcasino.co/"], :root a[href^="https://tracking.comfortclick.eu/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://track.totalav.com/"], :root a[href^="https://track.themadtrcker.com/"], :root a[href^="https://track.interactivegf.com/"], :root a[href^="https://vlnk.me/"], :root a[href^="https://track.healthtrader.com/"], :root a[href^="https://track.effiliation.com/servlet/effi.click?"] > img, :root a[href^="https://track.clickmoi.xyz/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://torguard.net/aff.php"] > img, :root a[href^="https://tm-offers.gamingadult.com/"], :root a[href^="https://tracking.gitads.io/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://t.mobtya.com/"], :root a[href^="https://t.hrtyj.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://topoffers.com/"][href*="/?pid="], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://reachtrgt.com/"], :root a[href^="https://queersodadults.com/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root iframe[id^="google_ads_frame"], :root a[href^="https://pb-track.com/"], :root a[href^="https://partners.fxoro.com/click.php?"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root div[id^="ad_position_"], :root a[href^="http://hotcandyland.com/partner/"], :root a[href^="https://ovb.im/"], :root a[href^="https://torrentsafeguard.com/?aid="], :root a[href^="https://offers.refchamp.com/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="https://my-movie.club/"], :root div[id^="ezoic-pub-ad-"], :root a[href^="https://mk-cdn.net/"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root a[href^="https://meet-to-fuck.com/"], :root a[href^="https://medleyads.com/"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root div[id^="google_dfp_"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://look.utndln.com/"], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://refpazkjixes.top/"], :root a[href^="https://landing.brazzersplus.com/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://nutrientassumptionclaims.com/"], :root a[href^="https://join.virtuallust3d.com/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root a[href^="https://iac.ampxdirect.com/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root a[href^="https://go.xxxiijmp.com"], :root a[href*=".zlinkm.com/"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://thaudray.com/"], :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root [data-css-class="dfp-inarticle"], :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="//lambingsyddir.com/"], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="https://ismlks.com/"], :root a[href^="https://track.afftck.com/"], :root a[href^="https://gohere.pl/"], :root a[href^="https://go.cmrdr.com/"], :root a[href^="https://go.admjmp.com/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root a[href^="https://aj1070.online/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://financeads.net/tc.php?"], :root bottomadblock, :root a[href^="https://fertilitycommand.com/"], :root a[href^="https://bluedelivery.pro/"], :root a[href^="https://fast-redirecting.com/"], :root a[href^="https://fakelay.com/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://dianches-inchor.com/"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root a[href^="https://deliver.tf2www.com/"], :root [href^="https://www.targetingpartner.com/"], :root [href^="https://detachedbates.com/"], :root a[href^="https://deliver.ptgncdn.com/"], :root #kt_player > a[target="_blank"], :root a[href^="https://cpartner.bdswiss.com/"], :root a[href^="https://clixtrac.com/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="https://claring-loccelkin.com/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://aaucwbe.com/"], :root a[href^="https://cams.imagetwist.com/in/?track="], :root div[class^="AdItem-"], :root a[href^="https://mob1ledev1ces.com/"], :root a[href^="https://explore.findanswersnow.net/"], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://bngpt.com/"], :root #topstuff > #tads, :root a[href^="https://black77854.com/"], :root a[href^="https://burpee.xyz/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="https://m.do.co/c/"] > img, :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root div[id^="sticky_ad_"], :root div[class^="Ad__adContainer"], :root a[href^="https://avtub.click/assets/link.php"], :root a[href^="https://go.gldrdr.com/"], :root a[href^="https://as.sexad.net/"], :root a[href^="https://bestcond1tions.com/"], :root a[href^="https://as.conjectwatson.com/"], :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root [data-ez-name], :root a[href^="https://awecrptjmp.com/"], :root a[href^="https://someperceptionparade.com/"], :root a[href^="https://galaxyroms.net/?scr="], :root a[href^="https://albionsoftwares.com/"], :root display-ad-component, :root a[href^="https://ak.hetaruwg.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://go.alxbgo.com/"], :root a[href^="https://aff-ads.stickywilds.com/"], :root a[href^="https://s.zlink2.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://ads.cdn.live/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ads.ad4game.com/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://adjoincomprise.com/"], :root a[href^="https://t.grtyi.com/"], :root a[href^="https://myusenet.xyz/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root [href^="https://r.kraken.com/"], :root a[href^="https://mmwebhandler.aff-online.com/"], :root a[href^="http://secure.vivid.com/track/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root a[href^="https://misspkl.com/"], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://msecure117.com/"], :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="https://adswick.com/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://ad.atdmt.com/"], :root a[href^="https://meet-sex-here.com/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="https://k2s.cc/pr/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.coiwqe.site/"], :root iframe[src^="http://www.adpeepshosted.com/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="https://ads-for-free.com/click.php?"], :root a[href^="http://www.FriendlyDuck.com/"], :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="http://tc.tradetracker.net/"] > img, :root .trc_rbox .syndicatedItem, :root a[href^="https://1free33style.com/"], :root a[href^="http://rs-stripe.wsj.com/stripe/redirect"], :root a[href^="http://tour.mrskin.com/"], :root a[href^="http://pubads.g.doubleclick.net/"], :root [onclick*="content.ad/"], :root a[href^="http://pityhostngco2.xyz/"], :root a[href^="https://join.virtualtaboo.com/track/"], :root [id^="ad_sky"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="https://cagothie.net/"], :root a[href^="https://watchmygirlfriend.tv/"], :root a[href^="http://go.xtbaffiliates.com/"], :root a[href^="http://www.advcashpro.com/aff/"], :root a[href^="http://deloplen.com/"], :root a[href^="http://d2.zedo.com/"], :root .rc-cta[data-target], :root [href^="http://go.cm-trk2.com/"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://bs.serving-sys.com"], :root [class^="chp_ads_block"], :root a[href^="http://betahit.click/"], :root a[href^="https://promo-bc.com/"], :root a[href^="http://adserver.adreactor.com/"], :root [href^="https://cipledecline.buzz/"], :root a[href^="https://earandmarketing.com/"], :root a[href^="http://adf.ly/?id="], :root [href^="http://homemoviestube.com/"], :root a[href^="http://ad.doubleclick.net/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="//syndication.dynsrvtbg.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="https://pl.premium4kflix.website/"], :root [id^="chp_ads_block"], :root a[href^="https://go.julrdr.com/"], :root a[href^="//chrif8kdstie.com/"], :root div.fadeInDown[id$="____equal"][class$="____equal"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://click.linksynergy.com/fs-bin/"], :root a[href^="https://www.adskeeper.com"], :root [href^="https://totlnkcl.com/"], :root a[href^="//agacelebir.com/"], :root a[href^="https://dooloust.net/"], :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[href^="https://engine.phn.doublepimp.com/"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://www.reimageplus.com/"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href="//rufflycouncil.com/"], :root a[href*="https://www.sweetdeals.com/"] img, :root div[data-native_ad], :root a[href*=".zlink9.com/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href^="http://paid.outbrain.com/network/redir?"], :root [data-d-ad-id], :root iframe[src^="https://tpc.googlesyndication.com/"], :root a[href*=".engine.adglare.net/"], :root a[href^="https://a.bestcontentoperation.top/"], :root AFS-AD, :root a[href^="//go.xlviiirdr.com"], :root [data-dynamic-ads], :root div[class^="adunit_"], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="https://axdsz.pro/"], :root a[href^="http://bodelen.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://ptapjmp.com/"], :root DFP-AD, :root a[href^="http://allaptair.club/"], :root a[href^="//go.eabids.com/"], :root a[data-oburl^="http://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[href*="http://MyPillow.com"] > img, :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root div[class^="BlockAdvert-"], :root a[href^="http://wct.link/"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root .ob_container .item-container-obpd, :root [id^="div-gpt-ad"], :root .commercial-unit-mobile-top > div[data-pla="1"], :root a[href^="https://www.sweetdeals.com"], :root a[href^="https://track.bruceads.com/"], :root a[href^="https://t.aslnk.link/"], :root [href^="https://zstacklife.com/"] img, :root [href^="https://www.restoro.com/"], :root [data-ad-manager-id], :root a[href^="https://fleshlight.sjv.io/"], :root div[id^="zergnet-widget"], :root [href^="https://www.mystore.com/"] > img, :root [href^="https://freecourseweb.com/"] > .sitefriend, :root [href^="https://www.hostg.xyz/aff_c"] > img, :root div[id^="ad-position-"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://leg.xyz/?track="], :root a[href^="http://bc.vc/?r="], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="https://syndication.exoclick.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://go.trackitalltheway.com/"], :root a[href^="https://go.cmtaffiliates.com/"], :root [data-name="adaptiveConstructorAd"], :root [href^="https://optimizedelite.com/"] > img, :root a[href^="https://www.awin1.com/cread.php?awinaffid="], :root a[href^="//thaudray.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://go.goasrv.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://stvkr.com/"], :root a[href*=".trust.zone"], :root a[href^="http://trk.mdrtrck.com/"], :root [href^="https://shrugartisticelder.com"], :root div[id^="crt-"][style], :root a[href^="http://adultgames.xxx/"], :root a[href^="https://pcm.bannerator.com/"], :root a[href^="https://traffic.bannerator.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="https://vo2.qrlsx.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root div[id^="ad-inserter-"], :root .scroll-fixable.rail-right > .deals-rail, :root a[href^="https://see.kmisln.com/"], :root [href^="https://routewebtk.com/"], :root div[class^="ResponsiveAd-"], :root a[href^="https://oackoubs.com/"], :root a[href^="https://tour.mrskin.com/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root ADS-RIGHT, :root [href^="https://mystore.com/"] > img, :root a[href^="https://moneynow.one/"], :root [href^="https://mypatriotsupply.com/"] > img, :root [href^="https://mylead.global/stl/"] > img, :root .vid-present > .van_vid_carousel__padding, :root a[href^="https://syndication.optimizesrv.com/"], :root [id^="google_ads_iframe"], :root [href^="https://istlnkcl.com/"], :root div[data-mediatype="advertising"], :root a[href^="https://5hjdbfjfd5.monster/"], :root .section-subheader > .section-hotel-prices-header, :root [href^="http://join.ts-dominopresley.com/"], :root a[href^="https://playuhd.host/"], :root [href^="https://go.affiliatexe.com/"], :root a[href^="https://meet-sexhere.com/"], :root [href^="https://go.4rabettraff.com/"], :root [href^="https://glersakr.com/"], :root a[href^="https://click.a-ads.com/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://gghf.mobi/"], :root [href^="https://affect3dnetwork.com/track/"], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root a[href^="//coarsewary.com/"], :root a[href^="https://a.montangop.top/"], :root [href^="https://v.investologic.co.uk/"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root [class^="s2nPlayer"], :root a[href*=".flndmyiove.net/"], :root [href^="http://join.trannies-fuck.com/"], :root [href^="http://www.fleshlightgirls.com/"], :root a[href^="https://dialling-abutory.com/"], :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root div[id^="advads-"], :root div[data-role="sidebarAd"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [href^="http://trafficare.net/"], :root a[href^="https://adserver.adreactor.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root [href^="https://clk.right-wing-health.com/"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="http://join.shemale.xxx/"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://www.chngtrack.com/"], :root a[href^="https://cpmspace.com/"], :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root [href^="http://join.rodneymoore.com/"], :root a[href^="https://uncensored3d.com/"], :root a[href^="https://creacdn.top-convert.com/"], :root div[id^="ad_bigbox_"], :root [href^="https://go.xlrdr.com"], :root [href^="http://www.pingperfect.com/aff.php"], :root a[href^="https://scurewall.co/"], :root [name^="google_ads_iframe"], :root a[href^="http://go.247traffic.com/"], :root a[href^="https://porngames.adult/?SID="], :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root a[href^="https://go.xxxjmp.com"], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root #leader-companion > a[href], :root [data-desktop-ad-id], :root [href^="https://wct.link/"], :root [href^="https://traffserve.com/"], :root [href^="http://mypillow.com/"] > img, :root a[href^="https://a.adtng.com/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root [href="https://ourgoldguy.com/contact/"] img, :root [href="https://www.masstortfinancing.com/"] > img, :root [href^="https://goldcometals.com/clk.trk"], :root [data-mobile-ad-id], :root a[href^="http://affiliates.thrixxx.com/"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root [data-template-type="nativead"], :root a[data-redirect^="this.href='http://paid.outbrain.com/network/redir?"], :root a[href^="https://go.xlivrdr.com"], :root [data-freestar-ad], :root [data-ad-cls], :root [id^="ad-wrap-"], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root [href^="http://join.hardcoreshemalevideo.com/"], :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root [href^="http://residenceseeingstanding.com/"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root div[class^="index_adBeforeContent_"], :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root .trc_rbox_border_elm .syndicatedItem, :root [class^="amp-ad-"], :root div[id^="_vdo_ads_player_ai_"], :root a[href^="http://enter.anabolic.com/track/"], :root .trc_related_container div[data-item-syndicated="true"], :root a[href^="https://delivery.porn.com/"], :root div[data-native-ad], :root AD-SLOT, :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://click2cvs.com/"], :root div[id^="banner-ad-"], :root a[href^="https://a2.adform.net/"], :root a[data-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root AMP-AD, :root a[href^="https://ausoafab.net/"], :root a[href^="//benoopto.com/"], :root div[class^="AdhesionAd_"], :root .trc_rbox_div .syndicatedItem, :root a-ad, :root a[href^="http://go.fpmarkets.com/"], :root [data-ad-module], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root LEADERBOARD-AD, :root .grid > .container > #aside-promotion, :root a[href^="https://spygasm.com/track?"], :root a[href^="https://agacelebir.com/"], :root a[href*="//lkstrck2.com/"], :root .plistaList > .itemLinkPET, :root [href^="http://join.shemalepornstar.com/"], :root [href^="https://affiliate.fastcomet.com/"] > img, :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href^="http://partners.etoro.com/"], :root [data-advadstrackid], :root a[href^="http://intent.bingads.com/"], :root [href^="https://mypillow.com/"] > img, :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="https://awentw.com/"], :root [class^="div-gpt-ad"], :root a[href^="//voyeurhit.com/cs/"], :root a[href^="https://speedsupermarketdonut.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root [data-adblockkey], :root a[href^="https://americafirstpolls.com/"] { display: none !important; }</style><style></style></head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="960d9af4e6585f127a75612a73b60ae0"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-classic cc-bottom cc-color-override--2108383050 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">Este sitio web utiliza cookies para garantizarle una mejor experiencia. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://elartedeldato.com/politica-de-privacidad/" rel="noopener noreferrer nofollow" target="_blank">Más información</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Entendido!</a></div><!--googleon: all--></div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/wowchemy-init.min.7f3e7639f4c7f2a2cf83b68ea7de7f08.js.descargar"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Buscar</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/#" aria-label="Cerrar"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Buscar..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Buscar...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="https://elartedeldato.com/">
+        <img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/logo_hucfddd6860c0b4900a5acb8e924657868_6422_0x70_resize_lanczos_3.png" alt="El Arte del Dato Bien Contado">
+      </a>
+      <a class="navbar-brand-title" href="https://elartedeldato.com/">El Arte del Dato Bien Contado</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Barra de navegación">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="https://elartedeldato.com/"><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/logo_hucfddd6860c0b4900a5acb8e924657868_6422_0x70_resize_lanczos_3.png" alt="El Arte del Dato Bien Contado"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://elartedeldato.com/#calendario_adviento"><span>Calendario de Adviento 2021</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="https://elartedeldato.com/blog"><span>Blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://elartedeldato.com/#contacto"><span>Contacto</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/elartedeldato" target="_blank" rel="noopener" aria-label="twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://github.com/elartedeldato" target="_blank" rel="noopener" aria-label="github">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/#" aria-label="Buscar"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Cómo cambiar la estética de los puntos en ggplot</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Última actualización el
+      
+    
+    Sun, 12 Dec 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min de lectura
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="https://elartedeldato.com/categoria/visualizacion/">Visualización</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 510px;">
+  <div style="position: relative">
+    <img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/featured-ggplot-shapes_hu192b95f80cae8a257f2cfb6ea319858c_163998_720x0_resize_lanczos_3.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>En el último post vimos <a href="https://elartedeldato.com/blog/como-cambiar-el-color-de-un-grafico-en-ggplot" target="_blank" rel="noopener">cómo cambiar el color en un gráfico de ggplot</a>. Pero además del color, existen otros aspectos interesantes sobre la <strong>estética de los puntos</strong> que se pueden ser la forma, tamaño, transparencia o incluso el borde del punto. Hoy veremos cómo modificar cada uno de ellos. Empezamos!</p>
+<p>Antes de nada, como vamos a trabajar con la geometría del gráfico, tomaremos el último gráfico sobre el que hemos estado trabajando hasta el momento, eliminando la geometría, <code>geom_point()</code>.</p>
+<pre><code class="language-r hljs"><span class="hljs-keyword">library</span>(ggplot2)
+<span class="hljs-keyword">library</span>(showtext)
+font_add_google(<span class="hljs-string">'Anton'</span>)
+
+msleep$vore &lt;- as.factor(msleep$vore)
+levels(msleep$vore) &lt;- c(<span class="hljs-string">'carnívoro'</span>, <span class="hljs-string">'herbívoro'</span>, <span class="hljs-string">'insectívoro'</span>, <span class="hljs-string">'omnívoro'</span>)
+
+ggplot(msleep, aes(x=sleep_total, y=sleep_rem, color=vore)) +      
+  labs(title=<span class="hljs-string">'El sueño de los mamíferos'</span>, 
+       subtitle=<span class="hljs-string">'Sueño REM frente a las horas totales de sueño'</span>, 
+       caption=<span class="hljs-string">'Proceedings of the National Academy of Sciences, 104 (3):1051-1056, 2007'</span>,
+       x=<span class="hljs-string">'Horas de sueño en total'</span>, y=<span class="hljs-string">'Horas de sueño en fase REM'</span>) + 
+  theme(plot.title=element_text(family=<span class="hljs-string">'Anton'</span>, size=<span class="hljs-number">20</span>),
+        plot.subtitle=element_text(family=<span class="hljs-string">'Anton'</span>),
+        axis.title.x = element_text(family=<span class="hljs-string">'Anton'</span>, face=<span class="hljs-string">'bold'</span>, hjust=<span class="hljs-number">1</span>),
+        axis.title.y = element_text(family=<span class="hljs-string">'Anton'</span>, face=<span class="hljs-string">'bold'</span>, hjust=<span class="hljs-number">1</span>),
+        strip.text=element_text(family=<span class="hljs-string">'Anton'</span>, face=<span class="hljs-string">'bold'</span>, size=<span class="hljs-number">14</span>, hjust=<span class="hljs-number">0</span>, color=<span class="hljs-string">'white'</span>),
+        strip.background=element_rect(fill=<span class="hljs-string">'black'</span>)) +
+  facet_wrap(<span class="hljs-string">'vore'</span>) +
+  theme() -&gt; p
+</code></pre>
+<h2 id="cómo-cambiar-la-forma-de-los-puntos">Cómo cambiar la forma de los puntos</h2>
+<p>La <strong>forma de los puntos</strong> de un gráfico de ggplot, se puede modificar con el argumento shape dentro de la función de la estética, <code>aes()</code>.</p>
+<pre><code class="language-r hljs">p + geom_point(aes(shape=vore))
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-2-1.png" width="672"></p>
+<p>Al igual que con el color, también sería posible modificar la forma general de todos los puntos del gráfico indicando dicha forma fuera de la función <code>aes()</code>, directamente en <code>geom_point()</code>.</p>
+<pre><code class="language-r hljs">p + geom_point(shape=<span class="hljs-string">'triangle'</span>)
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-3-1.png" width="672"></p>
+<p>Cada forma lleva asociada un número, por lo que se puede especificar bien el nombre de la forma, o el número correspondiente. La lista de formas disponibles es la siguiente:</p>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/ggplot-point-shapes.png" width="100%"></p>
+<p>El nombre de la leyenda de la forma, se puede cambiar a través de la función <code>scale_shape(name="...")</code>.</p>
+<h2 id="cómo-cambiar-el-tamaño-de-los-puntos">Cómo cambiar el tamaño de los puntos</h2>
+<p>En ggplot, para cambiar cualquier elemento de la estética se sigue el mismo patrón. En el caso del <strong>tamaño de los puntos</strong>, basta con indicar <code>size</code> como argumento y el nombre de la variable sobre la que irá asociada.</p>
+<pre><code class="language-r hljs">p + geom_point(aes(size=awake))
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-5-1.png" width="672"></p>
+<p>Recordamos, que el tamaño tiene sentido asociarlo a una variable continua o, en todo caso, categórica ordinal, por eso no deberíamos asociarla a <em>vore</em>, tipo de mamífero según su alimentación. De este modo elegimos <em>awake</em>, total de horas de sueño, una variable continua.</p>
+<h2 id="cómo-cambiar-la-transparencia-de-los-puntos">Cómo cambiar la transparencia de los puntos</h2>
+<p>En cuanto a la <strong>transparencia de los puntos</strong>, en ggplot recibe el nombre de <strong><em>alpha</em></strong>, siguiendo la nomenclatura global del color, y se indica de la misma manera que las estéticas anteriores:</p>
+<pre><code class="language-r hljs">p + geom_point(aes(alpha=awake))
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-6-1.png" width="672"></p>
+<p>Esta característica suele ser muy útil cuando se trabaja con una gran cantidad de datos, para mostrar dónde se concentra más la información.</p>
+<p>Para esos casos, se suele emplear el mismo alpha para todo el conjunto de datos, véase:</p>
+<pre><code class="language-r hljs">p + geom_point(alpha=<span class="hljs-number">0.5</span>)
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-7-1.png" width="672"></p>
+<h2 id="cómo-cambiar-el-borde-de-los-puntos">Cómo cambiar el borde de los puntos</h2>
+<p>Si nos fijamos, cada uno de los puntos de un gráfico de ggplot, tiene un borde muy fino alrededor. Este <strong>borde</strong> puede ser aumentado, reducido o incluso eliminado a través del argumento <code>stroke</code>.</p>
+<pre><code class="language-r hljs">p + geom_point(shape=<span class="hljs-number">21</span>, stroke=<span class="hljs-number">3</span>)
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-8-1.png" width="672"></p>
+<p>Podíamos también haber <strong>eliminado el borde los puntos</strong> indicando <code>stroke=0</code>.</p>
+<pre><code class="language-r hljs">p + geom_point(stroke=<span class="hljs-number">0</span>)
+</code></pre>
+<p><img src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/unnamed-chunk-9-1.png" width="672"></p>
+<h2 id="en-resumen">En resumen…</h2>
+<ul>
+<li>
+<p><code>geom_point(aes(shape=...))</code> para modificar la forma de los puntos</p>
+</li>
+<li>
+<p><code>geom_point(aes(size=...))</code> para modificar el tamaño de los puntos</p>
+</li>
+<li>
+<p><code>geom_point(aes(alpha=...))</code> para modificar la transparencia de los puntos</p>
+</li>
+<li>
+<p><code>geom_point(stroke=0)</code> para eliminar el borde de todos los puntos</p>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/calendario-de-adviento-2021/">Calendario de Adviento 2021</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/ggplot2/">ggplot2</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/ggplot/">ggplot</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/grafico/">gráfico</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/escalas/">escalas</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/r/">R</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/&amp;text=C%c3%b3mo%20cambiar%20la%20est%c3%a9tica%20de%20los%20puntos%20en%20ggplot" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/&amp;t=C%c3%b3mo%20cambiar%20la%20est%c3%a9tica%20de%20los%20puntos%20en%20ggplot" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=C%c3%b3mo%20cambiar%20la%20est%c3%a9tica%20de%20los%20puntos%20en%20ggplot&amp;body=https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/&amp;title=C%c3%b3mo%20cambiar%20la%20est%c3%a9tica%20de%20los%20puntos%20en%20ggplot" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=C%c3%b3mo%20cambiar%20la%20est%c3%a9tica%20de%20los%20puntos%20en%20ggplot%20https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/&amp;title=C%c3%b3mo%20cambiar%20la%20est%c3%a9tica%20de%20los%20puntos%20en%20ggplot" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://elartedeldato.com/"><img class="avatar mr-3 avatar-circle" src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/avatar_hu9fc9b27ed9ddc8a39d65adc14731042b_22682_270x270_fill_q75_lanczos_center.jpg" alt="Paula L. Casado"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://elartedeldato.com/">Paula L. Casado</a></h5>
+      <h6 class="card-subtitle">Data Scientist</h6>
+      <p class="card-text">Científica de datos especializada en visualización de datos.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://elartedeldato.com/#contacto">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/elartedeldato" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/elartedeldato" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/paulalopezcasado/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Relacionado</h3>
+    <ul>
+      
+      <li><a href="https://elartedeldato.com/blog/como-asignar-dos-escalas-diferentes-para-una-misma-estetica-en-ggplot/">Cómo asignar dos escalas diferentes para una misma estética en ggplot</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-cambiar-el-color-de-un-grafico-en-ggplot/">Cómo cambiar el color de un gráfico en ggplot</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-modificar-el-titulo-de-la-leyenda-en-ggplot2/">Cómo modificar el título de la leyenda en ggplot2</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-eliminar-la-leyenda-de-un-grafico-en-ggplot2/">Cómo eliminar la leyenda de un gráfico en ggplot2</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-modificar-los-titutos-de-las-facetas-en-ggplot2/">Cómo modificar los títutos de las facetas en ggplot2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+  
+  
+
+  
+  <p class="powered-by">
+    
+      <a href="https://elartedeldato.com/politica-de-privacidad/">Política de privacidad</a>
+    
+    
+  </p>
+  
+
+  
+  <p class="powered-by">
+    Copyright © 2021 El arte del dato bien contado
+  </p>
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Citar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs latex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/#" target="_blank">
+          <i class="fas fa-copy"></i> Copiar
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="https://elartedeldato.com/blog/como-cambiar-la-estetica-de-los-puntos-en-ggplot/#" target="_blank">
+          <i class="fas fa-download"></i> Descargar
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/vendor-bundle.min.b73dfaac3b6499dc997741748a7c3fe2.js.descargar"></script>
+
+    
+    
+    
+      
+      
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/imagesloaded.pkgd.min.js.descargar" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/isotope.pkgd.min.js.descargar" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/highlight.min.js.descargar" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/r.min.js.descargar" crossorigin="anonymous"></script>
+        
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/python.min.js.descargar" crossorigin="anonymous"></script>
+        
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/latex.min.js.descargar" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/leaflet.min.js.descargar" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/fuse.min.js.descargar" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/jquery.mark.min.js.descargar" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/wowchemy.min.6816da1dce5e2821a26ab5838c507f32.js.descargar"></script>
+
+    
+  <script async="" defer="" src="./Cómo cambiar la estética de los puntos en ggplot _ El Arte del Dato Bien Contado_files/buttons.js.descargar"></script>
+
+
+
+
+
+
+</body></html>

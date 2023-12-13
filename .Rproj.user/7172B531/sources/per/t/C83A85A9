@@ -1,24 +1,25 @@
 {
     "id": "C83A85A9",
-    "path": "C:/Users/javie/Desktop/MiTutGGPLOT/ScriptEndo.R",
+    "path": "E:/Académico/1Especialización/RRR/UsoGGPLOT/ScriptEndo.R",
     "project_path": "ScriptEndo.R",
     "type": "r_source",
-    "hash": "1486333562",
+    "hash": "662220725",
     "contents": "",
     "dirty": false,
     "created": 1624375690953.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
-        "cursorPosition": "109,62",
-        "scrollLine": "92"
+        "cursorPosition": "392,62",
+        "scrollLine": "0",
+        "Source": "Source"
     },
     "folds": "",
-    "lastKnownWriteTime": 1612271011,
+    "lastKnownWriteTime": 1629900965,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1612271011,
+    "last_content_update": 1629900965493,
     "read_only": false,
     "read_only_alternatives": []
 }

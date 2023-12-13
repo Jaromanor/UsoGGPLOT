@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<!-- saved from url=(0175)https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sch=http&_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sc -->
+<html lang="es" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--<base href="http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels">--><base href="."> 
+  <title>Marcas del eje ggplot2: una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA</title> 
+   
+  <meta name="generator" content="PHPBoost"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta property="og:image" content="http://www.sthda.com/english/logo_200px_fb_sharing.png"> 
+  <meta property="og:image:type" content="image/png"> 
+  <meta property="og:image:alt" content="STHDA Logo"> 
+  <meta property="og:description" content="Statistical tools for data analysis and visualization"> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website" type="text/css" media="screen, print"> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(1)" type="text/css" media="screen, print"> 
+  <link rel="shortcut icon" href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=http://www.sthda.com/english/logo.png" type="image/png"> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(2)"> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(3)"> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(4)"> 
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f.txt"></script><script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(1).txt" id="google_shimpl"></script><script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/analytics.js.descargar"></script><script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(5)"></script><style type="text/css" id="operaUserStyle"></style> 
+  <link rel="stylesheet" type="text/css" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(6)"> 
+  <script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(7)"></script> 
+  <meta http-equiv="X-Translated-By" content="Google">
+  <meta http-equiv="X-Translated-To" content="es">
+  <script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/m=ajaxproxy" data-sourceurl="http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels"></script>
+  <meta name="robots" content="none">
+ <script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/lazy.min.js.descargar"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/m=el_main"></script><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><style type="text/css">:root topadblock, :root span[id^="ezoic-pub-ad-placeholder-"], :root guj-ad, :root gpt-ad, :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="rc-widget-"], :root div[id^="lazyad-"], :root div[id^="gtm-ad-"], :root div[id^="gpt_ad_"], :root div[id^="gpt-ad-hor"], :root div[id^="div-gpt-"], :root div[id^="dfp-slot-"], :root div[id^="dfp-ad-"], :root div[id^="advads_"], :root div[id^="adspot-"], :root div[id^="ads300_250-widget-"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="adngin-"], :root div[id^="adfox_"], :root div[id^="ad_script_"], :root div[id^="ad-server-"], :root div[id^="ad-gpt-"], :root div[id^="ad-div-"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-mpu1], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-google-query-id], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-content="Advertisement"], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-ad-wrapper], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="s-dfp-"], :root div[class^="native-ad-"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="Adstyled__AdWrapper-"], :root div[aria-label="Ads"], :root display-ads, :root aside[id^="advads_ad_widget-"], :root aside[id^="adrotate_widgets-"], :root article.ad, :root div[class^="gpt-ad-hor"], :root ark-top-ad, :root app-advertisement, :root amp-embed[type="taboola"], :root amp-connatix-player, :root amp-ad-custom, :root ad-shield-ads, :root ad-desktop-sidebar, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://yogacomplyfuel.com/"], :root a[href^="https://www.vfreecams.com/in/?track="], :root a[href^="https://www.rabbits.webcam/?id="], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.passeura.com/"], :root a[href^="https://www.oneclickroot.com/?tap_a="] > img, :root a[href^="https://www.oboom.com/ref/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.jackery.com?aff="] > img, :root a[href^="https://www.iyalc.com/"], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highperformancegate.com/"], :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://www.healthrangerstore.com/"] > img, :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.clicktraceclick.com/"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root div[class^="Display_displayAd"], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://www.bang.com/?aff="], :root a[href^="https://www.arthrozene.com/"][href*="?tid="], :root a[href^="https://www.adsexse.com/x/"], :root a[href^="https://webroutetrk.com/"], :root iframe[src^="http://ad.yieldmanager.com/"], :root a[href^="https://wantopticalfreelance.com/"], :root a[href^="https://waisheph.com/"], :root a[href^="https://uncensored.game/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://ttf.trmobc.com/"], :root a[href^="https://tsartech.g2afse.com/"], :root a[href^="https://trusted-click-host.com/"], :root a[href^="https://trk.watchlivesports4k.club/"], :root a[href^="https://trk.moviesflix4k.xyz/"], :root a[href^="https://trf.bannerator.com/"], :root a[href^="https://trappist-1d.com/"], :root a[href^="https://tragency-clesburg.icu/"], :root a[href^="https://traffdaq.com/"], :root a[href^="https://tracking.trackcasino.co/"], :root a[href^="https://tracking.comfortclick.eu/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://track.totalav.com/"], :root a[href^="https://track.themadtrcker.com/"], :root a[href^="https://track.interactivegf.com/"], :root a[href^="https://vlnk.me/"], :root a[href^="https://track.healthtrader.com/"], :root a[href^="https://track.effiliation.com/servlet/effi.click?"] > img, :root zeus-ad, :root a[href^="https://track.clickmoi.xyz/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://tupitea.co/"], :root a[href^="https://track.adform.net/"], :root a[href^="https://torguard.net/aff.php"] > img, :root a[href^="https://tm-offers.gamingadult.com/"], :root div[data-adname], :root a[href^="https://thechleads.pro/"], :root a[href^="https://tracking.gitads.io/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://t.mobtya.com/"], :root a[href^="https://t.hrtyj.com/"], :root a[href^="https://www.profitablecpmgate.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://topoffers.com/"][href*="/?pid="], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://s.zlink2.com/"], :root a[href^="https://reachtrgt.com/"], :root a[href^="https://queersodadults.com/"], :root a[href^="https://ptapjmp.com/"], :root a[href^="https://promo-bc.com/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root a[href^="https://pongidsrunback.com/"], :root a[href^="https://pcm.bannerator.com/"], :root iframe[id^="google_ads_frame"], :root a[href^="https://pb-track.com/"], :root a[href^="https://partners.fxoro.com/click.php?"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://torrentsafeguard.com/?aid="], :root a[href^="https://offers.refchamp.com/"], :root a[href^="https://oackoubs.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://nutrientassumptionclaims.com/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root a[href^="https://www.highperformancecpmgate.com/"], :root a[href^="https://t.grtyi.com/"], :root a[href^="https://myusenet.xyz/"], :root a[href^="https://msecure117.com/"], :root a[href^="https://moneynow.one/"], :root div[id^="ezoic-pub-ad-"], :root a[href^="https://mk-cdn.net/"], :root a[href^="https://meet-sexhere.com/"], :root a[href^="https://meet-sex-here.com/"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root div[id^="google_dfp_"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://look.utndln.com/"], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://refpazkjixes.top/"], :root a[href^="https://landing.brazzersplus.com/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://movie.download-file.org/"], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iac.ampxdirect.com/"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://clk.wrenchsound.store/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root a[href^="https://go.xxxiijmp.com"], :root a[href*=".zlinkm.com/"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://thaudray.com/"], :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root [data-css-class="dfp-inarticle"], :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://refpa4903566.top/"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="//lambingsyddir.com/"], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="https://go.dmzjmp.com"], :root a[href^="https://ismlks.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root a[href^="https://go.xlirdr.com"], :root app-ad, :root a[href^="https://track.afftck.com/"], :root a[href^="https://gohere.pl/"], :root a[href^="https://go.cmrdr.com/"], :root a[href^="https://www.bebi.com"], :root a[href^="https://loboclick.com"], :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="https://get2nesoft1.ru/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a-ad, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root a[href^="https://aj1070.online/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://financeads.net/tc.php?"], :root bottomadblock, :root a[href^="https://fertilitycommand.com/"], :root a[href^="https://bluedelivery.pro/"], :root a[href^="https://fast-redirecting.com/"], :root a[href^="https://fakelay.com/"], :root a[href^="https://medleyads.com/"], :root div[data-native-ad], :root a[href^="https://engine.trackingdesks.com/"], :root a[href^="https://engine.blueistheneworanges.com/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://dianches-inchor.com/"], :root a[href^="https://go.admjmp.com/"], :root amp-fx-flying-carpet, :root a[href^="https://dfsdkkka.com/"], :root .trc_related_container div[data-item-syndicated="true"], :root a[href^="https://delivery.porn.com/"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root a[href^="https://deliver.tf2www.com/"], :root [href^="https://www.targetingpartner.com/"], :root [href^="https://detachedbates.com/"], :root a[href^="https://fourwhenstatistics.com/"], :root a[href^="https://deliver.ptgncdn.com/"], :root a[href^="https://datingbests.life/"], :root #kt_player > a[target="_blank"], :root a[href^="https://cpartner.bdswiss.com/"], :root a[href^="https://clixtrac.com/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="https://claring-loccelkin.com/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://aaucwbe.com/"], :root a[href^="https://cams.imagetwist.com/in/?track="], :root a[href^="https://mob1ledev1ces.com/"], :root a[href^="https://explore.findanswersnow.net/"], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://my-movie.club/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://bngpt.com/"], :root #topstuff > #tads, :root a[href^="https://black77854.com/"], :root a[href^="https://burpee.xyz/"], :root a[href*=".flndmyiove.net/"], :root [href^="http://join.trannies-fuck.com/"], :root [href^="http://www.fleshlightgirls.com/"], :root a[href^="https://bestdatinghere.life/"], :root div[id^="js-dfp-"], :root a[href^="https://batheunits.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="https://m.do.co/c/"] > img, :root div[id^="sticky_ad_"], :root a[href^="https://avtub.click/assets/link.php"], :root a[href^="https://go.gldrdr.com/"], :root [id^="ad_sky"], :root a[href^="https://funkydaters.com/"], :root [href^="https://www.cloudways.com/en/?id"], :root a[href^="https://as.sexad.net/"], :root a[href^="https://bestcond1tions.com/"], :root a[href^="https://takeallsoft.ru/"], :root a[href^="https://as.conjectwatson.com/"], :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root [data-ez-name], :root a[href^="https://awecrptjmp.com/"], :root a[href^="https://someperceptionparade.com/"], :root a[href^="https://galaxyroms.net/?scr="], :root a[href^="https://albionsoftwares.com/"], :root display-ad-component, :root a[href^="https://ak.hetaruwg.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://go.alxbgo.com/"], :root a[href^="https://aff-ads.stickywilds.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://ads.cdn.live/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ads.ad4game.com/"], :root a[href^="https://affpa.top/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://adjoincomprise.com/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="http://secure.vivid.com/track/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root a[href^="https://misspkl.com/"], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="https://adswick.com/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://ad.atdmt.com/"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root a[href^="https://a.medfoodhome.com/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="https://k2s.cc/pr/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.coiwqe.site/"], :root a[href^="https://ads-for-free.com/click.php?"], :root a[href^="http://www.FriendlyDuck.com/"], :root iframe[src^="http://www.adpeepshosted.com/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="http://trk.globwo.online/"], :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="http://tc.tradetracker.net/"] > img, :root .trc_rbox .syndicatedItem, :root a[href^="https://1free33style.com/"], :root a[href^="http://rs-stripe.wsj.com/stripe/redirect"], :root a[href^="http://tour.mrskin.com/"], :root a[href^="http://pubads.g.doubleclick.net/"], :root [onclick*="content.ad/"], :root a[href^="http://pityhostngco2.xyz/"], :root a[href^="http://partners.etoro.com/"], :root atf-ad-slot, :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href^="http://paid.outbrain.com/network/redir?"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://www.reimageplus.com/"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="http://intent.bingads.com/"], :root a[href^="https://cagothie.net/"], :root a[href^="https://watchmygirlfriend.tv/"], :root a[href^="http://go.xtbaffiliates.com/"], :root a[href^="http://go.fpmarkets.com/"], :root a[href^="https://porngames.adult/?SID="], :root a[href^="http://go.247traffic.com/"], :root div[id^="_vdo_ads_player_ai_"], :root a[href^="http://enter.anabolic.com/track/"], :root a[href^="http://www.advcashpro.com/aff/"], :root a[href^="http://deloplen.com/"], :root a[href^="http://d2.zedo.com/"], :root .rc-cta[data-target], :root [href^="http://go.cm-trk2.com/"], :root a[href^="http://adtrack1.club/"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://bs.serving-sys.com"], :root [class^="chp_ads_block"], :root a[href^="http://betahit.click/"], :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://noqreport.com/"] > img, :root a[href^="//wagerprocuratorantiterrorist.com/"], :root a[href^="http://adserver.adreactor.com/"], :root [href^="https://cipledecline.buzz/"], :root a[href^="https://earandmarketing.com/"], :root a[href^="http://adf.ly/?id="], :root [href^="http://homemoviestube.com/"], :root a[href^="http://ad.doubleclick.net/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="//syndication.dynsrvtbg.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="http://m.hsrve.com/"], :root [class^="s2nPlayer"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root a[href^="https://ausoafab.net/"], :root a[href^="//benoopto.com/"], :root [id^="ad-wrap-"], :root [href^="https://www.restoro.com/"], :root a[href^="//apptjmp.com/"], :root a[href^="https://dooloust.net/"], :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href="//rufflycouncil.com/"], :root a[href*="https://www.sweetdeals.com/"] img, :root div[data-native_ad], :root a[href*=".zlink9.com/"], :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root a[href^="https://a.bestcontentoperation.top/"], :root a[href^="https://dishphysics.com/"], :root a[href^="//go.xlviiirdr.com"], :root [data-dynamic-ads], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="http://bc.vc/?r="], :root a[href^="https://a2.adform.net/"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="https://clk.right-wing-health.com/"], :root a[data-redirect^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://axdsz.pro/"], :root a[href^="http://bodelen.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://allaptair.club/"], :root a[href^="//go.eabids.com/"], :root a[data-oburl^="http://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[href*="http://MyPillow.com"] > img, :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://wct.link/"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root a[href^="https://pl.premium4kflix.website/"], :root [id^="chp_ads_block"], :root a[href^="https://go.julrdr.com/"], :root a[href^="//chrif8kdstie.com/"], :root [id^="section-ad-banner"], :root .commercial-unit-mobile-top > div[data-pla="1"], :root a[href^="https://www.sweetdeals.com"], :root a[href^="https://track.bruceads.com/"], :root a[href^="https://t.aslnk.link/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://meet-to-fuck.com/"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root [data-ad-manager-id], :root a[href^="https://fleshlight.sjv.io/"], :root div[id^="zergnet-widget"], :root [href^="https://www.mystore.com/"] > img, :root div[id^="ad-position-"], :root a[href^="http://adultfriendfinder.com/go/page/landing"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://leg.xyz/?track="], :root a[href^="https://syndication.exoclick.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://go.trackitalltheway.com/"], :root a[href^="https://go.cmtaffiliates.com/"], :root [data-name="adaptiveConstructorAd"], :root [href^="https://optimizedelite.com/"] > img, :root a[href^="https://www.awin1.com/cread.php?awinaffid="], :root a[href^="//thaudray.com/"], :root div[id^="crt-"][style], :root a[href^="https://s.zlink1.com/"], :root a[href^="http://adultgames.xxx/"], :root a[href^="https://traffic.bannerator.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root a[href^="https://vo2.qrlsx.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root a[href^="https://losingoldfry.com/"], :root div[id^="ad-inserter-"], :root .scroll-fixable.rail-right > .deals-rail, :root a[href^="https://see.kmisln.com/"], :root [href^="https://routewebtk.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root a[href^="https://mmwebhandler.aff-online.com/"], :root [href^="https://r.kraken.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://go.goasrv.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root [href^="http://mypillow.com/"] > img, :root a[href^="http://bongacams.com/track?"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://stvkr.com/"], :root a[href^="https://go.hpyjmp.com"], :root a[href^="https://tour.mrskin.com/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root ADS-RIGHT, :root [href^="https://mystore.com/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root [href^="https://mylead.global/stl/"] > img, :root div[id^="ad_rect_"], :root .vid-present > .van_vid_carousel__padding, :root a[href^="https://syndication.optimizesrv.com/"], :root [id^="google_ads_iframe"], :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root a[href^="https://playuhd.host/"], :root a[href^="https://5hjdbfjfd5.monster/"], :root [href^="https://www.hostg.xyz/"] > img, :root .section-subheader > .section-hotel-prices-header, :root [href^="http://join.ts-dominopresley.com/"], :root [href^="https://go.affiliatexe.com/"], :root [href^="https://go.4rabettraff.com/"], :root [href^="https://glersakr.com/"], :root a[href^="https://click.a-ads.com/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://gghf.mobi/"], :root [href^="https://affect3dnetwork.com/track/"], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root a[href^="//coarsewary.com/"], :root a[href^="https://a.montangop.top/"], :root [href^="https://v.investologic.co.uk/"], :root a[href^="https://dialling-abutory.com/"], :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root div[id^="advads-"], :root div[data-role="sidebarAd"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [href^="http://trafficare.net/"], :root a[href^="https://adserver.adreactor.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root [href^="http://join.shemale.xxx/"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://www.chngtrack.com/"], :root a[href^="https://cpmspace.com/"], :root [href^="https://freecourseweb.com/"] > .sitefriend, :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root [href^="http://join.rodneymoore.com/"], :root a[href^="http://trk.mdrtrck.com/"], :root [href^="https://shrugartisticelder.com"], :root a[href*=".trust.zone"], :root a[href^="https://uncensored3d.com/"], :root a[href^="https://creacdn.top-convert.com/"], :root [href^="https://go.xlrdr.com"], :root [id^="div-gpt-ad"], :root .ob_container .item-container-obpd, :root [href^="http://www.pingperfect.com/aff.php"], :root a[href^="https://scurewall.co/"], :root [name^="google_ads_iframe"], :root [href^="https://safer-redirection.com"], :root [href^="//ngeoziadiyc4hi2e.com/"], :root a[href^="https://go.xxxjmp.com"], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root #leader-companion > a[href], :root [data-desktop-ad-id], :root [href^="https://wct.link/"], :root [href^="https://traffserve.com/"], :root a[href^="https://1startfiledownload1.com/"], :root a[href^="https://a.adtng.com/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root [href="https://ourgoldguy.com/contact/"] img, :root [href="https://www.masstortfinancing.com/"] > img, :root a[href^="https://lnkxt.bannerator.com/"], :root div[id^="ad_position_"], :root a[href^="https://ovb.im/"], :root a[href^="http://hotcandyland.com/partner/"], :root [href="https://jdrucker.com/gold"] > img, :root [href^="https://goldcometals.com/clk.trk"], :root [data-mobile-ad-id], :root a[href^="http://affiliates.thrixxx.com/"], :root #searchResultsList > div > div[onclick$="'inline.ad'});"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root [data-template-type="nativead"], :root a[data-redirect^="this.href='http://paid.outbrain.com/network/redir?"], :root a[href^="https://go.xlivrdr.com"], :root a[href^="https://www.onlineusershielder.com/torrent-guard/?"], :root [data-freestar-ad], :root AMP-AD, :root [data-ad-cls], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root [href^="http://join.hardcoreshemalevideo.com/"], :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root [href^="http://residenceseeingstanding.com/"], :root a[href^="https://www.adskeeper.com"], :root a[href^="//agacelebir.com/"], :root [href^="https://totlnkcl.com/"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root .trc_rbox_border_elm .syndicatedItem, :root [class^="amp-ad-"], :root .grid > .container > #aside-promotion, :root DFP-AD, :root a[href^="https://www.camsoda.com/enter.php?id="], :root AD-SLOT, :root a[href^="https://www.liquidfire.mobi/"], :root [href^="https://click2cvs.com/"], :root a[href^="https://u.expresstech.io/"], :root [href^="https://mypillow.com/"] > img, :root [href^="https://ad.admitad.com/"], :root [href^="http://join.shemalepornstar.com/"], :root a[href^="https://go.xlviiirdr.com"], :root .trc_rbox_div .syndicatedItem, :root [data-ad-module], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root a[href^="https://spygasm.com/track?"], :root a[href^="https://agacelebir.com/"], :root a[href*="//lkstrck2.com/"], :root .plistaList > .itemLinkPET, :root [data-advadstrackid], :root [href^="https://affiliate.fastcomet.com/"] > img, :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="https://awentw.com/"], :root [class^="div-gpt-ad"], :root a[href^="//voyeurhit.com/cs/"], :root div[id^="ad_bnr_"], :root a[href^="https://join.virtuallust3d.com/"], :root a[href^="https://speedsupermarketdonut.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root [data-adblockkey], :root div.fadeInDown[id$="____equal"][class$="____equal"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://odnxe.lncredlbiedate.com/"], :root a[href^="https://click.linksynergy.com/fs-bin/"], :root a[href^="https://join.virtualtaboo.com/track/"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="https://americafirstpolls.com/"] { display: none !important; }</style><link rel="preload" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(2).txt" as="script"><script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(2).txt"></script><link rel="preload" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(3).txt" as="script"><script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(3).txt"></script><link rel="preload" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(2).txt" as="script"><script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(2).txt"></script><link rel="preload" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(3).txt" as="script"><script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/f(3).txt"></script><style></style></head> 
+ <body itemscope="" itemtype="http://schema.org/WebPage" style="margin-top: 56px;"><div class="cc-revoke cc-bottom cc-left cc-animate cc-color-override-688238583" style="display: none;">Cookie Policy</div><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-floating cc-type-opt-in cc-theme-block cc-bottom cc-left cc-color-override-688238583 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website, to personalize content and ads and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners. By using our site you agree to our use of cookies <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.google.com/intl/en/policies/privacy/partners/" target="_blank">Learn more</a></span><div class="cc-compliance cc-highlight"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Decline</a><a aria-label="allow cookies" role="button" tabindex="0" class="cc-btn cc-allow">OK</a></div><!--googleon: all--></div><iframe title="Navegación del Traductor de Google" frameborder="0" id="gt-nvframe" role="navigation" aria-label="Navegación del Traductor de Google" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/websitetranslationui.html" style="border: none; border-radius: 0px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; height: 56px; left: 0px; right: auto; position: fixed; top: 0px; transition: none 0s ease 0s; width: 100%; z-index: 2147483646;"></iframe>
+  <script type="text/javascript" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/m=navigationui" data-environment="prod" data-proxy-url="https://www-sthda-com.translate.goog" data-proxy-full-url="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sch=http&amp;_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc" data-source-url="http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels" data-source-language="en" data-target-language="es" data-display-language="es" data-detected-source-language="" data-is-source-untranslated="false" data-source-untranslated-url="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels&amp;anno=2" data-use-in-place-translation="true" data-client="search"></script> 
+  <header id="header"> 
+   <div id="top-header"> 
+    <div id="site-infos"> 
+     <div id="site-logo" style="background-image: url(/english/images/customization/all_sthda-logo.png);"></div> 
+     <div id="site-name-container"> <a id="site-name" href="https://www-sthda-com.translate.goog/english/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http">STHDA</a> <!--=================AK================--> <span style="font-size:12px;"> <a href="https://www-sthda-com.translate.goog/french?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" style="color:white;"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(8)" class="valign_middle" style="width:15px;"></a> <a href="https://www-sthda-com.translate.goog/english?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" style="color:white;"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(9)" class="valign_middle" style="width:15px;"></a> </span> <!--================End AK==============--> <span id="site-slogan">Statistical tools for high-throughput data analysis</span> 
+     </div> 
+    </div> 
+    <div id="top-header-content"> 
+     <div class="block-container"> 
+      <div class="block-contents"> 
+       <div>
+         Licence: <a rel="license" href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=http://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank"><img alt="Licencia Creative Commons" style="border-width:0" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(10)"></a> 
+       </div> 
+      </div> 
+     </div> 
+     <div id="module-mini-search"> 
+      <form action="http://www.sthda.com/english/search/search.php#results" onsubmit="return check_search_mini_form_post();" method="post"> 
+       <div id="mini-search-form" class="input-element-button"> 
+        <input type="search" id="TxTMiniSearched" title="tu búsqueda" name="q" value="" placeholder="Buscar..."> 
+        <input type="hidden" id="search-token" name="token" value="e4daa7030ee5bbe2"> <button type="submit" name="search_submit"><i class="fa fa-search"></i></button> 
+       </div> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="sub-header"> 
+    <div id="sub-header-content"> 
+     <nav id="cssmenu-1764" class="cssmenu cssmenu-horizontal cssmenu-with-submenu"><a href="https://www-sthda-com.translate.goog/english/wiki/r-software?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página R &amp; Data Mining" class="cssmenu-img cssmenu-img-level-0"> </a><div id="menu-button-rdatamining" class="menu-button"><a href="https://www-sthda-com.translate.goog/english/wiki/r-software?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página R &amp; Data Mining" class="cssmenu-img cssmenu-img-level-0"> </a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Investigación y minería de datos</font></font></div>  
+      <ul class="level-0"> 
+       <li> <a href="https://www-sthda-com.translate.goog/english/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Inicio" class="cssmenu-title">Home</a> </li> 
+       <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/r-basics-quick-and-easy?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Conceptos básicos" class="cssmenu-title">Basics</a> 
+        <ul class="level-1"> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/what-is-r-and-why-learning-r-programming?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página ¿Qué es R y por qué R?" class="cssmenu-title">What's R and Why R?</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/installing-r-and-rstudio-easy-r-programming?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Instalación de R/RStudio" class="cssmenu-title">Installing R/RStudio</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Ejecutando R/RStudio" class="cssmenu-title">Running R/RStudio</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/easy-r-programming-basics?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Conceptos básicos de programación R" class="cssmenu-title">R Programming Basics</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/getting-help-with-functions-in-r-programming?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Cómo obtener ayuda" class="cssmenu-title">Getting Help</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/installing-and-using-r-packages?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Installing R Packages" class="cssmenu-title">Installing R Packages</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/r-built-in-data-sets?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page R Built-in data sets" class="cssmenu-title">R Built-in data sets</a> </li> 
+        </ul> </li> 
+       <li class="has-sub"><span class="submenu-button"></span> <span class="cssmenu-title">Data</span> 
+        <ul class="level-1"> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/importing-data-into-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Import" class="cssmenu-title">Import</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/exporting-data-from-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Export" class="cssmenu-title">Export</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/preparing-and-reshaping-data-in-r-for-easier-analyses?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Reshape" class="cssmenu-title">Reshape</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/data-manipulation-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Manipulate" class="cssmenu-title">Manipulate</a> </li> 
+        </ul> </li> 
+       <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/data-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Visualize" class="cssmenu-title">Visualize</a> 
+        <ul class="level-1"> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/articles/32-r-graphics-essentials/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page R Graphics Essentials" class="cssmenu-title">R Graphics Essentials</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/articles/24-ggpubr-publication-ready-plots/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Easy Publication Ready Plots" class="cssmenu-title">Easy Publication Ready Plots</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/articles/33-social-network-analysis/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Network Analysis and Visualization" class="cssmenu-title">Network Analysis and Visualization</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-essentials?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page GGplot2" class="cssmenu-title">GGplot2</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/r-base-graphs?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page R Base Graphs" class="cssmenu-title">R Base Graphs</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/lattice-graphs?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Lattice Graphs" class="cssmenu-title">Lattice Graphs</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/3d-graphics?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page 3D Graphics" class="cssmenu-title">3D Graphics</a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/wiki/the-elements-of-choosing-colors-for-great-data-visualization-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page How to Choose Great Colors?" class="cssmenu-title">How to Choose Great Colors?</a> </li> 
+        </ul> </li> 
+       <li class="has-sub"><span class="submenu-button"></span> <span class="cssmenu-title">Analyze</span> 
+        <ul class="level-1"> 
+         <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/r-basic-statistics?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Statistics" class="cssmenu-title">Statistics</a> 
+          <ul class="level-2"> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/descriptive-statistics-and-graphics?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Descriptive Statistics and Graphics" class="cssmenu-title">Descriptive Statistics and Graphics</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/normality-test-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Normality Test in R" class="cssmenu-title">Normality Test in R</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/statistical-tests-and-assumptions?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Statistical Tests and Assumptions" class="cssmenu-title">Statistical Tests and Assumptions</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/correlation-analyses-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Correlation Analysis" class="cssmenu-title">Correlation Analysis</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/comparing-means-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Comparing Means" class="cssmenu-title">Comparing Means</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/comparing-variances-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Comparing Variances" class="cssmenu-title">Comparing Variances</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/comparing-proportions-in-r?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Comparing Proportions" class="cssmenu-title">Comparing Proportions</a> </li> 
+          </ul> </li> 
+         <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/survival-analysis?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Survival" class="cssmenu-title">Survival</a> 
+          <ul class="level-2"> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survival-analysis-basics?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Survival Analysis Basics" class="cssmenu-title">Survival Analysis Basics</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/cox-proportional-hazards-model?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Cox Proportional Hazards Model" class="cssmenu-title">Cox Proportional Hazards Model</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/cox-model-assumptions?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Link to page Cox Model Assumptions" class="cssmenu-title">Cox Model Assumptions</a> </li> 
+          </ul> </li> 
+         <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/articles/25-cluster-analysis-in-r-practical-guide/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Agrupación" class="cssmenu-title">Clustering</a> 
+          <ul class="level-2"> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/26-clustering-basics/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Conceptos básicos de la agrupación en clústeres" class="cssmenu-title">Clustering basics</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/27-partitioning-clustering-essentials/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Clúster de particiones" class="cssmenu-title">Partitioning clustering</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/28-hierarchical-clustering-essentials/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Agrupación jerárquica" class="cssmenu-title">Hierarchical clustering</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/29-cluster-validation-essentials/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Evaluación y validación de agrupamiento" class="cssmenu-title">Clustering Evaluation &amp; Validation</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/30-advanced-clustering/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Clustering avanzado" class="cssmenu-title">Advanced clustering</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/25-cluster-analysis-in-r-practical-guide/108-clustering-example-4-steps-you-should-know/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Guía rápida para el análisis de conglomerados" class="cssmenu-title">Quick Guide for Cluster Analysis</a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/beautiful-dendrogram-visualizations-in-r-5-must-known-methods-unsupervised-machine-learning?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Visualizar dendogramas: más de 5 métodos" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visualizar dendogramas: más de 5 métodos</font></font></a> </li> 
+          </ul> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/articles/31-principal-component-methods-in-r-practical-guide/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Métodos de componentes principales" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Métodos de componentes principales</font></font></a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/articles/11-machine-learning/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Aspectos básicos del aprendizaje automático" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fundamentos del aprendizaje automático</font></font></a> </li> 
+        </ul> </li> 
+       <li> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/data-science-and-online-business-resources/" title="Enlace a la página Recursos" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Recursos</font></font></a> </li> 
+       <li class="has-sub"><span class="submenu-button"></span> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/data-science-and-online-business-resources/" title="Enlace a la página Nuestros Productos" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nuestros productos</font></font></a> 
+        <ul class="level-1"> 
+         <li> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/data-science-and-online-business-resources/" title="Enlace a la página Libros" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libros</font></font></a> </li> 
+         <li class="has-sub"><span class="submenu-button"></span> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://rpkgs.datanovia.com/" title="Enlace a la página Paquetes R" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paquetes R</font></font></a> 
+          <ul class="level-2"> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/factoextra-r-package-easy-multivariate-data-analyses-and-elegant-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página factoextra" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">factoextra</font></font></a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survminer-r-package-survival-data-analysis-and-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página survminer" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">superviviente</font></font></a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/articles/24-ggpubr-publication-ready-plots/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página ggpubr" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggpubr</font></font></a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página ggcorrplot" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggcorrplot</font></font></a> </li> 
+           <li> <a href="https://www-sthda-com.translate.goog/english/wiki/fastqcr-an-r-package-facilitating-quality-controls-of-sequencing-data-for-large-numbers-of-samples?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página fastqcr" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">rápidoqcr</font></font></a> </li> 
+          </ul> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/rsthda?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Web App" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aplicación Web</font></font></a> </li> 
+        </ul> </li> 
+       <li class="has-sub"><span class="submenu-button"></span> <span class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apoyo</font></font></span> 
+        <ul class="level-1"> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/forum?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Foro" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Foro</font></font></a> </li> 
+         <li> <a href="https://www-sthda-com.translate.goog/english/contact?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Contacto" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contacto</font></font></a> </li> 
+        </ul> </li> 
+       <li> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=http://www.alboukadel.com/" title="Enlace a la página Acerca de" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acerca de</font></font></a> </li> 
+      </ul> 
+     </nav> 
+    </div> 
+    <div class="spacer"></div> 
+   </div> 
+   <div class="spacer"></div> 
+  </header> 
+  <div id="global" style="height: auto !important; min-height: 0px !important;"> 
+   <aside id="menu-left" style="height: auto !important;"> 
+    <div id="module-connect" class="connect-menu not-connected module-mini-container vertical"> 
+     <div class="module-mini-top"> 
+      <div class="sub-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+       Registrarse
+      </font></font></div> 
+     </div> 
+     <div class="module-mini-contents connect-contents"> 
+      <div class="connect-containers"> 
+       <div class="connect-input-container vertical-fieldset"> 
+        <form action="http://www.sthda.com/english/user/login/" method="post" onsubmit="return check_connect();" class="form-element"> <label for="login"> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso</font></font></span> <input type="text" id="login" name="login" title="Acceso" placeholder="Acceso"> </label> <label for="password"> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contraseña</font></font></span> <input type="password" id="password" name="password" title="Contraseña" placeholder="Contraseña"> </label> <label for="autoconnect"> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Autoconectar</font></font></span> <input checked="" type="checkbox" id="autoconnect" name="autoconnect" title="Autoconectar"> </label> 
+         <input type="hidden" name="redirect" value="/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels"> 
+         <input type="hidden" name="token" value="e4daa7030ee5bbe2"> <button type="submit" name="authenticate" value="internal" class="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrarse</font></font></button> 
+        </form> 
+       </div> 
+       <div class="connect-register-container"> <a class="connect-register small" href="https://www-sthda-com.translate.goog/english/user/registration/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <i class="fa fa-ticket"></i><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registro</font></font></span> </a> <a class="social-connect fb" href="https://www-sthda-com.translate.goog/english/user/login/?authenticate=fb&amp;_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <i class="fa fa-facebook"></i><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Iniciar sesión usando Facebook</font></font></span> </a> 
+       </div> 
+       <div class="forget-pass-container"> <a class="forgot-pass small" href="https://www-sthda-com.translate.goog/english/user/password/lost/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <i class="fa fa-question-circle"></i><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contraseña olvidada</font></font></span> </a> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="module-mini-bottom"> 
+     </div> 
+    </div> 
+    <div class="module-mini-container"> 
+     <div class="module-mini-top"> 
+      <div class="sub-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+       ¡Bienvenidos!
+      </font></font></div> 
+     </div> 
+     <div class="module-mini-contents"> <span style="color:#FC4E07;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¿Quiere aprender más sobre la programación R y la ciencia de datos? </font></font></span>
+      <br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Síguenos </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://feedburner.google.com/fb/a/mailverify?uri%3Ddatanovia%26loc%3Den_US"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">por correo electrónico</font></font></a> 
+      <form style="border: 1px solid #2E9FDF;padding:3px;text-align:center; border-left: 6px solid #2E9FDF;" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#39;https://feedburner.google.com/fb/a/mailverify?uri=datanovia&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=550,height=520&#39;);return true">
+       <p><input type="text" style="width:140px" name="email"></p>
+       <input type="hidden" value="datanovia" name="uri">
+       <input type="hidden" name="loc" value="en_US">
+       <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Suscribir"></font></font>
+       <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">por </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://feedburner.google.com" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FeedBurner</font></font></a></p>
+      </form> 
+      <br> 
+      <div class="addthis_inline_follow_toolbox"></div> 
+      <div> 
+       <br> <span style="color:#FC4E07;"><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/data-science-and-online-business-resources/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Haz clic para ver nuestra colección de recursos para ayudarte en tu camino...</font></font></a></span> 
+       <br> 
+      </div> <!--
+<br/>
+<span style="color:#FC4E07;">Recommended Courses for You</span><br><br/>
+<ul>
+<li><a href="https://www.datanovia.com/en/zwf6" target="_blank">How to Become a Machine Learning Engineer</a></li>
+    
+<li><a href="https://www.datanovia.com/en/09iy" target="_blank">
+Learn AI Programming with Python</a></li>
+    
+<li><a href="https://www.datanovia.com/en/ynw5" target="_blank" rel="nofollow">
+Programming for Data Science with Python</a></li>
+    
+<li><a href="https://www.datanovia.com/en/tgy4" target="_blank" rel="nofollow">
+Programming for Data Science with R</a></li>
+    
+<li><a href="https://www.datanovia.com/en/7787" target="_blank" rel="nofollow">
+Become a Data Engineer</a></li>
+    
+<li><a href="https://www.datanovia.com/en/2obq">Become a Deep-Learning Engineer</a></li>
+</ul>
+<br/>
+<div>
+<a class="dt-sc-button  small filled"  style="color:#FC4E07;" href="https://www.datanovia.com/en/data-science-and-online-business-resources/" target="_blank">See More Resources</a>
+</div>
+--> 
+     </div> 
+     <div class="module-mini-bottom"> 
+     </div> 
+    </div> 
+    <div class="module-mini-container"> 
+     <div class="module-mini-top"> 
+      <div class="sub-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+       Curso y Especialización
+      </font></font></div> 
+     </div> 
+     <div class="module-mini-contents"> 
+      <div style="text-align:left;"> 
+       <br> <span style="color:#FC4E07;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Recomendado para ti (en Coursera):</font></font></span> 
+       <ul> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xkkk" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Curso: Machine Learning: Domina los fundamentos</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/e85g" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Especialización: Ciencia de Datos</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xepy" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Especialización: Python para todos</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/mm6m" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Curso: Desarrolle habilidades para un trabajo superior en cualquier industria</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xxae" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Especialización: Dominar los fundamentos del aprendizaje automático</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/2j0s" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Especialización: Estadística con R</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/ih09" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Especialización: Desarrollo de Software en R</font></font></a></li> 
+        <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/sprm" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Especialización: Ciencia de datos genómicos</font></font></a></li> 
+       </ul> 
+       <br>
+       <br> 
+       <div> <a class="dt-sc-button  small filled" href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/data-science-and-online-business-resources/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver más recursos</font></font></a> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="module-mini-bottom"> 
+     </div> 
+    </div> 
+    <div class="module-mini-container"> 
+     <div class="module-mini-top"> 
+     </div> 
+     <div class="module-mini-contents"> 
+      <script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(7)"></script> 
+      <ins class="adsbygoogle" style="display: none !important; height: 0px;" data-ad-client="ca-pub-5474463749888038" data-ad-slot="4712884969" data-ad-format="link" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_1_host" style="border: none; height: 0px; width: 182px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:182px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="182" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ads.html" data-google-container-id="a!2" data-google-query-id="CLa4w-mF5vwCFT6_0QQduccP-g" data-load-complete="true"></iframe></div></ins> 
+     </div> 
+     <div class="module-mini-bottom"> 
+     </div> 
+    </div> 
+    <div class="module-mini-container" style="height: auto !important;"> 
+     <div class="module-mini-top menu-vertical-0 hidden-small-screens"> <a href="https://www-sthda-com.translate.goog/english/wiki/r-packages?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Paquetes R" class="cssmenu-title sub-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paquetes R</font></font></a> 
+     </div> 
+     <div class="module-mini-contents" style="height: auto !important;"> 
+      <nav id="cssmenu-1825" class="cssmenu cssmenu-vertical cssmenu-left cssmenu-with-submenu"><div id="menu-button-rpackages" class="menu-button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paquetes R</font></font></div> 
+       <ul class="level-0"> 
+        <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/factoextra-r-package-easy-multivariate-data-analyses-and-elegant-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página factoextra" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(11)" alt="factoextra" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">factoextra</font></font></a> 
+         <ul class="level-1"> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/wiki/factoextra-r-package-easy-multivariate-data-analyses-and-elegant-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Resumen" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descripción general</font></font></a> </li> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/rpkgs/factoextra?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Documento oficial" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documento oficial</font></font></a> </li> 
+          <li class="has-sub"><span class="submenu-button"></span> <span class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tutoriales relacionados</font></font></span> 
+           <ul class="level-2"> 
+            <li> <a href="https://www-sthda-com.translate.goog/english/wiki/cluster-analysis-in-r-unsupervised-machine-learning?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Análisis de conglomerados" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Análisis de conglomerados</font></font></a> </li> 
+            <li> <a href="https://www-sthda-com.translate.goog/english/wiki/factor-analysis?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Métodos de componentes principales" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Métodos de componentes principales</font></font></a> </li> 
+           </ul> </li> 
+         </ul> </li> 
+        <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/survminer-r-package-survival-data-analysis-and-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página survminer" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(11)" alt="superviviente" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">superviviente</font></font></a> 
+         <ul class="level-1"> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survminer-r-package-survival-data-analysis-and-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Resumen" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descripción general</font></font></a> </li> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survminer-cheatsheet-to-create-easily-survival-plots?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Cheatsheet" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hoja de trucos</font></font></a> </li> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/rpkgs/survminer?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Documento oficial" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documento oficial</font></font></a> </li> 
+          <li class="has-sub"><span class="submenu-button"></span> <span class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tutoriales relacionados</font></font></span> 
+           <ul class="level-2"> 
+            <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survival-analysis?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Análisis de Supervivencia" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Análisis de supervivencia</font></font></a> </li> 
+           </ul> </li> 
+          <li class="has-sub"><span class="submenu-button"></span> <span class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Publicaciones de lanzamiento</font></font></span> 
+           <ul class="level-2"> 
+            <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survminer-0-3-0?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página v0.3.0" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v0.3.0</font></font></a> </li> 
+            <li> <a href="https://www-sthda-com.translate.goog/english/wiki/survminer-0-2-4?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página v0.2.4" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v0.2.4</font></font></a> </li> 
+           </ul> </li> 
+         </ul> </li> 
+        <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/articles/24-ggpubr-publication-ready-plots/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página ggpubr" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(11)" alt="ggpubr" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggpubr</font></font></a> 
+         <ul class="level-1"> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/articles/24-ggpubr-publication-ready-plots/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Resumen" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descripción general</font></font></a> </li> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/rpkgs/ggpubr/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Documento oficial" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documento oficial</font></font></a> </li> 
+         </ul> </li> 
+        <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página ggcorrplot" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(11)" alt="ggcorrplot" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggcorrplot</font></font></a> 
+         <ul class="level-1"> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Resumen" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descripción general</font></font></a> </li> 
+         </ul> </li> 
+        <li class="has-sub"><span class="submenu-button"></span> <a href="https://www-sthda-com.translate.goog/english/wiki/fastqcr-an-r-package-facilitating-quality-controls-of-sequencing-data-for-large-numbers-of-samples?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página fastqcr" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(11)" alt="rápidoqcr" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">rápidoqcr</font></font></a> 
+         <ul class="level-1"> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/wiki/fastqcr-an-r-package-facilitating-quality-controls-of-sequencing-data-for-large-numbers-of-samples?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Resumen" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descripción general</font></font></a> </li> 
+          <li> <a href="https://www-sthda-com.translate.goog/english/rpkgs/fastqcr/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Enlace a la página Documento oficial" class="cssmenu-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documento oficial</font></font></a> </li> 
+         </ul> </li> 
+       </ul> 
+      </nav><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5474463749888038" data-adsbygoogle-status="done" style="display: none !important; margin: 10px auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_5_host" style="border: none; height: 0px; width: 182px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0;width:182px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="182" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ads(1).html" data-google-container-id="a!6" data-google-query-id="CKrJ4OmF5vwCFQSF0QQdE0gHLw" data-load-complete="true"></iframe></div></ins></div> 
+     </div> 
+     <div class="module-mini-bottom"></div> 
+    </div> 
+    <div class="module-mini-container"> 
+     <div class="module-mini-top"> 
+     </div> 
+     <div class="module-mini-contents"> 
+      <div> 
+       <script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(7)"></script> 
+       <ins class="adsbygoogle" style="display: none !important; height: 0px;" data-ad-client="ca-pub-5474463749888038" data-ad-slot="8944608168" data-ad-format="vertical" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_2_host" style="border: none; height: 0px; width: 182px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:182px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="182" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ads(2).html" data-google-container-id="a!3" data-google-query-id="CJ_gyOmF5vwCFaAjTwgdViwOvg" data-load-complete="true"></iframe></div></ins> 
+      </div> 
+     </div> 
+     <div class="module-mini-bottom"> 
+     </div> 
+    </div> 
+    <div class="module-mini-container"> 
+     <div class="module-mini-top"> 
+      <div class="sub-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+       Nuestros libros
+      </font></font></div> 
+     </div> 
+     <div class="module-mini-contents"> 
+      <div class="small-block content-privileged-friends" style="width:98%;"> 
+       <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/52-r-graphics-essentials-for-great-data-visualization-200-practical-examples-you-want-to-know-for-data-science/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/r-graphics-essentials-cookbook-200.png"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R Graphics Essentials para una gran visualización de datos: 200 ejemplos prácticos que desea conocer para la ciencia de datos</font></font></a> 
+        <p class="star-new"><i class="fa fa-star"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¡¡NUEVO!!</font></font></p> 
+       </center> 
+      </div> 
+      <br> 
+      <div class="small-block" style="width:98%"> 
+       <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/17-practical-guide-to-cluster-analysis-in-r/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/practical-guide-to-cluster-analysis-in-r.jpg"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Guía práctica de análisis de conglomerados en R</font></font></a> 
+       </center> 
+      </div> 
+      <br> 
+      <div class="small-block" style="width:98%;"> 
+       <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/50-practical-guide-to-principal-component-methods-in-r/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/principal-component-methods-cover-200px.png" width="100px" ,="" height="125px;"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Guía práctica de métodos de componentes principales en R</font></font></a> 
+       </center> 
+      </div> 
+      <br> 
+      <br>
+      <br> 
+      <div style=""> <a href="https://www-sthda-com.translate.goog/english/download/3-ebooks/6-complete-guide-to-3d-plots-in-r/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" target="_blank"> <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gráficos 3D en R</font></font></b> <br><br> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/3d-graphic-cover.png" style="width:180px"> </a> 
+      </div> 
+     </div> 
+     <div class="module-mini-bottom"> 
+     </div> 
+    </div> 
+    <div class="module-mini-container"> 
+     <div class="module-mini-top menu-vertical-0 hidden-small-screens"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+       Lista de blogs 
+     </font></font></div> 
+     <div class="module-mini-contents"> 
+      <div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5474463749888038" data-adsbygoogle-status="done" style="display: none !important; margin: 10px auto; background-color: transparent; height: 600px;"><div id="aswift_6_host" style="border: none; height: 600px; width: 182px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins></div><nav id="cssmenu-1849" class="cssmenu cssmenu-vertical cssmenu-left"><div id="menu-button-blogroll" class="menu-button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lista de blogs</font></font></div> 
+       <ul class="level-0"> 
+        <li> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/" title="Enlace a página Datanovia: Cursos Online de Data Science" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(12)" alt="Datanovia: Cursos de ciencia de datos en línea" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datanovia: Cursos de ciencia de datos en línea</font></font></a> </li> 
+        <li> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.r-bloggers.com/" title="Enlace a la página R-Bloggers" class="cssmenu-title"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(12)" alt="R-Bloggers" height="16" width="16"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R-Bloggers</font></font></a> </li> 
+       </ul> 
+      </nav> 
+     </div> 
+     <div class="module-mini-bottom"></div> 
+    </div> 
+   </aside> 
+   <div id="main" class="main-with-left" role="main"> 
+    <div id="main-content" itemprop="mainContentOfPage"> 
+     <menu id="cssmenu-module-wiki" class="cssmenu cssmenu-right cssmenu-actionslinks"><div id="menu-button-actionsmenuformodulewiki" class="menu-button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Menú de acciones para el módulo Wiki</font></font></div> 
+      <ul class="level-0"> 
+       <li> <a href="https://www-sthda-com.translate.goog/english/wiki/wiki.php?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" class="cssmenu-title" title="Enlace a la página Inicio"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Casa</font></font></a> </li> 
+       <li> <a href="https://www-sthda-com.translate.goog/english/wiki/explorer.php?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" class="cssmenu-title" title="Enlace a la página Explorador"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Explorador</font></font></a> </li> 
+      </ul> 
+     </menu> 
+     <nav id="breadcrumb" itemprop="breadcrumb"> 
+      <ol> 
+       <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="https://www-sthda-com.translate.goog/english/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" itemprop="url"> <span itemprop="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Casa</font></font></span> </a> </li> 
+       <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="https://www-sthda-com.translate.goog/english/wiki/wiki.php?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" itemprop="url"> <span itemprop="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Guías fáciles</font></font></span> </a> </li> 
+       <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="https://www-sthda-com.translate.goog/english/wiki/r-software?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" itemprop="url"> <span itemprop="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">software R</font></font></span> </a> </li> 
+       <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="https://www-sthda-com.translate.goog/english/wiki/data-visualization?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" itemprop="url"> <span itemprop="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visualización de datos</font></font></span> </a> </li> 
+       <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-essentials?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" itemprop="url"> <span itemprop="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggplot2 - Esenciales</font></font></span> </a> </li> 
+       <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="current"> <a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" itemprop="url"> <span itemprop="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Marcas del eje ggplot2: una guía para personalizar marcas y etiquetas</font></font></span> </a> </li> 
+      </ol> 
+     </nav> 
+     <article id="article-wiki-176" class="article-wiki"> 
+      <div> 
+       <script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(7)"></script> 
+       <ins class="adsbygoogle" style="display: none !important; height: 280px;" data-ad-client="ca-pub-5474463749888038" data-ad-slot="2200070562" data-ad-format="auto" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_3_host" style="border: none; height: 0px; width: 766px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:766px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="766" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ads(3).html" data-google-container-id="a!4" data-google-query-id="CPeVyumF5vwCFeSw0QQdvFsDHA" data-load-complete="true"></iframe></div></ins> 
+       <br>
+       <br> 
+      </div> 
+      <header> 
+       <h1 class="wiki_paragraph1"> <a href="https://www-sthda-com.translate.goog/english/syndication/rss/wiki/27?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http" title="Sindicación" class="fa fa-syndication"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Marcas del eje ggplot2: una guía para personalizar marcas y etiquetas</font></font></h1> 
+      </header> <!--
+<div style="width:100%;height:15px; background-color:white; margin-left:2px; margin-bottom:10px;" class = "google_link">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5474463749888038"
+     data-ad-slot="4712884969"
+     data-ad-format="link"></ins>
+            </div>
+            <div class = "ak_spacer_mobile"></div>
+            --> 
+      <div class="content"> 
+       <div class="wiki-tools-container"> 
+        <menu id="cssmenu-wikitools" class="cssmenu cssmenu-right cssmenu-actionslinks cssmenu-tools"><div id="menu-button-tools" class="menu-button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Herramientas</font></font></div> 
+         <ul class="level-0"> <!--
+Inactivation print 
+<li><a href="../wiki/print.php?id=176" title="Printable version" class="cssmenu-title">
+<i class="fa fa-print"></i> Printable version
+</a></li>
+--> 
+         </ul> 
+        </menu> 
+       </div> 
+       <div class="spacer"></div> 
+       <div class="spacer"></div> <!--====================== start from here when you copy to sthda================--> 
+       <div id="rdoc"> 
+        <div id="TOC"> 
+         <ul> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#data"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datos</font></font></a></li> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#example-of-plots"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ejemplo de parcelas</font></font></a></li> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#change-the-appearance-of-the-axis-tick-mark-labels"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar la apariencia de las etiquetas de marca de graduación del eje</font></font></a></li> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#hide-x-and-y-axis-tick-mark-labels"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ocultar etiquetas de marcas de verificación de los ejes x e y</font></font></a></li> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#change-axis-lines"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar líneas de eje</font></font></a></li> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#set-axis-ticks-for-discrete-and-continuous-axes"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Establecer marcas de eje para ejes discretos y continuos</font></font></a>
+           <ul> 
+            <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#customize-a-discrete-axis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Personalizar un eje discreto</font></font></a>
+             <ul> 
+              <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#change-the-order-of-items"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar el orden de los elementos</font></font></a></li> 
+              <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#change-tick-mark-labels"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar etiquetas de marca de verificación</font></font></a></li> 
+              <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#choose-which-items-to-display"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Elija qué elementos mostrar</font></font></a></li> 
+             </ul></li> 
+            <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#customize-a-continuous-axis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Personalizar un eje continuo</font></font></a>
+             <ul> 
+              <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#set-the-position-of-tick-marks"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Establecer la posición de las marcas de verificación</font></font></a></li> 
+              <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#format-the-text-of-tick-mark-labels"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dar formato al texto de las etiquetas de marca de verificación</font></font></a></li> 
+             </ul></li> 
+           </ul></li> 
+          <li><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#infos"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Información</font></font></a></li> 
+         </ul> 
+        </div> 
+        <p><br></p> 
+        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El objetivo de este </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tutorial</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> es describir cómo personalizar </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">las marcas</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">etiquetas</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de los ejes en </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">el software R</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> usando el paquete </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggplot2</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .</font></font></p> 
+        <br> 
+        <div class="small-block content-privileged-friends navr-book"> 
+         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libro relacionado:</font></font></p> <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/udft" target="_blank"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ggplot2-book.png"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GGPlot2 Essentials para una gran visualización de datos en R</font></font></a> 
+        </div> 
+        <div class="spacer"></div> 
+        <div id="data" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datos</font></font></h1> 
+         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los datos de ToothGrowth se utilizan en los ejemplos siguientes.</font></font></p> 
+         <pre class="r"><code class="r"><span class="comment"># Convert dose column from numeric to factor variable</span>
+<span class="identifier">ToothGrowth</span><span class="operator">$</span><span class="identifier">dose</span> <span class="operator">&lt;-</span> <span class="identifier">as.factor</span><span class="paren">(</span><span class="identifier">ToothGrowth</span><span class="operator">$</span><span class="identifier">dose</span><span class="paren">)</span>
+<span class="keyword">head</span><span class="paren">(</span><span class="identifier">ToothGrowth</span><span class="paren">)</span></code></pre> 
+         <pre><code class="inline-r-code">##    len supp dose<font></font>
+## 1  4.2   VC  0.5<font></font>
+## 2 11.5   VC  0.5<font></font>
+## 3  7.3   VC  0.5<font></font>
+## 4  5.8   VC  0.5<font></font>
+## 5  6.4   VC  0.5<font></font>
+## 6 10.0   VC  0.5</code></pre> 
+         <p><span class="warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Asegúrese de que la columna de </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dosis</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se convierta como un factor utilizando el script R anterior.</font></font></span></p> 
+        </div> 
+        <div id="example-of-plots" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ejemplo de parcelas</font></font></h1> 
+         <pre class="r"><code class="r"><span class="keyword">library</span><span class="paren">(</span><span class="identifier">ggplot2</span><span class="paren">)</span>
+<span class="identifier">p</span> <span class="operator">&lt;-</span> <span class="identifier">ggplot</span><span class="paren">(</span><span class="identifier">ToothGrowth</span>, <span class="identifier">aes</span><span class="paren">(</span><span class="identifier">x</span><span class="operator">=</span><span class="identifier">dose</span>, <span class="identifier">y</span><span class="operator">=</span><span class="identifier">len</span><span class="paren">)</span><span class="paren">)</span> <span class="operator">+</span> <span class="identifier">geom_boxplot</span><span class="paren">(</span><span class="paren">)</span>
+<span class="identifier">p</span></code></pre> 
+         <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(13)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"></p> 
+        </div> 
+        <div id="change-the-appearance-of-the-axis-tick-mark-labels" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar la apariencia de las etiquetas de marca de graduación del eje</font></font></h1> 
+         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">color</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , el </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tamaño de fuente</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y la </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">fuente</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de las etiquetas de marca de verificación del eje se pueden cambiar usando las funciones </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">theme()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">element_text()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de la siguiente manera:</font></font></p> 
+         <pre class="r"><code class="r"><span class="comment"># x axis tick mark labels</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span><span class="identifier">axis.text.x</span><span class="operator">=</span> <span class="identifier">element_text</span><span class="paren">(</span><span class="identifier">family</span>, <span class="identifier">face</span>, <span class="identifier">colour</span>, <span class="identifier">size</span><span class="paren">)</span><span class="paren">)</span>
+<span class="comment"># y axis tick mark labels</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span><span class="identifier">axis.text.y</span> <span class="operator">=</span> <span class="identifier">element_text</span><span class="paren">(</span><span class="identifier">family</span>, <span class="identifier">face</span>, <span class="identifier">colour</span>, <span class="identifier">size</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los siguientes argumentos se pueden usar para que la función </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">element_text()</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> cambie la apariencia del texto:</font></font></p> 
+         <br> 
+         <div class="block"> 
+          <ul> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">familia</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : familia de fuentes</font></font></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cara</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : cara de la fuente. </font><font style="vertical-align: inherit;">Los valores posibles son "simple", "cursiva", "negrita" y "negrita.cursiva"</font></font></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">color</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : color del texto</font></font></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tamaño</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : tamaño del texto en pts</font></font></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ángulo</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : ángulo (en [0, 360])</font></font></li> 
+          </ul> 
+         </div> 
+         <p><br></p> 
+         <pre class="r"><code class="r"><span class="comment"># Change the appearance and the orientation angle</span>
+<span class="comment"># of axis tick labels</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span><span class="identifier">axis.text.x</span> <span class="operator">=</span> <span class="identifier">element_text</span><span class="paren">(</span><span class="identifier">face</span><span class="operator">=</span><span class="string">"bold"</span>, <span class="identifier">color</span><span class="operator">=</span><span class="string">"#993333"</span>, 
+                           <span class="identifier">size</span><span class="operator">=</span><span class="number">14</span>, <span class="identifier">angle</span><span class="operator">=</span><span class="number">45</span><span class="paren">)</span>,
+          <span class="identifier">axis.text.y</span> <span class="operator">=</span> <span class="identifier">element_text</span><span class="paren">(</span><span class="identifier">face</span><span class="operator">=</span><span class="string">"bold"</span>, <span class="identifier">color</span><span class="operator">=</span><span class="string">"#993333"</span>, 
+                           <span class="identifier">size</span><span class="operator">=</span><span class="number">14</span>, <span class="identifier">angle</span><span class="operator">=</span><span class="number">45</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+         <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(14)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"></p> 
+        </div> 
+        <div id="hide-x-and-y-axis-tick-mark-labels" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ocultar etiquetas de marcas de verificación de los ejes x e y</font></font></h1> 
+         <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Las marcas de eje</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">las etiquetas de marca de marca</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se pueden eliminar usando la función </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">element_blank()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de la siguiente manera:</font></font></p> 
+         <pre class="r"><code class="r"><span class="comment"># Hide x an y axis tick mark labels</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span>
+  <span class="identifier">axis.text.x</span> <span class="operator">=</span> <span class="identifier">element_blank</span><span class="paren">(</span><span class="paren">)</span>,
+  <span class="identifier">axis.text.y</span> <span class="operator">=</span> <span class="identifier">element_blank</span><span class="paren">(</span><span class="paren">)</span><span class="paren">)</span>
+<span class="comment"># Remove axis ticks and tick mark labels</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span>
+  <span class="identifier">axis.text.x</span> <span class="operator">=</span> <span class="identifier">element_blank</span><span class="paren">(</span><span class="paren">)</span>,
+  <span class="identifier">axis.text.y</span> <span class="operator">=</span> <span class="identifier">element_blank</span><span class="paren">(</span><span class="paren">)</span>,
+  <span class="identifier">axis.ticks</span> <span class="operator">=</span> <span class="identifier">element_blank</span><span class="paren">(</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+         <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(15)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(16)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"></p> 
+        </div> 
+        <div id="change-axis-lines" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar líneas de eje</font></font></h1> 
+         <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Las líneas del eje</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se pueden cambiar usando la función </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">element_line()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de la siguiente manera:</font></font></p> 
+         <pre class="r"><code class="r"><span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span><span class="identifier">axis.line</span> <span class="operator">=</span> <span class="identifier">element_line</span><span class="paren">(</span><span class="identifier">colour</span>, <span class="identifier">size</span>, <span class="identifier">linetype</span>,
+                                   <span class="identifier">lineend</span>, <span class="identifier">color</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los argumentos de </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">element_line()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> son:</font></font></p> 
+         <br> 
+         <div class="block"> 
+          <ul> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">color</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">color</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : color de línea</font></font></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tamaño</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : tamaño de línea</font></font></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tipo</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de línea : tipo de línea. </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El tipo de línea</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se puede especificar usando texto ("en blanco", "sólido", "discontinuo", "punteado", "punteado", "guión largo", "dos guiones") o números (0, 1, 2, 3, 4, 5, 6). </font><font style="vertical-align: inherit;">Tenga en cuenta que tipo de línea = "sólido" es idéntico a tipo de línea = 1. </font><font style="vertical-align: inherit;">Los tipos de línea disponibles en R se describen en esta publicación: </font></font><a href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-line-types-how-to-change-line-types-of-a-graph-in-r-software?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tipo de línea en el software R</font></font></a></li> 
+           <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">lineend</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : fin de línea. </font><font style="vertical-align: inherit;">Los valores permitidos para el final de la línea son: "redondo", "a tope" o "cuadrado"</font></font></li> 
+          </ul> 
+         </div> 
+         <p><br></p> 
+         <pre class="r"><code class="r"><span class="comment"># Change the line type and color of axis lines</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">theme</span><span class="paren">(</span> <span class="identifier">axis.line</span> <span class="operator">=</span> <span class="identifier">element_line</span><span class="paren">(</span><span class="identifier">colour</span> <span class="operator">=</span> <span class="string">"darkblue"</span>, 
+                      <span class="identifier">size</span> <span class="operator">=</span> <span class="number">1</span>, <span class="identifier">linetype</span> <span class="operator">=</span> <span class="string">"solid"</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+         <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(17)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"></p> 
+        </div> 
+        <div id="set-axis-ticks-for-discrete-and-continuous-axes" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Establecer marcas de eje para ejes discretos y continuos</font></font></h1> 
+         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El eje x o y puede ser discreto o continuo. </font><font style="vertical-align: inherit;">En cada uno de estos dos casos, las funciones que se utilizarán para establecer las marcas de los ejes son diferentes.</font></font></p> 
+         <div id="customize-a-discrete-axis" class="section level2"> 
+          <h2 class="wiki_paragraph2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Personalizar un eje discreto</font></font></h2> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Las funciones </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_x_discrete()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_y_discrete()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se utilizan para personalizar los ejes x e y discretos, respectivamente.</font></font></p> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Es posible utilizar estas funciones para cambiar los siguientes parámetros del eje x o y:</font></font></p> 
+          <ul> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">títulos de eje</font></font></li> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">límites del eje (rango de datos para mostrar)</font></font></li> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">elegir dónde aparecen las marcas de verificación</font></font></li> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">etiquetar manualmente las marcas de verificación</font></font></li> 
+          </ul> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los formatos simplificados de </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_x_discrete()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_y_discrete()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> son:</font></font></p> 
+          <pre class="r"><code class="r"><span class="identifier">scale_x_discrete</span><span class="paren">(</span><span class="identifier">name</span>, <span class="identifier">breaks</span>, <span class="identifier">labels</span>, <span class="identifier">limits</span><span class="paren">)</span>
+<span class="identifier">scale_y_discrete</span><span class="paren">(</span><span class="identifier">name</span>, <span class="identifier">breaks</span>, <span class="identifier">labels</span>, <span class="identifier">limits</span><span class="paren">)</span></code></pre> 
+          <br> 
+          <div class="block"> 
+           <ul> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nombre</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : etiquetas de eje x o y</font></font></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">breaks</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : controle los descansos en la guía (ticks de eje, líneas de cuadrícula, …). </font><font style="vertical-align: inherit;">Entre los valores posibles, se encuentran: 
+             </font></font><ul> 
+              <li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NULL</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : ocultar todos los descansos</font></font></li> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">waiver()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : el cálculo de descanso predeterminado</font></font></li> 
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">un </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">carácter</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> o vector </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">numérico</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> que especifica qué saltos mostrar</font></font></li> 
+             </ul></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">etiquetas</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : etiquetas de marcas de graduación del eje. </font><font style="vertical-align: inherit;">Los valores permitidos son: 
+             </font></font><ul> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NULL</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> sin etiquetas</font></font></li> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">renuncia ()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> para las etiquetas predeterminadas</font></font></li> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">vector de caracteres</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> que se utilizará para romper etiquetas</font></font></li> 
+             </ul></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">límites</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : un vector de caracteres que indica el rango de datos</font></font></li> 
+           </ul> 
+          </div> 
+          <p><br></p> 
+          <p><span class="warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class="">Tenga en cuenta que, en los ejemplos a continuación, usaremos solo las funciones </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class="">scale_x_discrete()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class=""> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class="">xlim()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class=""> para personalizar las marcas de verificación del eje x. </font><font style="vertical-align: inherit;">El mismo tipo de ejemplos se puede aplicar a un eje y discreto usando las funciones </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_y_discrete()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ylim()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .</font></font></span></p> 
+          <div id="change-the-order-of-items" class="section level3"> 
+           <h3 class="wiki_paragraph3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar el orden de los elementos</font></font></h3> 
+           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El argumento </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">limites</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se utiliza para cambiar el orden de los elementos:</font></font></p> 
+           <pre class="r"><code class="r"><span class="comment"># default plot</span>
+<span class="identifier">p</span>
+<span class="comment"># Change the order of items</span>
+<span class="comment"># Change the x axis name</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_x_discrete</span><span class="paren">(</span><span class="identifier">name</span> <span class="operator">=</span><span class="string">"Dose (mg)"</span>, 
+                    <span class="identifier">limits</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="string">"2"</span>,<span class="string">"1"</span>,<span class="string">"0.5"</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+           <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(18)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(19)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"></p> 
+          </div> 
+          <div id="change-tick-mark-labels" class="section level3"> 
+           <h3 class="wiki_paragraph3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar etiquetas de marca de verificación</font></font></h3> 
+           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El nombre de los textos de marca de verificación se puede cambiar de la siguiente manera:</font></font></p> 
+           <pre class="r"><code class="r"><span class="comment"># Solution 1</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_x_discrete</span><span class="paren">(</span><span class="identifier">breaks</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="string">"0.5"</span>,<span class="string">"1"</span>,<span class="string">"2"</span><span class="paren">)</span>,
+        <span class="identifier">labels</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="string">"Dose 0.5"</span>, <span class="string">"Dose 1"</span>, <span class="string">"Dose 2"</span><span class="paren">)</span><span class="paren">)</span>
+<span class="comment"># Solution 2 : same plot as solution 1</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_x_discrete</span><span class="paren">(</span><span class="identifier">labels</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="string">"0.5"</span> <span class="operator">=</span> <span class="string">"Dose 0.5"</span>, <span class="string">"1"</span> <span class="operator">=</span> <span class="string">"Dose 1"</span>,
+                              <span class="string">"2"</span> <span class="operator">=</span> <span class="string">"Dose 2"</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+           <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(20)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(21)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"></p> 
+          </div> 
+          <div id="choose-which-items-to-display" class="section level3"> 
+           <h3 class="wiki_paragraph3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Elija qué elementos mostrar</font></font></h3> 
+           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El siguiente código R muestra el diagrama de caja para el primer elemento (dosis = 0,5) y el último elemento (dosis = 2):</font></font></p> 
+           <pre class="r"><code class="r"><span class="comment"># Solution 1</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_x_discrete</span><span class="paren">(</span><span class="identifier">limits</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="string">"0.5"</span>, <span class="string">"2"</span><span class="paren">)</span><span class="paren">)</span>
+<span class="comment"># Solution 2 : same result as solution 1</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">xlim</span><span class="paren">(</span><span class="string">"0.5"</span>, <span class="string">"2"</span><span class="paren">)</span></code></pre> 
+           <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(22)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(23)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="240"></p> 
+          </div> 
+         </div> 
+         <div id="customize-a-continuous-axis" class="section level2"> 
+          <h2 class="wiki_paragraph2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Personalizar un eje continuo</font></font></h2> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Las funciones </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_x_continuous()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_y_continuous()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se utilizan para personalizar los ejes x e y continuos, respectivamente.</font></font></p> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usando estas dos funciones, se pueden modificar los siguientes parámetros del eje x o y:</font></font></p> 
+          <ul> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">títulos de eje</font></font></li> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">límites de los ejes (establecer el mínimo y el máximo)</font></font></li> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">elegir dónde aparecen las marcas de verificación</font></font></li> 
+           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">etiquetar manualmente las marcas de verificación</font></font></li> 
+          </ul> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los formatos simplificados de </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_x_continuous()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_y_continuous()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> son:</font></font></p> 
+          <pre class="r"><code class="r"><span class="identifier">scale_x_continuous</span><span class="paren">(</span><span class="identifier">name</span>, <span class="identifier">breaks</span>, <span class="identifier">labels</span>, <span class="identifier">limits</span>, <span class="identifier">trans</span><span class="paren">)</span>
+<span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">name</span>, <span class="identifier">breaks</span>, <span class="identifier">labels</span>, <span class="identifier">limits</span>, <span class="identifier">trans</span><span class="paren">)</span></code></pre> 
+          <br> 
+          <div class="block"> 
+           <ul> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nombre</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : etiquetas de eje x o y</font></font></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">breaks</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : controle los descansos en la guía (ticks de eje, líneas de cuadrícula, …). </font><font style="vertical-align: inherit;">Entre los valores posibles, se encuentran: 
+             </font></font><ul> 
+              <li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NULL</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : ocultar todos los descansos</font></font></li> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">waiver()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : el cálculo de descanso predeterminado</font></font></li> 
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">un </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">carácter</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> o vector </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">numérico</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> que especifica las pausas para mostrar</font></font></li> 
+             </ul></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">etiquetas</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : etiquetas de marcas de graduación del eje. </font><font style="vertical-align: inherit;">Los valores permitidos son: 
+             </font></font><ul> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NULL</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> sin etiquetas</font></font></li> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">renuncia ()</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> para las etiquetas predeterminadas</font></font></li> 
+              <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">vector de caracteres</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> que se utilizará para romper etiquetas</font></font></li> 
+             </ul></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">límites</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : un vector numérico que especifica los límites del eje x o y (mín, máx)</font></font></li> 
+            <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trans</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> para transformaciones de eje. </font><font style="vertical-align: inherit;">Los valores posibles son "log2", "log10", "sqrt", etc.</font></font></li> 
+           </ul> 
+          </div> 
+          <p><br></p> 
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estas funciones se pueden utilizar de la siguiente manera:</font></font></p> 
+          <pre class="r"><code class="r"><span class="comment"># scatter plot</span>
+<span class="identifier">sp</span><span class="operator">&lt;-</span><span class="identifier">ggplot</span><span class="paren">(</span><span class="identifier">cars</span>, <span class="identifier">aes</span><span class="paren">(</span><span class="identifier">x</span> <span class="operator">=</span> <span class="identifier">speed</span>, <span class="identifier">y</span> <span class="operator">=</span> <span class="identifier">dist</span><span class="paren">)</span><span class="paren">)</span> <span class="operator">+</span> <span class="identifier">geom_point</span><span class="paren">(</span><span class="paren">)</span>
+<span class="identifier">sp</span>
+<span class="comment"># Change x and y axis labels, and limits</span>
+<span class="identifier">sp</span> <span class="operator">+</span> <span class="identifier">scale_x_continuous</span><span class="paren">(</span><span class="identifier">name</span><span class="operator">=</span><span class="string">"Speed of cars"</span>, <span class="identifier">limits</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="number">0</span>, <span class="number">30</span><span class="paren">)</span><span class="paren">)</span> <span class="operator">+</span>
+  <span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">name</span><span class="operator">=</span><span class="string">"Stopping distance"</span>, <span class="identifier">limits</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="number">0</span>, <span class="number">150</span><span class="paren">)</span><span class="paren">)</span></code></pre> 
+          <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(24)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(25)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"></p> 
+          <div id="set-the-position-of-tick-marks" class="section level3"> 
+           <h3 class="wiki_paragraph3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Establecer la posición de las marcas de verificación</font></font></h3> 
+           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El siguiente código R establece la posición de las marcas en el eje y del diagrama de caja. </font><font style="vertical-align: inherit;">La función </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scale_y_continuous() y los </font></font></strong><font style="vertical-align: inherit;"></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">saltos</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de argumento </font><font style="vertical-align: inherit;">se utilizan para elegir dónde aparecen las marcas:</font></font></p> 
+           <pre class="r"><code class="r"><span class="comment"># Set tick marks on y axis</span>
+<span class="comment"># a tick mark is shown on every 5</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">breaks</span><span class="operator">=</span><span class="identifier">seq</span><span class="paren">(</span><span class="number">0</span>,<span class="number">40</span>,<span class="number">5</span><span class="paren">)</span><span class="paren">)</span>
+<span class="comment"># Tick marks can be spaced randomly</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">breaks</span><span class="operator">=</span><span class="identifier">c</span><span class="paren">(</span><span class="number">5</span>,<span class="number">7.5</span>, <span class="number">20</span>, <span class="number">25</span><span class="paren">)</span><span class="paren">)</span><font></font>
+                     <font></font>
+<span class="comment"># Remove tick mark labels and gridlines</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">breaks</span><span class="operator">=</span><span class="literal">NULL</span><span class="paren">)</span></code></pre> 
+           <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(26)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(27)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(28)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"></p> 
+          </div> 
+          <div id="format-the-text-of-tick-mark-labels" class="section level3"> 
+           <h3 class="wiki_paragraph3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dar formato al texto de las etiquetas de marca de verificación</font></font></h3> 
+           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Las etiquetas de marcas de verificación se pueden formatear para que se vean como porcentajes, dólares o notación científica. </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Se requiere la balanza</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> del paquete </font><font style="vertical-align: inherit;">.</font></font></p> 
+           <pre class="r"><code class="r"><span class="keyword">library</span><span class="paren">(</span><span class="identifier">scales</span><span class="paren">)</span>
+<span class="comment"># Format labels as percents</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">labels</span> <span class="operator">=</span> <span class="identifier">percent</span><span class="paren">)</span>
+<span class="comment"># Format labels as scientific</span>
+<span class="identifier">p</span> <span class="operator">+</span> <span class="identifier">scale_y_continuous</span><span class="paren">(</span><span class="identifier">labels</span> <span class="operator">=</span> <span class="identifier">scientific</span><span class="paren">)</span></code></pre> 
+           <p><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(29)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(30)" title="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" alt="Marcas de eje ggplot2, etiquetas de marca de eje, programación R" width="192"></p> 
+           <p><span class="success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los valores posibles para las etiquetas son coma, porcentaje, dólar y científico. </font><font style="vertical-align: inherit;">Para más ejemplos, lea la documentación del paquete </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">scales</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : ?scales::trans_new</font></font></span></p> 
+          </div> 
+         </div> 
+        </div> 
+        <div id="infos" class="section level1"> 
+         <h1 class="wiki_paragraph1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Información</font></font></h1> 
+         <p><span class="warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Este análisis se ha realizado utilizando </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">el software R</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> (ver. 3.1.2) y </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ggplot2</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> (ver. )</font></font></span></p> 
+        </div> 
+        <style>.content{padding:0px;}</style> 
+       </div><!--end rdoc--> <!--====================== stop here when you copy to sthda================--> 
+       <div class="spacer"></div> <!--============ AK ========--> 
+       <br> 
+       <div class="success english-msg"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+         ¿Te gustó este artículo? </font><font style="vertical-align: inherit;">Estaría muy agradecido si ayudaras a difundirlo enviándolo por correo electrónico a un amigo o compartiéndolo en Twitter, Facebook o Linked In. 
+        </font></font><br>
+        <br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Muéstrame un poco de amor con los botones Me gusta a continuación... ¡Gracias y por favor no olvides compartir y comentar a continuación! 
+       </font></font></div> 
+       <div class="success french-msg" style="display: none;">
+         Avez vous aimé cet article? Je vous serais très reconnaissant si vous aidiez à sa diffusion en l'envoyant par courriel à un ami ou en le partageant sur Twitter, Facebook ou Linked In. 
+        <br>
+        <br> Montrez-moi un peu d'amour avec les like ci-dessous ... Merci et n'oubliez pas, s'il vous plaît, de partager et de commenter ci-dessous! 
+       </div> 
+       <br> <!--
+<div style="width:100%;height:15px; background-color:white; margin-left:2px; margin-bottom:10px;" class = "google_link">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5474463749888038"
+     data-ad-slot="4712884969"
+     data-ad-format="link"></ins>
+            </div><br/>
+<div class="spacer"></div>
+--> 
+       <div class="addthis_native_toolbox"></div> 
+       <center> 
+        <br>
+        <br>
+        <br> 
+        <div class="annonce_adaptable_bottom"> 
+         <script async="" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(7)"></script> 
+         <ins class="adsbygoogle" style="display: none !important; height: 0px;" data-ad-client="ca-pub-5474463749888038" data-ad-slot="5770815769" data-ad-format="auto" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_4_host" style="border: none; height: 0px; width: 340px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0;width:340px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="340" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ads(4).html" data-google-container-id="a!5" data-google-query-id="CNbnzumF5vwCFVyy0QQdYHYJhA" data-load-complete="true"></iframe></div></ins> 
+        </div> 
+       </center> 
+       <br> <!--====================================
+                RECOMMENDED BOOKS
+                ========================================--> 
+       <div id="recommended_books"> 
+        <h2 class="wiki_paragraph1 wiki_paragraph2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¡Recomendado para ti!</font></font></h2> 
+        <br> 
+        <div class="small-block book_ads content-privileged-friends"> 
+         <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/54-machine-learning-essentials/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/machine-learning-essentials-frontcover-200px.png" width="100px"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Machine Learning Essentials: Guía práctica en R</font></font></a> 
+         </center> 
+        </div> 
+        <div class="small-block book_ads content-privileged-friends"> 
+         <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/17-practical-guide-to-cluster-analysis-in-r/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/practical-guide-to-cluster-analysis-in-r.jpg"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Guía práctica de análisis de conglomerados en R</font></font></a> 
+         </center> 
+        </div> 
+        <div class="small-block book_ads content-privileged-friends"> 
+         <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/50-practical-guide-to-principal-component-methods-in-r/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/principal-component-methods-cover-200px.png" width="100px" ,="" height="125px;"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Guía práctica de métodos de componentes principales en R</font></font></a> 
+         </center> 
+        </div> 
+        <div class="small-block book_ads content-privileged-friends"> 
+         <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/52-r-graphics-essentials-for-great-data-visualization-200-practical-examples-you-want-to-know-for-data-science/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/r-graphics-essentials-cookbook-100.png"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R Graphics Essentials para una gran visualización de datos</font></font></a> 
+         </center> 
+        </div> 
+        <div class="small-block book_ads content-privileged-friends"> 
+         <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/53-network-analysis-and-visualization-in-r/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/network-analysis-and-visualization-in-r-200px.png" width="100px"><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Análisis y Visualización de Redes en R</font></font></a> 
+         </center> 
+        </div> 
+        <div class="small-block book_ads"> 
+         <br>
+         <br> 
+         <center> <a href="https://www-sthda-com.translate.goog/english/web/5-bookadvisor/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http"> <span><i class="fa fa-4x fa-arrow-circle-right" aria-hidden="true"></i></span><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Más libros sobre R y ciencia de datos</font></font></a> 
+         </center> 
+        </div> <!--end books --> 
+        <div class="spacer"></div> 
+        <br> 
+        <div id="recommended-for-you" class="section level2">
+         <h2 class="wiki_paragraph2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Recomendado para ti</font></font></h2>
+         <div class="success">
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Esta sección contiene los mejores recursos de ciencia de datos y autodesarrollo para ayudarlo en su camino.</font></font></p>
+         </div>
+         <div class="affiliate-marketing">
+          <h3 class="wiki_paragraph3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Coursera - Cursos en línea y especialización</font></font></h3>
+          <h4 class="wiki_paragraph4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ciencia de los datos</font></font></h4>
+          <ul>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xkkk" target="_blank" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Curso: Machine Learning: Domina los fundamentos</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de Standford</font></font></li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/e85g" target="_blank" rel="nofollow">Specialization: Data Science</a> by Johns Hopkins University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xepy" target="_blank" rel="nofollow">Specialization: Python for Everybody</a> by University of Michigan</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/mm6m" target="_blank" rel="nofollow">Courses: Build Skills for a Top Job in any Industry</a> by Coursera</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xxae" target="_blank" rel="nofollow">Specialization: Master Machine Learning Fundamentals</a> by University of Washington</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/2j0s" target="_blank" rel="nofollow">Specialization: Statistics with R</a> by Duke University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/ih09" target="_blank" rel="nofollow">Specialization: Software Development in R</a> by Johns Hopkins University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/sprm" target="_blank" rel="nofollow">Specialization: Genomic Data Science</a> by Johns Hopkins University</li>
+          </ul>
+          <h4 class="wiki_paragraph4">Popular Courses Launched in 2020</h4>
+          <ul>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/bmsr" target="_blank" rel="nofollow">Google IT Automation with Python</a> by Google</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/qlmg" target="_blank" rel="nofollow">AI for Medicine</a> by deeplearning.ai</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/1fws" target="_blank" rel="nofollow">Epidemiology in Public Health Practice</a> by Johns Hopkins University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/wp8o" target="_blank" rel="nofollow">AWS Fundamentals</a> by Amazon Web Services</li>
+          </ul>
+          <h4 class="wiki_paragraph4">Trending Courses</h4>
+          <ul>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/zo43" target="_blank" rel="nofollow">The Science of Well-Being</a> by Yale University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/hl6x" target="_blank" rel="nofollow">Google IT Support Professional</a> by Google</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/xepy" target="_blank" rel="nofollow">Python for Everybody</a> by University of Michigan</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/lhby" target="_blank" rel="nofollow">IBM Data Science Professional Certificate</a> by IBM</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/c59x" target="_blank" rel="nofollow">Business Foundations</a> by University of Pennsylvania</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/vb4s" target="_blank" rel="nofollow">Introduction to Psychology</a> by Yale University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/u4tn" target="_blank" rel="nofollow">Excel Skills for Business</a> by Macquarie University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/e68c" target="_blank" rel="nofollow">Psychological First Aid</a> by Johns Hopkins University</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/wetr" target="_blank" rel="nofollow">Graphic Design</a> by Cal Arts</li>
+          </ul>
+          <h3 class="wiki_paragraph3">Books - Data Science</h3>
+          <h4 class="wiki_paragraph4">Our Books</h4>
+          <ul>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/0cld" target="_blank" rel="nofollow">Practical Guide to Cluster Analysis in R</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/8ktk" target="_blank" rel="nofollow">Practical Guide To Principal Component Methods in R</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/4vs9" target="_blank" rel="nofollow">Machine Learning Essentials: Practical Guide in R</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/lqti" target="_blank" rel="nofollow">R Graphics Essentials for Great Data Visualization</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/udft" target="_blank" rel="nofollow">GGPlot2 Essentials for Great Data Visualization in R</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/y7ld" target="_blank" rel="nofollow">Network Analysis and Visualization in R</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/pqs3" target="_blank" rel="nofollow">Practical Statistics in R for Comparing Groups: Numerical Variables</a> by A. Kassambara (Datanovia)</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/a52c" target="_blank" rel="nofollow">Inter-Rater Reliability Essentials: Practical Guide in R</a> by A. Kassambara (Datanovia)</li>
+          </ul>
+          <h4 class="wiki_paragraph4">Others</h4>
+          <ul>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/7qlr" target="_blank" rel="nofollow">R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</a> by Hadley Wickham &amp; Garrett Grolemund</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/11a4" target="_blank" rel="nofollow">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems</a> by Aurelien Géron</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/cjm2" target="_blank" rel="nofollow">Practical Statistics for Data Scientists: 50 Essential Concepts</a> by Peter Bruce &amp; Andrew Bruce</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/fu7j" target="_blank" rel="nofollow">Hands-On Programming with R: Write Your Own Functions And Simulations</a> by Garrett Grolemund &amp; Hadley Wickham</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/f7zj" target="_blank" rel="nofollow">An Introduction to Statistical Learning: with Applications in R</a> by Gareth James et al.</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/2u9i" target="_blank" rel="nofollow">Deep Learning with R</a> by François Chollet &amp; J.J. Allaire</li>
+           <li><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.datanovia.com/en/1flt" target="_blank" rel="nofollow">Deep Learning with Python</a> by François Chollet</li>
+          </ul>
+         </div>
+        </div> 
+        <br> 
+        <link href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(31)" rel="stylesheet" type="text/css"> 
+        <style type="text/css">
+                    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; border: 1px solid #2E9FDF; border-left: 6px solid #2E9FDF; padding: 10px;}
+                </style> 
+        <div id="mc_embed_signup"> 
+         <br> <span style="color:#FC4E07; font-size: 1.5em;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¿Quiere aprender más sobre la programación R y la ciencia de datos? </font></font></span>
+         <br>
+         <br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Síguenos </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://feedburner.google.com/fb/a/mailverify?uri%3Dsthda%26loc%3Den_US"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">por correo electrónico</font></font></a> 
+         <form style="padding:3px;text-align:center;" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#39;https://feedburner.google.com/fb/a/mailverify?uri=sthda&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=550,height=520&#39;);return true">
+          <p><input type="text" style="width:70%;" name="email"></p>
+          <input type="hidden" value="sthda" name="uri">
+          <input type="hidden" name="loc" value="en_US">
+          <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Suscribir"></font></font>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">por </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://feedburner.google.com" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FeedBurner</font></font></a></p>
+         </form><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En Redes Sociales: 
+         </font></font><div class="addthis_inline_follow_toolbox"></div> 
+        </div> 
+        <br>
+        <br> 
+        <div class="block get_involved"> <strong><i class="fa fa-2x fa-group"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&nbsp;Involucrarse :</font></font></strong>
+         <br> <i class="fa fa-share fa-2x"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&nbsp; Haga clic para </font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">seguirnos</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> en </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.facebook.com/1570814953153056" class="facebook_page" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Facebook</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://plus.google.com/108962828449690000520" rel="publisher"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Google+</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> :</font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://www.facebook.com/1570814953153056" class="facebook_page" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>&nbsp;&nbsp; <a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=https://plus.google.com/108962828449690000520" rel="publisher" class="google_page" target="_blank"><i class="fa fa-google-plus-square fa-2x"></i></a>
+         <br> <i class="fa fa-comment fa-2x"></i>&nbsp; <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Comente este artículo</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> haciendo clic en el botón "Discusión" (posición superior derecha de esta página)
+         </font></font><br> 
+        </div> 
+        <div class="spacer"></div> 
+       </div> 
+       <footer> 
+        <div class="wiki-hits"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+         Esta página ha sido vista 2648881 veces
+        </font></font></div> 
+       </footer> 
+      </div>
+     </article> 
+    </div> 
+   </div> 
+   <div class="spacer"></div> 
+  </div> 
+  <footer id="footer"> 
+   <div id="top-footer"> 
+    <div id="newsletter"> 
+     <form action="http://www.sthda.com/english/newsletter/?url=/subscribe/" method="post"> 
+      <div class="newsletter-form input-element-button"> <span class="newsletter-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Boletin informativo</font></font></span> 
+       <input type="text" name="mail_newsletter" maxlength="50" value="" placeholder="Correo electrónico"> 
+       <input type="hidden" name="subscribe" value="subscribe"> 
+       <input type="hidden" name="token" value="e4daa7030ee5bbe2"> <button type="submit" class="newsletter-submit"><i class="fa fa-envelope-o"></i></button> 
+      </div> 
+     </form> 
+    </div> 
+    <div class="spacer"></div> 
+   </div> 
+   <div class="footer-infos"> <span class="footer-infos-powered-by"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Impulsado por </font></font><a href="https://translate.google.com/website?sl=en&amp;tl=es&amp;hl=es&amp;prev=search&amp;u=http://www.phpboost.com" title="Enlace al sitio web oficial de PHPBoost CMS"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHPBoost</font></font></a> </span> 
+   </div> 
+  </footer> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(32)" type="text/css"> 
+  <link rel="stylesheet" href="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(33)" type="text/css"> <!-- ak --> 
+  <style>#rdoc .caption{display:none;}</style> <a id="scroll-to-top" class="scroll-to" href="https://www-sthda-com.translate.goog/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=sc&amp;_x_tr_sch=http#" title="Scroll to Top"><i class="fa fa-chevron-up"></i></a> 
+  <script>
+<!--
+//Variables PHPBoost
+var PATH_TO_ROOT = "/english";
+var TOKEN        = "e4daa7030ee5bbe2";
+var THEME        = "sthda";
+var LANG         = "english";
+//Variables BBCode
+var L_HIDE_MESSAGE    = 'This message is hidden, click here to reveal its contents.';
+var L_HIDE_HIDEBLOCK  = 'Click here to hide this message.';
+var L_COPYTOCLIPBOARD = 'Copy to Clipboard';
+//Variables CookieBar
+var COOKIEBAR_DURATION        = 12;
+var COOKIEBAR_TRACKING_MODE   = 'notracking';
+var L_COOKIEBAR_CONTENT       = 'This website uses cookies to ensure you get the best experience on our website.';
+var L_COOKIEBAR_UNDERSTAND    = 'Ok';
+var L_COOKIEBAR_ALLOWED       = 'Allowed';
+var L_COOKIEBAR_DECLINED      = 'Declined';
+var L_COOKIEBAR_MORE_TITLE    = 'Explanations on the management of cookies and the &quot;cookie-bar&quot; (Learn more)';
+var L_COOKIEBAR_MORE          = 'Learn more';
+var L_COOKIEBAR_CHANGE_CHOICE = 'Change your preferences';
+var U_COOKIEBAR_ABOUTCOOKIE   = '/english/user/aboutcookie/';
+-->
+</script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(34)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(35)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(36)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(37)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(38)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(39)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(40)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(41)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(42)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(43)" style="display: none !important;"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(44)"></script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/website(45)"></script>
+  <script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "position": "bottom-left",
+  "type": "opt-in",
+  "content": {
+    "message": "This website uses cookies to ensure you get the best experience on our website, to personalize content and ads and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners. By using our site you agree to our use of cookies",
+    "dismiss": "Decline",
+    "allow": "OK",
+    "href": "https://www.google.com/intl/en/policies/privacy/partners/"
+  }
+})});
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5474463749888038",
+          enable_page_level_ads: true
+     });
+function check_search_mini_form_post()
+{
+var textSearched = document.getElementById('TxTMiniSearched').value;
+if (textSearched.length > 3)
+{
+textSearched = escape_xmlhttprequest(textSearched);
+return true;
+}
+else
+{
+alert('The size of the string you\'re searching for must be at least 4 characters long!');
+return false;
+}
+}
+jQuery(document).ready(function() {
+jQuery('#search-token').val(TOKEN);
+});
+jQuery("#cssmenu-1764").menumaker({ title: "R & Data Mining", format: "multitoggle", breakpoint: 768 }); 
+function check_connect()
+{
+if( document.getElementById('login').value == "" )
+{
+alert("Please enter a nickname !");
+return false;
+}
+if( document.getElementById('password').value == "" )
+{
+alert("Please enter a password !");
+return false;
+}
+}
+function open_submenu(myid)
+{
+jQuery('#' + myid).toggleClass('active');
+}
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    jQuery("#cssmenu-1825").menumaker({ title: "R Packages", format: "multitoggle", breakpoint: 768 }); 
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  jQuery("#cssmenu-1849").menumaker({ title: "Blogroll", format: "multitoggle", breakpoint: 768 }); 
+jQuery("#cssmenu-module-wiki").menumaker({
+title: "Actions menu for module Wiki",
+format: "multitoggle",
+actionslinks: true,
+breakpoint: 768
+});
+jQuery(document).ready(function() {
+jQuery("#cssmenu-module-wiki ul").removeClass('hidden');
+});
+(adsbygoogle = window.adsbygoogle || []).push({});
+(adsbygoogle = window.adsbygoogle || []).push({});
+jQuery("#cssmenu-wikitools").menumaker({
+title: "Tools",
+format: "multitoggle",
+breakpoint: 768
+});
+jQuery(document).ready(function() {
+jQuery("#cssmenu-wikitools ul").removeClass('hidden');
+});
+jQuery(document).ready(function () {
+  jQuery('h1').addClass('wiki_paragraph1');
+    jQuery('h2').addClass('wiki_paragraph2');
+    jQuery('h3').addClass('wiki_paragraph3');
+    jQuery('h4').addClass('wiki_paragraph4');
+    });//add phpboost class to header
+(adsbygoogle = window.adsbygoogle || []).push({});
+(adsbygoogle = window.adsbygoogle || []).push({});
+ 
+/*<![CDATA[*/
+var jQuery = jQuery.noConflict();
+jQuery(document).ready(function() {
+   if(jQuery('a.embed').length!=0) jQuery('a.embed').gdocsViewer({width: "98%", height: 600});
+    if(jQuery('a.view').length!=0) jQuery('a.view').gdocsViewer({width: "98%", height: 600});
+});
+/*]]>*/
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+ 
+jQuery('[data-confirmation]').each(function() {
+data_confirmation = jQuery(this).attr('data-confirmation');
+if (data_confirmation == 'delete-element')
+var message = 'Do you really want to delete this item ?';
+else
+var message = data_confirmation;
+this.onclick = function () { return confirm(message); }
+});
+jQuery(document).ready(function() {
+jQuery('a[rel^=lightbox]').attr('data-rel', 'lightcase:collection');
+jQuery('a[data-lightbox^=formatter]').attr('data-rel', 'lightcase:collection');
+jQuery('a[data-rel^=lightcase]').lightcase({
+labels : {
+'errorMessage'    : 'The item you requested does not exist.',
+'sequenceInfo.of' : ' ' + 'of' + ' ',
+'close'           : 'Close',
+'navigator.prev'  : 'Previous',
+'navigator.next'  : 'Next',
+'navigator.play'  : 'Play',
+'navigator.pause' : 'Pause'
+},
+maxHeight: window.innerHeight,
+maxWidth: window.innerWidth,
+shrinkFactor: 0.85
+});
+});
+jQuery('#table').basictable();
+jQuery('#table2').basictable();
+jQuery('#table3').basictable();
+jQuery('#table4').basictable();
+jQuery('#table5').basictable();
+jQuery(function() {
+jQuery(".lined").linedtextarea();
+});
+</script> 
+  <script>function gtElInit() {var lib = new google.translate.TranslateService();lib.translatePage('en', 'es', function () {});}</script>
+  <script src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/element.js.descargar" type="text/javascript"></script>
+ 
+<div id="goog-gt-tt" class="VIpgJd-suEOdc skiptranslate" dir="ltr" style="visibility: hidden; left: 891px; top: 5247px; display: none;"><div style="padding: 8px;"><div><div class="logo"><img src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Note that, in the examples below, we'll use only the functions scale_x_discrete() and xlim() to customize x axis tick marks.</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0;"></div></div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/ads(5).html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./Marcas del eje ggplot2_ una guía para personalizar marcas y etiquetas - Guías fáciles - Wiki - STHDA_files/zrt_lookup.html" style="display: none;"></iframe></html>

@@ -1,4 +1,0 @@
-"0","ggplot(esc1,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+"
-"0","  geom_bar(stat = ""identity"", width = 0.5)+"
-"0","  geom_text(aes(y = CANTIDAD, ymax = CANTIDAD, label = CANTIDAD))"
-"2","Ignoring unknown aesthetics: ymax"

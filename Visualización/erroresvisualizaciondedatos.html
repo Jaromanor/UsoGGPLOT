@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://www.data-to-viz.com/caveats.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="A datavisualization tool that leads you from your data to the graphic you need." content="">
+    <meta name="Yan Holtz &amp; Conor Healy" content="">
+
+    <title>Data to Viz | A collection of graphic pitfalls</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./erroresvisualizaciondedatos_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="./erroresvisualizaciondedatos_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./erroresvisualizaciondedatos_files/css" rel="stylesheet" type="text/css">
+    <link href="./erroresvisualizaciondedatos_files/css(1)" rel="stylesheet" type="text/css">
+    <link href="./erroresvisualizaciondedatos_files/css(2)" rel="stylesheet" type="text/css">
+    <link href="./erroresvisualizaciondedatos_files/css(3)" rel="stylesheet" type="text/css">
+    <link rel="icon" href="https://www.data-to-viz.com/img/logo/data-to-viz.ico">
+
+    <!-- Custom styles for this template -->
+    <link href="./erroresvisualizaciondedatos_files/agency.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script type="text/javascript" async="" src="./erroresvisualizaciondedatos_files/analytics.js.descargar"></script><script src="./erroresvisualizaciondedatos_files/jquery.min.js.descargar"></script><style type="text/css" id="operaUserStyle"></style>
+
+  <script src="./erroresvisualizaciondedatos_files/embed.js.descargar" data-timestamp="1675356229800"></script><style type="text/css">:root zeus-ad, :root topadblock, :root span[id^="ezoic-pub-ad-placeholder-"], :root guj-ad, :root gpt-ad, :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="sticky_ad_"], :root div[id^="rc-widget-"], :root div[id^="lazyad-"], :root div[id^="gpt_ad_"], :root div[id^="ezoic-pub-ad-"], :root div[id^="div-gpt-"], :root div[id^="dfp-ad-"], :root div[id^="adspot-"], :root div[id^="ads300_250-widget-"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="adngin-"], :root div[id^="ad-div-"], :root div[id^="_vdo_ads_player_ai_"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-native_ad], :root div[data-mpu1], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-google-query-id], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-content="Advertisement"], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-ad-wrapper], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="native-ad-"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="Adstyled__AdWrapper-"], :root div[aria-label="Ads"], :root display-ads, :root display-ad-component, :root aside[id^="adrotate_widgets-"], :root article.ad, :root ark-top-ad, :root app-advertisement, :root app-ad, :root amp-fx-flying-carpet, :root amp-embed[type="taboola"], :root amp-connatix-player, :root amp-ad-custom, :root ad-shield-ads, :root ad-desktop-sidebar, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://yogacomplyfuel.com/"], :root a[href^="https://www.vfreecams.com/in/?track="], :root a[href^="https://bngpt.com/"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://t.adating.link/"], :root a[href^="https://www.profitablecpmgate.com/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://financeads.net/tc.php?"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highperformancegate.com/"], :root a[href^="https://t.grtyi.com/"], :root a[href^="https://www.highperformancecpmgate.com/"], :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root div[class^="Display_displayAd"], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://www.bang.com/?aff="], :root [data-template-type="nativead"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://webroutetrk.com/"], :root a[href^="https://wantopticalfreelance.com/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://tsartech.g2afse.com/"], :root a[href^="https://tragency-clesburg.icu/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://track.adform.net/"], :root a[href^="https://torguard.net/aff.php"] > img, :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root a[href^="https://thaudray.com/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://www.sweetdeals.com"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://t.aslnk.link/"], :root a[href^="https://go.trackitalltheway.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://syndication.exoclick.com/"], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://refpa4903566.top/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root a[href^="https://www.rabbits.webcam/?id="], :root [href^="https://r.kraken.com/"], :root a[href^="https://mmwebhandler.aff-online.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root iframe[id^="google_ads_frame"], :root a[href^="https://pb-track.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root div[id^="ad_position_"], :root a[href^="https://ovb.im/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root a[href^="https://loboclick.com"], :root [href^="https://routewebtk.com/"], :root a[href^="https://see.kmisln.com/"], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://clk.wrenchsound.store/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root a[href^="https://go.xxxiijmp.com"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://ismlks.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root a[href^="https://go.xlirdr.com"], :root [data-css-class="dfp-inarticle"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="//lambingsyddir.com/"], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="https://go.dmzjmp.com"], :root a[href^="https://go.admjmp.com/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a-ad, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root a[href^="https://go.gldrdr.com/"], :root [id^="ad_sky"], :root a[href^="https://funkydaters.com/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://www.mrskin.com/account/"], :root bottomadblock, :root a[href^="https://fertilitycommand.com/"], :root div[data-native-ad], :root a[href^="https://engine.trackingdesks.com/"], :root [href^="https://totlnkcl.com/"], :root a[href^="https://www.adskeeper.com"], :root [href^="https://www.reimageplus.com/"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="https://engine.blueistheneworanges.com/"], :root a[href^="https://clixtrac.com/"], :root div.fadeInDown[id$="____equal"][class$="____equal"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://click.linksynergy.com/fs-bin/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root a[href^="https://track.totalav.com/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="https://claring-loccelkin.com/"], :root [class^="s2nPlayer"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://www.onlineusershielder.com/"], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://cams.imagetwist.com/in/?track="], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://bluedelivery.pro/"], :root #topstuff > #tads, :root a[href^="https://black77854.com/"], :root a[href^="https://burpee.xyz/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://batheunits.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="https://m.do.co/c/"] > img, :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root a[href^="https://albionsoftwares.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ads.ad4game.com/"], :root [id^="google_ads_iframe"], :root a[href^="https://syndication.optimizesrv.com/"], :root a[href^="https://affpa.top/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://adjoincomprise.com/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://misspkl.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="https://adswick.com/"], :root a[href^="https://refpazkjixes.top/"], :root a[href^="https://ad.atdmt.com/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="http://trk.globwo.online/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="http://tour.mrskin.com/"], :root a[href^="https://join.virtualtaboo.com/track/"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="https://cagothie.net/"], :root div[id^="google_dfp_"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://awentw.com/"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="http://deloplen.com/"], :root a[href^="https://agacelebir.com/"], :root a[href^="https://spygasm.com/track?"], :root a[href^="http://d2.zedo.com/"], :root .rc-cta[data-target], :root [href^="http://go.cm-trk2.com/"], :root a[href^="http://adtrack1.club/"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://porngames.adult/?SID="], :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="http://bc.vc/?r="], :root .trc_rbox_border_elm .syndicatedItem, :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root a[href^="http://adf.ly/?id="], :root [href^="http://homemoviestube.com/"], :root a[href^="http://ad.doubleclick.net/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="//syndication.dynsrvtbg.com/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root a[href^="https://a.adtng.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root div[data-adname], :root a[href^="https://thechleads.pro/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root a[href^="https://tour.mrskin.com/"], :root a[href^="http://allaptair.club/"], :root a[href^="//go.eabids.com/"], :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root a[href^="https://a.bestcontentoperation.top/"], :root a[href^="//go.xlviiirdr.com"], :root [data-dynamic-ads], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="https://axdsz.pro/"], :root a[href^="http://bodelen.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root a[href^="http://wct.link/"], :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root [id^="section-ad-banner"], :root .commercial-unit-mobile-top > div[data-pla="1"], :root [id^="chp_ads_block"], :root a[href^="https://go.julrdr.com/"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root [href^="https://www.targetingpartner.com/"], :root [href^="https://detachedbates.com/"], :root a[href^="https://fourwhenstatistics.com/"], :root [href^="https://www.restoro.com/"], :root [data-ad-manager-id], :root a[href^="https://fleshlight.sjv.io/"], :root div[id^="zergnet-widget"], :root [href^="https://www.mystore.com/"] > img, :root div[id^="ad-position-"], :root a[href^="http://adultfriendfinder.com/go/page/landing"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://leg.xyz/?track="], :root div[id^="crt-"][style], :root a[href^="http://adultgames.xxx/"], :root a[href^="https://traffic.bannerator.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href^="https://losingoldfry.com/"], :root .scroll-fixable.rail-right > .deals-rail, :root a[href^="https://oackoubs.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://go.goasrv.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root [href^="http://mypillow.com/"] > img, :root a[href^="http://bongacams.com/track?"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://stvkr.com/"], :root a[href^="https://promo-bc.com/"], :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://noqreport.com/"] > img, :root a[href^="https://go.hpyjmp.com"], :root ADS-RIGHT, :root [href^="https://mystore.com/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root [href^="https://mylead.global/stl/"] > img, :root #leader-companion > a[href], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root .vid-present > .van_vid_carousel__padding, :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root [href^="https://www.hostg.xyz/"] > img, :root .section-subheader > .section-hotel-prices-header, :root [href^="http://join.ts-dominopresley.com/"], :root [href^="https://go.affiliatexe.com/"], :root [href^="https://go.4rabettraff.com/"], :root [href^="https://glersakr.com/"], :root [href="https://ourgoldguy.com/contact/"] img, :root a[href^="https://1startfiledownload1.com/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://k2s.cc/pr/"], :root [href^="https://affect3dnetwork.com/track/"], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root [href^="https://v.investologic.co.uk/"], :root [href^="https://cipledecline.buzz/"], :root [href^="http://join.trannies-fuck.com/"], :root [href^="http://www.fleshlightgirls.com/"], :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root div[data-role="sidebarAd"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [href^="http://trafficare.net/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://adserver.adreactor.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root [href^="https://clk.right-wing-health.com/"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="http://join.shemale.xxx/"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root .trc_rbox .syndicatedItem, :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://cpmspace.com/"], :root [href^="https://freecourseweb.com/"] > .sitefriend, :root [class^="chp_ads_block"], :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root [href^="http://join.rodneymoore.com/"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root [href^="https://shrugartisticelder.com"], :root a[href*=".trust.zone"], :root [href^="https://go.xlrdr.com"], :root [id^="div-gpt-ad"], :root .ob_container .item-container-obpd, :root [href^="http://www.pingperfect.com/aff.php"], :root [name^="google_ads_iframe"], :root [href^="https://safer-redirection.com"], :root [href^="https://optimizedelite.com/"] > img, :root [data-name="adaptiveConstructorAd"], :root [href^="//ngeoziadiyc4hi2e.com/"], :root a[href^="https://go.xxxjmp.com"], :root [data-desktop-ad-id], :root [href^="https://wct.link/"], :root [href^="https://traffserve.com/"], :root #kt_player > a[target="_blank"], :root a[href^="https://www.awin1.com/cread.php?awinaffid="], :root [href="https://www.masstortfinancing.com/"] > img, :root [href^="https://mypillow.com/"] > img, :root [href^="https://ad.admitad.com/"], :root a[href^="https://u.expresstech.io/"], :root [href="https://jdrucker.com/gold"] > img, :root a[href^="https://www.iyalc.com/"], :root a[href^="https://track.ultravpn.com/"], :root [href^="https://goldcometals.com/clk.trk"], :root [data-mobile-ad-id], :root a[href^="http://tc.tradetracker.net/"] > img, :root a[href^="http://affiliates.thrixxx.com/"], :root #searchResultsList > div > div[onclick$="'inline.ad'});"], :root a[href^="https://go.xlivrdr.com"], :root [data-freestar-ad], :root [data-ez-name], :root AMP-AD, :root [data-ad-cls], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root [id^="ad-wrap-"], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root [href^="http://join.hardcoreshemalevideo.com/"], :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root [onclick*="content.ad/"], :root [href^="http://residenceseeingstanding.com/"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root [href^="https://www.cloudways.com/en/?id"], :root [class^="amp-ad-"], :root a[href^="http://go.xtbaffiliates.com/"], :root [href^="https://click2cvs.com/"], :root a[href^="https://www.liquidfire.mobi/"], :root .grid > .container > #aside-promotion, :root DFP-AD, :root AD-SLOT, :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root .trc_related_container div[data-item-syndicated="true"], :root [href^="http://join.shemalepornstar.com/"], :root a[href^="https://go.xlviiirdr.com"], :root .trc_rbox_div .syndicatedItem, :root [data-ad-module], :root a[href^="https://go.cmtaffiliates.com/"], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root a[href*="//lkstrck2.com/"], :root .plistaList > .itemLinkPET, :root atf-ad-slot, :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href^="http://partners.etoro.com/"], :root [data-advadstrackid], :root a[href^="https://a2.adform.net/"], :root [href^="https://affiliate.fastcomet.com/"] > img, :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="https://traffdaq.com/"], :root a[href^="https://tm-offers.gamingadult.com/"], :root [class^="div-gpt-ad"], :root a[href^="https://bs.serving-sys.com"], :root a[href^="https://join.virtuallust3d.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root [data-adblockkey] { display: none !important; }</style><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.973e8258c48717b79b37fecbf85dcea2.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.4ba4d839a8c58443b0a3c9c44262d3b7.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.e4fdabba1d6ca276aac4d16d3f976569.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><script async="" id="dsq_recs_scr" src="./erroresvisualizaciondedatos_files/recommendations.js.descargar"></script><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/recommendations/styles/recommendations.10022a97346f1c6e3798931bbd8e4bb5.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/recommendations/common.bundle.ee9c33b24a56672a5987fadb46fbba34.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/recommendations/recommendations.bundle.2502c0f5aa4270464aad7e38352f9a52.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><script src="./erroresvisualizaciondedatos_files/alfie_v4.63f1ab6d6b9d5807dc0c94ef3fe0b851.js.descargar" async="" charset="UTF-8"></script></head>
+
+  <body id="page-top">
+
+    <!-- THIS ALLOWS TO INSERT THE MENU THAT IS STORED IN A MENU.HTML FILE-->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav"><div class="container">
+  <a class="navbar-brand js-scroll-trigger" href="https://www.data-to-viz.com/caveats.html#page-top">
+    <img src="./erroresvisualizaciondedatos_files/typo.png" style="width:30%; vertical-align: top;">
+  </a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    Menu
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav text-uppercase ml-auto">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://www.data-to-viz.com/#explore">Explore</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://www.data-to-viz.com/#story">Story</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://www.data-to-viz.com/#portfolio">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.data-to-viz.com/caveats.html">Caveats</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.data-to-viz.com/poster.html">Poster</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.dataviz-inspiration.com/">Inspiration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.data-to-viz.com/about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://www.data-to-viz.com/#contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+    <script>
+      $(function(){
+        $("#mainNav").load("menu.html");
+      });
+    </script>
+
+
+
+
+
+
+<!-- --------------------------- CAVEATS SECTION ------------------------------------------------------------------- -->
+
+    <section id="caveats">
+      <div class="container">
+
+
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Caveats</h2>
+            <h3 class="section-subheading text-muted">A collection of dataviz caveats by <a href="https://www.data-to-viz.com/">data-to-viz.com</a></h3>
+            <div id="myBtnContainer">
+              <button class="btn btn-secondary" onclick="filterSelection(&#39;all&#39;)">Show all</button>
+              <button class="btn btn-secondary" onclick="filterSelection(&#39;top10&#39;)">Top 10</button>
+              <button class="btn btn-secondary" onclick="filterSelection(&#39;improvement&#39;)">Improvement</button>
+              <button class="btn btn-secondary" onclick="filterSelection(&#39;misleading&#39;)">Misleading</button>
+              <button class="btn btn-secondary" onclick="filterSelection(&#39;map&#39;)">Map</button>
+              <button class="btn btn-secondary" onclick="filterSelection(&#39;bar&#39;)">Bar</button>
+            </div>
+            <br>
+          </div>
+        </div>
+                <div class="row">
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/order_data.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/order_data.png">
+                      <p class="mytitlerelated">Order your data</p>
+                      <p class="mytextrelated">When displaying the value of several entities, ordering them makes the graph much more insightful.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading top10 bar show">
+                    <a href="https://www.data-to-viz.com/caveat/cut_y_axis.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/cut_y_axis.png">
+                      <p class="mytitlerelated">To cut or not to cut?</p>
+                      <p class="mytextrelated">Cutting the Y-axis is one of the most controversial practice in data viz. See why.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/spaghetti.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/spaghetti.png">
+                      <p class="mytitlerelated">The spaghetti chart</p>
+                      <p class="mytextrelated">A line graph with too many lines becomes unreadable: it is called a spaghetti graph.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement top10 show">
+                    <a href="https://www.data-to-viz.com/caveat/pie.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/pie.png">
+                      <p class="mytitlerelated">Pie chart</p>
+                      <p class="mytextrelated">The human eye is bad at reading angles. See how to replace the most criticized chart ever.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/bin_size.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/bin_size.png">
+                      <p class="mytitlerelated">Play with histogram bin size</p>
+                      <p class="mytextrelated">Always try different bin sizes when you build a histogram, it can lead to different insights.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading improvement top10 show">
+                    <a href="https://www.data-to-viz.com/caveat/boxplot.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/boxplot.png">
+                      <p class="mytitlerelated">Do boxplots hide information?</p>
+                      <p class="mytextrelated">Boxplots are a great way to summarize a distribution but hide the sample size and their distribution.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading improvement top10 bar show">
+                    <a href="https://www.data-to-viz.com/caveat/error_bar.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/error_bar.png">
+                      <p class="mytitlerelated">The problem with error bars</p>
+                      <p class="mytextrelated">Barplots with error bars must be used with great care. See why and how to replace them.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/multi_distribution.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/multi_distribution.png">
+                      <p class="mytitlerelated">Too many distributions.</p>
+                      <p class="mytextrelated">If you need to compare the distributions of many variables, don't clutter your graphic.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/overplotting.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/overplotting.png">
+                      <p class="mytitlerelated">Overplotting</p>
+                      <p class="mytextrelated">Too many points on your scatter plot makes it unreadable? Techniques exist to avoid overplotting.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show" style="opacity: 0.6">
+                    <a href="https://blog.datawrapper.de/colors/" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/rainbow.png">
+                      <p class="mytitlerelated">The rainbow color palette</p>
+                      <p class="mytextrelated">Avoid the rainbow color palette when you map a numeric variable. So many better palettes exist.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show" style="opacity: 0.6">
+                    <a href="https://www.data-to-viz.com/caveat/small_multiple.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/small_multiple.png">
+                      <p class="mytitlerelated">Faceting: horizontal or vertical?</p>
+                      <p class="mytextrelated">Placing the individual plot horizontally or vertically is an important choice to make.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/counter_intuitive.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/counter_intuitive.png">
+                      <p class="mytitlerelated">Don't be counter intuitive</p>
+                      <p class="mytextrelated">Your audience is used to a few dataviz standards. Not respecting standards can be misleading.</p>
+                    </a>
+                  </div>
+
+
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading top10 show">
+                    <a href="https://blog.datawrapper.de/dualaxis/" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/dual_axis.png">
+                      <p class="mytitlerelated">The problem with dual axes</p>
+                      <p class="mytextrelated">Using dual axes is a good way to manipulate the history behind your data. Avoid it. (blog by datawrapper)</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/calculation_error.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/calculation_error.png">
+                      <p class="mytitlerelated">Calculation errors</p>
+                      <p class="mytextrelated">Always double-check the values written on the chart. Does your sum make sense?</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/circular_barplot_accordeon.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/circular_barplot_accordeon.png">
+                      <p class="mytitlerelated">Barplots with radial coordinates</p>
+                      <p class="mytextrelated">This kind of barplot distorts reality: outer bars tend to look bigger than inner ones.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/connect_your_dot.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/connect_your_dot.png">
+                      <p class="mytitlerelated">Connect your dots</p>
+                      <p class="mytextrelated">If your X-axis is ordered, connecting the dots will make the message much clearer.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/color_com_nothing.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/color_com_nothing.png">
+                      <p class="mytitlerelated">Color that communicates nothing</p>
+                      <p class="mytextrelated">A bad use of colors can be misleading. If your color does not represent anything, don't use it.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/radius_or_area.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/radius_or_area.png">
+                      <p class="mytitlerelated">Bubble size: radius or area?</p>
+                      <p class="mytextrelated">When using bubbles on a chart, their area must be proportional to the underlying variable. Not their radius.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/hard_label.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/hard_label.png">
+                      <p class="mytitlerelated">When axis labels break your neck</p>
+                      <p class="mytextrelated">Having long and vertical axis labels can be annoying. If you can, flip your chart.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/circular_bar_yaxis.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/circular_bar_yaxis.png">
+                      <p class="mytitlerelated">Circular barplots and distortion</p>
+                      <p class="mytextrelated">Set a sufficient inner circle size to avoid bar shape distortion.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading bar show">
+                    <a href="https://www.data-to-viz.com/caveat/3d.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/3d.png">
+                      <p class="mytitlerelated">The issue with 3D</p>
+                      <p class="mytextrelated">Except in a few rare situations, 3D must be avoided. It distorts reality.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/aspect_ratio.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/aspect_ratio.png">
+                      <p class="mytitlerelated">Mind the aspect ratio</p>
+                      <p class="mytextrelated">Avoid extreme aspect ratios. They can make a plot unreadable.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/stacking.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/stacking.png">
+                      <p class="mytitlerelated">The issue with stacking</p>
+                      <p class="mytextrelated">Stacking makes it difficult to analyze each represented group. See when to use it.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/mental_calculation.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/mental_workout.png">
+                      <p class="mytitlerelated">Mental arithmetic</p>
+                      <p class="mytextrelated">Don't ask the reader to do mental arithmetic, it is hard to compare shapes.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/area_hard.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/bubble_hard.png">
+                      <p class="mytitlerelated">Area is a poor metaphor</p>
+                      <p class="mytextrelated">Human brains struggle to translate areas to precise values. Prefer other shapes.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="https://www.data-to-viz.com/caveat/grouped_bar.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/ungrouped_grouped_barplot.png">
+                      <p class="mytitlerelated">Grouped barplots must be grouped</p>
+                      <p class="mytextrelated">In a grouped barplot, bars in the same group must be close one to each other. It makes grouping obvious.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/declutter.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/declutter_your_graphic.png">
+                      <p class="mytitlerelated">De-clutter your graphic</p>
+                      <p class="mytextrelated">Keep only what's necessary on your graphic: 3d, color effect, redundant info, etc. hide the story.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show" style="opacity: 0.6">
+                    <a href="https://www.r-graph-gallery.com/239-custom-layout-legend-ggplot2.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/mind_your_legend.png">
+                      <p class="mytitlerelated">Mind your legend</p>
+                      <p class="mytextrelated">A few tips for a useful legend. Hint: you should worry if you have 14 groups.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/consistency.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/consistency_sev_graph.png">
+                      <p class="mytitlerelated">Consistency between charts</p>
+                      <p class="mytextrelated">If you present several graphics, be consistent. Does each color always represent the same group?</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement misleading show">
+                    <a href="https://www.data-to-viz.com/caveat/spider.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/spider.png">
+                      <p class="mytitlerelated">Spider chart and its caveats</p>
+                      <p class="mytextrelated">Spider or radar charts are often criticized in dataviz, here is an overview of the topic.</p>
+                    </a>
+                  </div>
+                 <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/graph/heatmap.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/heatmap.png">
+                      <p class="mytitlerelated">What you should consider when doing a heatmap</p>
+                      <p class="mytextrelated">Heatmaps are a powerful way of visualizing information. A few features must be considered.</p>
+                    </a>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading top10 show">
+                    <a href="https://www.data-to-viz.com/caveat/simpson.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/simpson.png">
+                      <p class="mytitlerelated">The Simpson paradox</p>
+                      <p class="mytextrelated">When a trend appears in several different groups of data but reverses when these groups are combined</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement show">
+                    <a href="https://www.data-to-viz.com/caveat/annotation.html" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/annotate.png">
+                      <p class="mytitlerelated">Annotate your chart</p>
+                      <p class="mytextrelated">Help the reader understand your point: highlight the important part</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column improvement bar show">
+                    <a href="http://gravyanecdote.com/uncategorized/wrappedbarsthoughts/" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/moire.png">
+                      <p class="mytitlerelated">The Moire effect</p>
+                      <p class="mytextrelated">If you have a barplot with many bars of similar length, consider a lollipop chart instead.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading map top10 show">
+                    <a href="https://xkcd.com/1138/" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/choropleth_normalization.png">
+                      <p class="mytitlerelated">Choropleth and normalization</p>
+                      <p class="mytextrelated">If you don't scale your data, your choropleth will basically look like a population map.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column misleading map show">
+                    <a href="https://blog.datawrapper.de/weeklychart-logscale3/" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/map_scale.png">
+                      <p class="mytitlerelated">How to read a log scale</p>
+                      <p class="mytextrelated">Comparing percentage change on a linear scale can be misleading, use a log scale instead. By datawrapper.</p>
+                    </a>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6 column map show">
+                    <a href="https://twitter.com/hashtag/chloropleth" class="btn btn-primary mybtnrelated" style="margin-bottom:4px;white-space: normal !important;">
+                      <img src="./erroresvisualizaciondedatos_files/choropleth_vocab.png">
+                      <p class="mytitlerelated">There is no 'L' in choropleth</p>
+                      <p class="mytextrelated">And people won't miss an opportunity to make you notice..</p>
+                    </a>
+                  </div>
+                </div>
+               </div>
+            
+
+        
+
+        <br>
+        <div style="text-align:center"><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="https://www.data-to-viz.com/index.html">Back to Data-to-viz.com</a></div>
+
+      </section>
+
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
+
+
+
+<!-- --------------------------- INTRO DISQUS ------------------------------------------------------------------- -->
+
+<section class="bg-light">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Suggestion</h2>
+            <h3 class="section-subheading text-muted">Any other suggestion? A common pitfall is missing?<br><br>Please drop me a word in the comment section, and I will add it to the collection.</h3>
+            <br>
+          </div>
+        </div>
+
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
+
+
+
+<!-- --------------------------- DISQUS SECTION ------------------------------------------------------------------- -->
+
+
+      <div class="container">
+        <div id="disqus_recommendations" style="margin-bottom: 12px;"><iframe id="dsq-app4041" name="dsq-app4041" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./erroresvisualizaciondedatos_files/saved_resource.html" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 268px !important; display: inline !important; box-sizing: border-box !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div><div id="disqus_thread"><iframe id="dsq-app8894" name="dsq-app8894" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./erroresvisualizaciondedatos_files/saved_resource(1).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 999px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+        <script>
+
+        var disqus_config = function () {
+        this.page.url = www.data-to-viz.com/caveats.html;
+        this.page.identifier = caveats;
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://data-to-viz.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- --------------------------- FOOTER SECTION ------------------------------------------------------------------- -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright © from Data to Viz 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.data-to-viz.com/caveats.html#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.data-to-viz.com/caveats.html#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.data-to-viz.com/caveats.html#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="https://www.data-to-viz.com/caveats.html#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.data-to-viz.com/caveats.html#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<script>
+// --------------------------------------------------------------------------------------------------------------------------------- //
+// A script to select charts based on their tag //
+// --------------------------------------------------------------------------------------------------------------------------------- //
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+// --------------------------------------------------------------------------------------------------------------------------------- //
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------ JAVASCRIPT SECTION ----------------------------- -->
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./erroresvisualizaciondedatos_files/jquery.min.js.descargar"></script>
+    <script src="./erroresvisualizaciondedatos_files/bootstrap.bundle.min.js.descargar"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="./erroresvisualizaciondedatos_files/jquery.easing.min.js.descargar"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="./erroresvisualizaciondedatos_files/jqBootstrapValidation.js.descargar"></script>
+    <script src="./erroresvisualizaciondedatos_files/contact_me.js.descargar"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="./erroresvisualizaciondedatos_files/agency.min.js.descargar"></script>
+
+    <!-- Activate the bootstrap tooltip, must be after jQuery load -->
+    <script>
+	$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+	})
+	</script>
+
+
+    <!-- Script for animated portfolio with filter. Found here: https://codepen.io/pramodkumarboda/pen/XdgxmQ -->
+    <script>
+  	$(window).load(function(){
+  	    var $container = $('.portfolioContainer');
+  	    $container.isotope({
+  	        filter: '*',
+  	        animationOptions: {
+  	            duration: 750,
+  	            easing: 'linear',
+  	            queue: false
+  	        }
+  	    });
+
+  	    $('.portfolioFilter a').click(function(){
+  	        $('.portfolioFilter .current').removeClass('current');
+  	        $(this).addClass('current');
+
+  	        var selector = $(this).attr('data-filter');
+  	        $container.isotope({
+  	            filter: selector,
+  	            animationOptions: {
+  	                duration: 750,
+  	                easing: 'linear',
+  	                queue: false
+  	            }
+  	         });
+  	         return false;
+  	    });
+  	});
+	</script>
+
+
+
+
+    <!-- Script to give a specific URL to every Modal. TODO: improve it with https://stackoverflow.com/questions/34154370/bootstrap-3-x-how-to-have-url-change-upon-clicking-modal-trigger -->
+    <script>
+      $(document).ready(function(){
+        $(window.location.hash).modal('show');
+        $('a[data-toggle="modal"]').click(function(){
+           window.location.hash = $(this).attr('href');
+        });
+      });
+
+      $('button[data-dismiss="modal"]').click(function(){
+           var original = window.location.href.substr(0, window.location.href.indexOf('#'))
+           history.replaceState({}, document.title, original);
+       });
+
+      $(window.location.hash).modal('show');
+      $('a[data-toggle="modal"]').click(function(){
+          window.location.hash = $(this).attr('href');
+      });
+
+      function revertToOriginalURL() {
+          var original = window.location.href.substr(0, window.location.href.indexOf('#'))
+          history.replaceState({}, document.title, original);
+      }
+
+      $('.modal').on('hidden.bs.modal', function () {
+          revertToOriginalURL();
+      });
+
+  </script>
+
+
+  <script>
+    $('.tip').each(function () {
+      $(this).tooltip(
+      {
+        html: true,
+          title: $('#' + $(this).data('tip')).html()
+      });
+    });
+  </script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./erroresvisualizaciondedatos_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-79254642-3');
+</script>
+<script>
+var getOutboundLink = function(url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+</script>
+
+
+<!----------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+  
+
+
+<iframe style="display: none;" src="./erroresvisualizaciondedatos_files/saved_resource(2).html"></iframe><iframe style="display: none;" src="./erroresvisualizaciondedatos_files/saved_resource(3).html"></iframe></body></html>

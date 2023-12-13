@@ -381,7 +381,7 @@ agruparcol1 <- as.vector(agruparcol)
 agrupacolporc <- apply(agruparcol, 2, prop.table)
 agrupacolporc1 <- as.vector(agrupacolporc)
 agrupacolporc2 <- paste(round(agrupacolporc1,2)*100,"%",sep = "")
-colegio1 <- rep(levels(final$COLEGIO),each=4)
+colegio1 <- rep(levels(final$COLEGIO),each=3)
 estciv <- rep(levels(final$ESTADO.CIVIL),4)
 colestciv <- data.frame(colegio1,estciv,agruparcol1,agrupacolporc2)
 

@@ -1,0 +1,25 @@
+.adthrive-sidebar.adthrive-stuck {
+margin-top: 55px;
+}
+
+.adthrive-device-desktop .adthrive-header {
+margin-top: 65px;
+}
+
+.adthrive-device-tablet .adthrive-header {
+margin-top: 0px;
+padding-top: 95px;
+}
+
+.adthrive-device-desktop #page-content > .l-section > .l-section-h,
+.adthrive-device-tablet #page-content > .l-section > .l-section-h {
+padding-top: 0px;
+}
+
+.adthrive-device-phone .adthrive-footer {
+margin-bottom: 5px;
+}
+
+.adthrive-collapse-mobile {
+margin-bottom: 10px;
+}

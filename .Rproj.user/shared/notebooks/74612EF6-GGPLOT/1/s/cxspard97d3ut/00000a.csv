@@ -1,4 +1,0 @@
-"0","ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+"
-"0","         geom_bar(width = 0.5)+"
-"0","  xlab(""Colegio"") + ylab(""Número"")+ggtitle(""Encuestados \n Por \n Colegios"", subtitle = ""Colegios"")+"
-"0","  labs(caption=""Figura 10. Encuestados por colegio. Fuente: xxxx, 2021"")"

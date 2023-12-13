@@ -136,6 +136,18 @@ ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
 
 ## Quitar leyenda del eje (valores y que no queden líneas)
 
+```{r}
+ggplot(final,aes(x=COLEGIO,fill=COLEGIO))+
+         geom_bar(width = 0.5)+
+  xlab("Colegio") + ylab("Número")+
+  ggtitle("Encuestados \n Por \n Colegios")+
+  theme (text = element_text(size=8))+ #tamaño letra por defecto
+  theme(plot.title = TemaTitulo)+
+  theme(axis.title = ejesTitulo)+
+  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())
+```
+
+
 theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
 ## Quitar tabla de leyenda
@@ -147,6 +159,16 @@ ggplot(esc2,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
 ```
 
 
+## Cambiar el título de la leyenda
+
+```{r}
+ggplot(esc2,aes(x=COLEGIO,y=CANTIDAD,fill=COLEGIO))+
+  geom_bar(stat = "identity", width = 0.5)+
+  labs(fill="El título que quiere")
+```
+
+
++labs(fill="El título que quiere")
 
 ## AGREGAR TEXTO AL INTERIOR DEL GRÁFICO Y CANTIDADES
 

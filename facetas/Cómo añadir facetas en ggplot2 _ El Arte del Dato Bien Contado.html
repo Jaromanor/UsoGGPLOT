@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/ -->
+<html lang="es-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo">
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Paula L. Casado">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Hasta ahora hemos trabajado con el título principal y los títulos de los ejes, pero más allá del texto, existen otros aspectos primordiales en un gráfico interesantes, como saber dividir el gráfico en paneles o facetas.">
+
+  
+  <link rel="alternate" hreflang="es-es" href="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/">
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#fffb00">
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="all" onload="this.media=&#39;all&#39;">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/monokai.min.css" crossorigin="anonymous" title="hl-light" media="all" onload="this.media=&#39;all&#39;">
+        <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/monokai.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media=&#39;all&#39;" disabled="">
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="all" onload="this.media=&#39;all&#39;">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/css2">
+      <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/css2" media="all" onload="this.media=&#39;all&#39;">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/wowchemy.9db8887461853271ce2ccce81985dfa5.css">
+
+  
+
+
+
+
+<script async="" src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-WNPDSHF89B', { 'anonymize_ip': true });
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="https://elartedeldato.com/manifest.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="https://elartedeldato.com/media/icon_hucfddd6860c0b4900a5acb8e924657868_6422_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="https://elartedeldato.com/media/icon_hucfddd6860c0b4900a5acb8e924657868_6422_180x180_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/">
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+    <meta property="twitter:site" content="@elartedeldato">
+    <meta property="twitter:creator" content="@elartedeldato">
+  
+  <meta property="og:site_name" content="El Arte del Dato Bien Contado">
+  <meta property="og:url" content="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/">
+  <meta property="og:title" content="Cómo añadir facetas en ggplot2 | El Arte del Dato Bien Contado">
+  <meta property="og:description" content="Hasta ahora hemos trabajado con el título principal y los títulos de los ejes, pero más allá del texto, existen otros aspectos primordiales en un gráfico interesantes, como saber dividir el gráfico en paneles o facetas."><meta property="og:image" content="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/featured-sueno-mamiferos-facetas.png">
+    <meta property="twitter:image" content="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/featured-sueno-mamiferos-facetas.png"><meta property="og:locale" content="es-es">
+  
+    
+      <meta property="article:published_time" content="2021-12-05T00:00:00+00:00">
+    
+    <meta property="article:modified_time" content="2021-12-05T20:24:04+01:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/"
+  },
+  "headline": "Cómo añadir facetas en ggplot2",
+  
+  "image": [
+    "https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/featured-sueno-mamiferos-facetas.png"
+  ],
+  
+  "datePublished": "2021-12-05T00:00:00Z",
+  "dateModified": "2021-12-05T20:24:04+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Paula L. Casado"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "El arte del dato bien contado",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://elartedeldato.com/media/logo_hucfddd6860c0b4900a5acb8e924657868_6422_192x192_fit_lanczos_3.png"
+    }
+  },
+  "description": "Hasta ahora hemos trabajado con el título principal y los títulos de los ejes, pero más allá del texto, existen otros aspectos primordiales en un gráfico interesantes, como saber dividir el gráfico en paneles o facetas."
+}
+</script>
+
+  
+
+  
+
+  
+  
+  
+  
+  
+    <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/cookieconsent.min.js.descargar" integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/cookieconsent.min.css" integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin="anonymous">
+  
+  <script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#fffb00",
+          "text": "#fff"
+        },
+        "button": {
+          "background": "#fff",
+          "text": "#fffb00"
+        }
+      },
+      "theme": "classic",
+      "content": {
+        "message": "Este sitio web utiliza cookies para garantizarle una mejor experiencia.",
+        "dismiss": "Entendido!",
+        "link": "Más información",
+        "href": "/politica-de-privacidad/"
+      }
+    })});
+  </script>
+
+
+  
+
+
+
+
+
+  <title>Cómo añadir facetas en ggplot2 | El Arte del Dato Bien Contado</title>
+<style type="text/css">.ReactTable{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.ReactTable *{-webkit-box-sizing:border-box;box-sizing:border-box}.ReactTable .rt-table{-webkit-box-flex:1;-ms-flex:auto 1;flex:auto 1;flex-direction:column;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;width:100%;border-collapse:collapse;overflow:auto}.ReactTable .rt-table,.ReactTable .rt-thead{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column}.ReactTable .rt-thead{flex-direction:column}.ReactTable .rt-thead .rt-tr{text-align:center}.ReactTable .rt-thead .rt-td,.ReactTable .rt-thead .rt-th{line-height:normal;position:relative}.ReactTable .rt-thead .rt-td.-cursor-pointer,.ReactTable .rt-thead .rt-th.-cursor-pointer{cursor:pointer}.ReactTable .rt-thead .rt-resizable-header{overflow:visible}.ReactTable .rt-thead .rt-resizable-header:last-child{overflow:hidden}.ReactTable .rt-thead .rt-resizable-header-content{overflow:hidden;text-overflow:ellipsis}.ReactTable .rt-tbody{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;overflow:auto}.ReactTable .rt-tbody .rt-expandable{cursor:pointer}.ReactTable .rt-tr-group{-webkit-box-flex:1;-ms-flex:1 0 auto;flex:1 0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}.ReactTable .rt-tr{-webkit-box-flex:1;-ms-flex:1 0 auto;flex:1 0 auto;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.ReactTable .rt-td,.ReactTable .rt-th{-webkit-box-flex:1;-ms-flex:1 0 0px;flex:1 0 0;overflow:hidden}.ReactTable .rt-td.-hidden,.ReactTable .rt-th.-hidden{width:0!important;min-width:0!important;padding:0!important;border:0!important;opacity:0!important}.ReactTable .rt-resizer{display:inline-block;position:absolute;width:36px;top:0;bottom:0;right:-18px;cursor:col-resize;z-index:10}.ReactTable .rt-tfoot{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.ReactTable .-loading{display:block;position:absolute;left:0;right:0;top:0;bottom:0;background:hsla(0,0%,100%,.8);-webkit-transition:all .3s ease;transition:all .3s ease;z-index:-1;opacity:0;pointer-events:none}.ReactTable .-loading>div{position:absolute;display:block;text-align:center;width:100%;top:50%;left:0;font-size:15px;color:rgba(0,0,0,.6);-webkit-transform:translateY(-52%);transform:translateY(-52%);-webkit-transition:all .3s cubic-bezier(.25,.46,.45,.94);transition:all .3s cubic-bezier(.25,.46,.45,.94)}.ReactTable .-loading.-active{opacity:1;z-index:2;pointer-events:all}.ReactTable .-loading.-active>div{-webkit-transform:translateY(50%);transform:translateY(50%)}.ReactTable .rt-resizing .rt-td,.ReactTable .rt-resizing .rt-th{-webkit-transition:none!important;transition:none!important;cursor:col-resize;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}</style><style type="text/css">.ReactTable{height:100%;background-color:#fff}.rt-inline{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.rt-th{font-weight:600}.rt-td,.rt-th{padding:7px 8px;overflow-wrap:break-word;max-width:100%;word-wrap:break-word}.rt-compact .rt-td,.rt-compact .rt-th{padding:4px 6px}.rt-nowrap .rt-td,.rt-nowrap .rt-th{white-space:nowrap;text-overflow:ellipsis}.rt-th-content{overflow:hidden;text-overflow:ellipsis}.rt-td-select{-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.rt-select,.rt-td-select{display:-webkit-box;display:-ms-flexbox;display:flex}.rt-select{-webkit-box-align:center;-ms-flex-align:center;align-items:center}input[type=checkbox].rt-select-input,input[type=radio].rt-select-input{display:block;margin:0}.rt-align-left{text-align:left}.rt-align-right{text-align:right}.rt-align-center{text-align:center}.rt-table{border-width:1px;border-color:#e6e6e6}.rt-bordered .rt-table,.rt-outlined .rt-table{border-style:solid}.rt-th{border-bottom:2px solid #e6e6e6;border-left-width:1px;border-left-color:rgba(0,0,0,.05)}.rt-bordered .rt-th,.rt-outlined .rt-th{border-bottom-width:1px}.rt-td{border-top:1px solid #f2f2f2;border-left-width:1px;border-left-color:rgba(0,0,0,.05)}.rt-borderless .rt-td,.rt-tr-group:first-child>.rt-tr:first-child .rt-td{border-top:none}.rt-bordered .rt-td,.rt-bordered .rt-th{border-left-style:solid}.rt-bordered .rt-td:first-child,.rt-bordered .rt-th:first-child{border-left:none}.rt-th-group,.rt-th-group-none{border-bottom-style:none}.rt-th-group:after{content:"";position:absolute;margin:auto;left:8px;right:8px;bottom:0;width:100%;height:1px;background-color:#e6e6e6}.rt-bordered .rt-th-group:after,.rt-outlined .rt-th-group:after{left:0;right:0}.rt-bordered .rt-th-group-none{border-bottom-style:solid}.rt-tr-striped{background-color:rgba(0,0,0,.03)}.rt-tr-highlight:hover,.rt-tr-striped.rt-tr-highlight:hover{background-color:rgba(0,0,0,.05)}.rt-tr.-padRow{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.ReactTable .rt-tbody,.ReactTable .rt-tfoot,.ReactTable .rt-thead.-header{-ms-flex-negative:0;flex-shrink:0}@supports ((position:-webkit-sticky) or (position:sticky)){.ReactTable .rt-table{background:inherit}.ReactTable .rt-tbody{overflow:visible}.ReactTable .rt-thead.-header{top:0}.ReactTable .rt-tfoot,.ReactTable .rt-thead.-header{position:-webkit-sticky;position:sticky;background:inherit;z-index:2}.ReactTable .rt-tfoot{bottom:0}}@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none){.ReactTable .rt-tbody{overflow:auto;-ms-overflow-style:-ms-autohiding-scrollbar}}.rt-td-filter{border-top:0;border-bottom:1px solid #f2f2f2}.rt-borderless .rt-td-filter{border-bottom:0}.rt-filter{padding:5px 7px;color:inherit;background-color:#fff;border:1px solid rgba(0,0,0,.1);border-radius:3px;font-family:inherit;font-size:inherit;font-weight:400;outline-width:0;outline-style:solid}.rt-filter:focus{border:1px solid rgba(0,0,0,.25)}.rt-sort-header{display:-webkit-box;display:-ms-flexbox;display:flex}.rt-align-center .rt-sort-header{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.rt-align-right .rt-sort-header{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.rt-th{outline-width:0;outline-style:solid}.rt-th[aria-sort] .rt-sort-left:after{padding-right:5px;line-height:0}.rt-th[aria-sort] .rt-sort-right:after{padding-left:5px;line-height:0}.rt-th[aria-sort=ascending] .rt-sort-left:after,.rt-th[aria-sort=ascending] .rt-sort-right:after{content:"\2191"}.rt-th[aria-sort=descending] .rt-sort-left:after,.rt-th[aria-sort=descending] .rt-sort-right:after{content:"\2193"}.rt-th[aria-sort=none] .rt-sort:after{content:"\2195";opacity:.4}.rt-th[data-sort-hint=ascending] .rt-sort-left:after,.rt-th[data-sort-hint=ascending] .rt-sort-right:after{content:"\2191";opacity:.4}.rt-th[data-sort-hint=descending] .rt-sort-left:after,.rt-th[data-sort-hint=descending] .rt-sort-right:after{content:"\2193";opacity:.4}.rt-expander-button{margin:0 2px;padding:0;background:none;border:none;cursor:pointer}.rt-expander{display:inline-block;position:relative;padding:0 8px;color:transparent;outline-width:0;outline-style:solid}.rt-expander:after{content:"";position:absolute;width:0;height:0;top:50%;left:50%;-webkit-transform:translate(-50%,-50%) rotate(-90deg);transform:translate(-50%,-50%) rotate(-90deg);border-left:5.04px solid transparent;border-right:5.04px solid transparent;border-top:7px solid rgba(0,0,0,.8);-webkit-transition:all .3s cubic-bezier(.175,.885,.32,1.275);transition:all .3s cubic-bezier(.175,.885,.32,1.275);cursor:pointer}.rt-expander.-open:after{-webkit-transform:translate(-50%,-50%) rotate(0);transform:translate(-50%,-50%) rotate(0)}.rt-pagination{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:6px 4px;border-top:1px solid #f2f2f2}.rt-bordered .rt-pagination,.rt-outlined .rt-pagination{border-top:none}.rt-pagination-info :not(:last-child){margin-right:16px}.rt-page-info{display:inline-block;margin:6px 8px;opacity:.9}.rt-page-size{display:inline-block;margin:0 8px}.rt-page-size-select{margin:0 2px}.rt-page-button,.rt-page-jump,.rt-page-size-select{font-family:inherit;font-size:inherit;color:inherit;line-height:inherit}.rt-page-jump,.rt-page-size-select{background-color:#fff;padding:3px;border-radius:3px;border:1px solid rgba(0,0,0,.05)}@supports (-moz-appearance:none){.rt-page-size-select{-moz-appearance:none;padding-right:12px;background-image:url('data:image/svg+xml;charset=US-ASCII,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill="%23333" d="M24 1.5l-12 21-12-21h24z"/></svg>');background-repeat:no-repeat;background-position:right 6px center;background-size:6px}}.rt-page-button{padding:6px 12px;background-color:transparent;border:none;border-radius:3px;outline-width:0;outline-style:solid;cursor:pointer}.rt-page-button::-moz-focus-inner{padding:0;border-style:none}.rt-page-button:disabled{opacity:.6;cursor:default}.rt-page-button:hover{background-color:rgba(0,0,0,.04)}.rt-page-button:active{background-color:rgba(0,0,0,.08)}.rt-keyboard-active .rt-page-button:focus{background-color:rgba(0,0,0,.04)}.rt-page-button:disabled:focus,.rt-page-button:disabled:hover{background-color:transparent}.rt-page-button-current{font-weight:700}.rt-page-ellipsis{margin:0 4px;pointer-events:none}.rt-page-numbers{display:inline-block;margin:0 8px;white-space:nowrap}.rt-page-jump{width:70px;text-align:center}.rt-tbody-noData{position:relative}.rt-tbody-noData .rt-td{border-color:transparent}.rt-noData{display:block;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);line-height:0;z-index:1}.rt-search{display:block;-ms-flex-item-align:end;align-self:flex-end;margin-bottom:8px;padding:5px 7px;color:inherit;background-color:#fff;border:1px solid rgba(0,0,0,.1);border-radius:3px;outline-width:0;outline-style:solid;font-family:inherit;font-size:inherit}.rt-search:active,.rt-search:focus{border:1px solid rgba(0,0,0,.25)}</style><style type="text/css">.medium-zoom-overlay{position:fixed;top:0;right:0;bottom:0;left:0;opacity:0;transition:opacity .3s;will-change:opacity}.medium-zoom--opened .medium-zoom-overlay{cursor:pointer;cursor:zoom-out;opacity:1}.medium-zoom-image{cursor:pointer;cursor:zoom-in;transition:transform .3s cubic-bezier(.2,0,.2,1)!important}.medium-zoom-image--hidden{visibility:hidden}.medium-zoom-image--opened{position:relative;cursor:pointer;cursor:zoom-out;will-change:transform}</style><style type="text/css">:root topadblock, :root span[title="Ads by Google"], :root span[id^="ezoic-pub-ad-placeholder-"], :root iframe[src^="https://tpc.googlesyndication.com/"], :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="rc-widget-"], :root div[id^="lazyad-"], :root div[id^="gtm-ad-"], :root div[id^="gpt_ad_"], :root div[id^="gpt-ad-ver"], :root div[id^="gpt-ad-hor"], :root div[id^="div-gpt-"], :root div[id^="div-adtech-ad-"], :root div[id^="dfp-slot-"], :root div[id^="dfp-ad-"], :root div[id^="amzn-assoc-ad"], :root div[id^="advt-"], :root div[id^="advads_"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="adngin-"], :root div[id^="adfox_"], :root div[id^="ad_script_"], :root div[id^="ad-server-"], :root div[id^="ad-gpt-"], :root div[id^="ad-div-"], :root div[data-test-id="AdBannerWrapper"], :root div[data-mpu1], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-adname], :root div[data-ad-wrapper], :root div[data-ad-underplayer], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="sp-adslot-"], :root div[class^="s-dfp-"], :root div[class^="pane-adsense-managed-"], :root div[class^="native-ad-"], :root div[class^="kiwiad-desktop"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="index_displayAd_"], :root div[class^="index_adAfterContent_"], :root div[class^="hp-ad-rect-"], :root div[class^="block-openx-"], :root div[id^="adspot-"], :root div[class^="adsbutt_wrapper_"], :root div[class^="ads-partner-"], :root div[class^="adpubs-"], :root div[class^="adbanner_"], :root div[class^="ad_border_"], :root hl-adsense, :root div[data-contentexchange-widget], :root div[class^="adUnit_"], :root div[class^="StickyHeroAdWrapper-"], :root div[class^="Directory__footerAds"], :root div[class^="BannerAd_"], :root div[class^="Ad__bigBox"], :root div[data-google-query-id], :root div[class^="AdBannerWrapper-"], :root div[class^="ad_position_"], :root div[aria-label="Ads"], :root display-ads, :root div[id^="ad-cid-"], :root aside[id^="advads_ad_widget-"], :root aside[id^="adrotate_widgets-"], :root article.ad, :root app-advertisement, :root app-ad, :root amp-embed[type="taboola"], :root amp-ad-custom, :root ad-desktop-sidebar, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://www.vfreecams.com/in/?track="], :root a[href^="https://www.rcbopt.com:8080/offer/"] > img, :root a[href^="https://www.rabbits.webcam/?id="], :root div[data-test-id="AdDisplayWrapper"], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.passeura.com/"], :root a[href^="https://www.oneclickroot.com/?tap_a="] > img, :root a[href^="https://www.oboom.com/ref/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.jackery.com?aff="] > img, :root a[href^="https://www.iyalc.com/"], :root div[class^="pane-google-admanager-"], :root div[class^="Component-dfp-"], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highperformancegate.com/"], :root a[href^="https://www.healthrangerstore.com/"] > img, :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.gambling-affiliation.com/cpc/"], :root a[href^="https://www.dollps.com/?track="], :root a[href^="https://www.clicktraceclick.com/"], :root a[href^="https://www.camsoda.com/enter.php?id="], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root a[href^="https://www.bebi.com"], :root div[class^="Display_displayAd"], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://www.bang.com/?aff="], :root a[href^="https://www.arthrozene.com/"][href*="?tid="], :root a[href^="https://weedzy.co.uk/"][href*="&utm_"], :root a[href^="https://webroutetrk.com/"], :root iframe[src^="http://ad.yieldmanager.com/"], :root a[href^="https://wantopticalfreelance.com/"], :root a[href^="https://waisheph.com/"], :root a[href^="https://uncensored.game/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://tupitea.co/"], :root a[href^="https://ttf.trmobc.com/"], :root a[href^="https://trk.moviesflix4k.xyz/"], :root a[href^="https://trf.bannerator.com/"], :root a[href^="https://trappist-1d.com/"], :root a[href^="https://tragency-clesburg.icu/"], :root a[href^="https://traffdaq.com/"], :root div[class^="kiwiad-popup"], :root a[href^="https://tracking.trackcasino.co/"], :root a[href^="https://tracking.comfortclick.eu/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://track.totalav.com/"], :root a[href^="https://track.themadtrcker.com/"], :root a[href^="https://track.interactivegf.com/"], :root a[href^="https://vlnk.me/"], :root a[href^="https://track.healthtrader.com/"], :root a[href^="https://track.effiliation.com/servlet/effi.click?"] > img, :root a[href^="https://track.clickmoi.xyz/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://torguard.net/aff.php"] > img, :root a[href^="https://tm-offers.gamingadult.com/"], :root a[href^="https://tracking.gitads.io/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://t.hrtyj.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://topoffers.com/"][href*="/?pid="], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://s.zlink2.com/"], :root zeus-ad, :root a[href^="https://refpasrasw.world/"], :root a[href^="https://refpaexhil.top/"], :root a[href^="https://reachtrgt.com/"], :root a[href^="https://queersodadults.com/"], :root a[href^="https://promo-bc.com/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root a[href^="https://pcm.bannerator.com/"], :root iframe[id^="google_ads_frame"], :root a[href^="https://pb-track.com/"], :root a[href^="https://partners.fxoro.com/click.php?"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://torrentsafeguard.com/?aid="], :root a[href^="https://offers.refchamp.com/"], :root div[id^="code_ads_"], :root a[href^="https://offerforge.net/"], :root div[class^="ResponsiveAd-"], :root a[href^="https://oackoubs.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://nutrientassumptionclaims.com/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root a[href^="https://t.grtyi.com/"], :root a[href^="https://myusenet.xyz/"], :root a[href^="https://msecure117.com/"], :root div[id^="ezoic-pub-ad-"], :root a[href^="https://mk-cdn.net/"], :root a[href^="https://meet-to-fuck.com/tds"], :root a[href^="https://meet-sexhere.com/"], :root a[href^="https://meet-sex-here.com/?u="], :root a[href^="https://medleyads.com/"], :root div.fadeInDown[id$="____equal"][class$="____equal"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://m.do.co/c/"] > img, :root a[href^="https://lead1.pl/"], :root a[href^="https://refpazkjixes.top/"], :root a[href^="https://landing.brazzersplus.com/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://join.virtuallust3d.com/"], :root a[href^="https://trusted-click-host.com/"], :root a[href^="https://jmp.awempire.com/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href*=".medgoodfood.com/"], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root mq-programmatic-ad, :root a[href^="https://iac.ampxdirect.com/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root a[href^="https://go.xxxiijmp.com"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://thaudray.com/"], :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root [data-css-class="dfp-inarticle"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="//lambingsyddir.com/"], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="https://ismlks.com/"], :root a[href^="https://track.afftck.com/"], :root a[href^="https://gohere.pl/"], :root a[href^="https://go.cmrdr.com/"], :root a[href^="https://go.admjmp.com/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root div[class^="articleAdUnitMPU_"], :root a[href^="https://aj1070.online/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://a-ads.com/?partner="], :root a[href^="https://financeads.net/tc.php?"], :root bottomadblock, :root a[href^="https://fertilitycommand.com/"], :root a[href^="https://bluedelivery.pro/"], :root a[href^="https://fast-redirecting.com/"], :root a[href^="https://fakelay.com/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://dianches-inchor.com/"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root a[href^="http://spygasm.com/track?"], :root a[href^="https://deliver.tf2www.com/"], :root [href^="https://detachedbates.com/"], :root [href^="https://www.targetingpartner.com/"], :root a[href^="https://deliver.ptgncdn.com/"], :root #kt_player > a[target="_blank"], :root a[href^="https://cpartner.bdswiss.com/"], :root a[href^="//voyeurhit.com/cs/"], :root a[href^="https://control.trafficfabrik.com/"], :root a[href^="https://clixtrac.com/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://claring-loccelkin.com/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://aaucwbe.com/"], :root a[href^="https://cams.imagetwist.com/in/?track="], :root div[class^="AdItem-"], :root a[href^="https://mob1ledev1ces.com/"], :root [id^="adframe_wrap_"], :root a[href^="https://explore.findanswersnow.net/"], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://my-movie.club/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://bngpt.com/"], :root #topstuff > #tads, :root a[href^="https://black77854.com/"], :root a[href^="https://burpee.xyz/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root div[id^="sticky_ad_"], :root div[class^="Ad__adContainer"], :root a[href^="https://avtub.click/assets/link.php"], :root a[href^="https://go.gldrdr.com/"], :root a[href^="https://as.sexad.net/"], :root a[href^="https://bestcond1tions.com/"], :root a[href^="https://as.conjectwatson.com/"], :root display-ad-component, :root [href^="/ucdownload.php"], :root a[href^="https://ak.hetaruwg.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://affiliate.geekbuying.com/gkbaffiliate.php?"], :root a[href^="https://go.alxbgo.com/"], :root a[href^="https://aff-ads.stickywilds.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://ads.cdn.live/"], :root a[href^="https://adnetwrk.com/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="http://secure.vivid.com/track/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root a[href^="https://misspkl.com/"], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="https://adswick.com/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://ad.atdmt.com/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="http://www.mrskin.com/tour"], :root a[data-url^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.coiwqe.site/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="https://ads-for-free.com/click.php?"], :root a[href^="http://www.FriendlyDuck.com/"], :root a[href^="https://giftsale.co.uk/?utm_"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://stvkr.com/"], :root a[href^="http://vo2.qrlsx.com/"], :root a[href^="http://traffic.tc-clicks.com/"], :root div[class^="largeRectangleAd_"], :root a[href^="http://track.afcpatrk.com/"], :root a[href^="http://tc.tradetracker.net/"] > img, :root .trc_rbox .syndicatedItem, :root a[href^="https://1free33style.com/"], :root a[href^="http://rs-stripe.wsj.com/stripe/redirect"], :root a[href^="http://refpa.top/"], :root a[href^="http://tour.mrskin.com/"], :root a[href^="http://azmobilestore.co/"], :root a[href^="http://pubads.g.doubleclick.net/"], :root [onclick*="content.ad/"], :root a[href^="http://pityhostngco2.xyz/"], :root a[href^="http://partners.etoro.com/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://moneynow.one/"], :root a[href^="http://look.djfiln.com/"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://www.reimageplus.com/"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="http://intent.bingads.com/"], :root a[href^="https://cagothie.net/"], :root div[id^="google_dfp_"], :root a[href^="https://look.utndln.com/"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://watchmygirlfriend.tv/"], :root .nrelate .nr_partner, :root a[href^="http://go.xtbaffiliates.com/"], :root a[href^="http://go.fpmarkets.com/"], :root div[class^="AdSlot__container"], :root a[href^="https://porngames.adult/?SID="], :root a[href^="http://go.247traffic.com/"], :root div[id^="_vdo_ads_player_ai_"], :root a[href^="http://enter.anabolic.com/track/"], :root a[href^="http://www.advcashpro.com/aff/"], :root a[href^="http://deloplen.com/"], :root a[href^="//edgar2al2larngpoer.com/"], :root a[href^="http://d2.zedo.com/"], :root div[class^="index__adWrapper"], :root amp-fx-flying-carpet, :root a[href^="http://czotra-32.com/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ads.ad4game.com/"], :root a[href*="//lkstrck2.com/"], :root a[href^="http://axdsz.pro/"], :root a[href^="https://www.travelzoo.com/oascampaignclick/"], :root a[href^="http://affiliates.thrixxx.com/"], :root div[class^="AdCard_"], :root a[href^="http://affiliates.lifeselector.com/"], :root a[href^="https://awptjmp.com/"], :root div[id^="ad-position-"], :root a[href^="https://leg.xyz/?track="], :root a[href^="http://affiliate.glbtracker.com/"], :root div[id^="crt-"][style], :root a[href^="http://adultgames.xxx/"], :root a[href^="http://adserver.adreactor.com/"], :root [href^="https://cipledecline.buzz/"], :root a[href^="https://earandmarketing.com/"], :root a[href^="http://adf.ly/?id="], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="//syndication.dynsrvtbg.com/"], :root iframe[src^="http://www.adpeepshosted.com/adpeeps.php?"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="https://pl.premium4kflix.website/"], :root [id^="chp_ads_block"], :root a[href^="https://go.julrdr.com/"], :root a[href^="//chrif8kdstie.com/"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://www.adskeeper.com"], :root [href^="https://totlnkcl.com/"], :root [href*="http://MyPillow.com"] > img, :root a[href^="//agacelebir.com/"], :root a[href^="https://dooloust.net/"], :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root [href^="/ucmini.php"], :root a[href="//rufflycouncil.com/"], :root a[href*="https://www.sweetdeals.com/"] img, :root div[data-native_ad], :root a[href*=".zlink9.com/"], :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root a[href*=".incontro-veloce.com/"], :root a[href^="https://a.bestcontentoperation.top/"], :root AFS-AD, :root a[href^="https://betway.com/"][href*="&a="], :root a[href^="//go.xlviiirdr.com"], :root [data-dynamic-ads], :root div[class^="adunit_"], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root div[class^="AdEmbeded__AddWrapper"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root div[class^="lifeOnwerAd"], :root a[data-oburl^="http://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root div[class^="BlockAdvert-"], :root a[href^="http://wct.link/"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root a[href^="https://bongacams10.com/track?"], :root [href="https://masstortfinancing.com"] img, :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root a[href^="https://www.financeads.net/tc.php?"], :root [lazy-ad="top_banner"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root div[id^="advads-"], :root div[data-role="sidebarAd"], :root [href*=".zlinkm.com/"], :root [href^="https://bulletprofitsmartlink.com/"], :root [href^="https://join3.bannedsextapes.com"], :root [lazy-ad="leftthin_banner"], :root a[href^="//benoopto.com/"], :root [lazy-ad="leftbottom_banner"], :root .ob_container .item-container-obpd, :root [id^="div-gpt-ad"], :root [id^="bunyad_ads_"], :root [data-m-ad-id], :root a[href^="http://admrotate.iplayer.org/"], :root [id*="MarketGid"], :root .grid > .container > #aside-promotion, :root guj-ad, :root [id*="MGWrap"], :root .commercial-unit-mobile-top > div[data-pla="1"], :root div[class^="PreAd_"], :root a[href^="https://www.sweetdeals.com"], :root a[href^="https://track.bruceads.com/"], :root a[href^="https://t.aslnk.link/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://secure.starsaffiliateclub.com/C.ashx?"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root [href^="https://www.restoro.com/"], :root [data-ad-manager-id], :root a[href^="https://fleshlight.sjv.io/"], :root div[id^="zergnet-widget"], :root a[href^="https://rev.adsession.com/"], :root [href^="https://www.mystore.com/"] > img, :root [href^="https://freecourseweb.com/"] > .sitefriend, :root [href^="https://www.hostg.xyz/aff_c"] > img, :root [href*=".engine.adglare.net/"], :root a[href^="http://allaptair.club/"], :root a[href^="https://ptapjmp.com/"], :root DFP-AD, :root a[href^="https://maymooth-stopic.com/"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://see.kmisln.com/"], :root [href^="https://routewebtk.com/"], :root [href^="https://www.gcjdjhs3e.com/"], :root a[href^="http://bc.vc/?r="], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="https://syndication.exoclick.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://go.trackitalltheway.com/"], :root a[href^="https://go.cmtaffiliates.com/"], :root [data-name="adaptiveConstructorAd"], :root [href^="https://optimizedelite.com/"] > img, :root a[href^="https://www.awin1.com/cread.php?awinaffid="], :root a[href^="//thaudray.com/"], :root a[href^="//eurogirls.live/track?"], :root [href^="https://t.ajrkm.link/"], :root a[href^="https://go.goasrv.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root a[href*=".trust.zone"], :root [href^="http://homemoviestube.com/"], :root a[href^="http://trk.mdrtrck.com/"], :root [href^="https://shrugartisticelder.com"], :root a[href^="https://traffic.bannerator.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="https://vo2.qrlsx.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root div[id^="ad-inserter-"], :root a[href^="https://x.trafficandoffers.com/"], :root .scroll-fixable.rail-right > .deals-rail, :root a[href^="https://tour.mrskin.com/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root ADS-RIGHT, :root [href^="https://mystore.com/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root [href^="https://mylead.global/stl/"] > img, :root div[id^="ad_rect_"], :root .vid-present > .van_vid_carousel__padding, :root a[href^="https://syndication.optimizesrv.com/"], :root [id^="google_ads_iframe"], :root [href^="https://istlnkcl.com/"], :root div[id^="traffective-ad-"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root div[data-mediatype="advertising"], :root a[href^="https://playuhd.host/"], :root a[href^="https://5hjdbfjfd5.monster/"], :root .section-subheader > .section-hotel-prices-header, :root [href^="http://join.ts-dominopresley.com/"], :root [href^="https://go.affiliatexe.com/"], :root [href^="https://go.4rabettraff.com/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root a[href^="https://click.a-ads.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root a[href^="https://mmwebhandler.aff-online.com/"], :root [href^="https://r.kraken.com/"], :root a[href^="https://k2s.cc/pr/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://gghf.mobi/"], :root [href^="https://affect3dnetwork.com/track/"], :root aside[id^="tn_ads_widget-"], :root [href^="https://wct.link/"], :root [data-desktop-ad-id], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root a[href^="//coarsewary.com/"], :root a[href^="https://a.montangop.top/"], :root [href^="https://v.investologic.co.uk/"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root [class^="s2nPlayer"], :root a[href*=".flndmyiove.net/"], :root [href^="http://join.trannies-fuck.com/"], :root [href^="http://www.fleshlightgirls.com/"], :root a[href^="https://dialling-abutory.com/"], :root [href*="incentrev.com/"] img, :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [class^="AdvertisingSlot_"], :root div[class^="Ad__container"], :root [href^="http://trafficare.net/"], :root [href^="/admdownload.php"], :root a[href^="https://adserver.adreactor.com/"], :root a[href^="//postlnk.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root [href^="https://clk.right-wing-health.com/"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="http://join.shemale.xxx/"], :root a[href^="http://betahit.click/"], :root [class^="chp_ads_block"], :root [href^="http://join.rodneymoore.com/"], :root [href^="http://www.pingperfect.com/aff.php"], :root a[href^="https://scurewall.co/"], :root [name^="google_ads_iframe"], :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root a[href^="https://www.chngtrack.com/"], :root a[href^="https://retiremely.com/"], :root a[href^="https://cpmspace.com/"], :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href^="https://uncensored3d.com/"], :root a[href^="https://creacdn.top-convert.com/"], :root div[id^="ad_bigbox_"], :root [href^="https://go.xlrdr.com"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://sexsimulator.game/tab/?SID="], :root .rc-cta[data-target], :root [href^="http://go.cm-trk2.com/"], :root a[href^="https://go.xxxjmp.com"], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root #leader-companion > a[href], :root a[href^="http://semi-cod.com/clicks/"], :root [href^="https://traffserve.com/"], :root [href^="http://mypillow.com/"] > img, :root a[href^="https://a.adtng.com/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root [href="https://ourgoldguy.com/contact/"] img, :root [href="https://www.masstortfinancing.com/"] > img, :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://click2cvs.com/"], :root a[href^="https://delivery.porn.com/"], :root .trc_related_container div[data-item-syndicated="true"], :root [data-ez-name], :root a[href^="https://awecrptjmp.com/"], :root a[href^="https://someperceptionparade.com/"], :root a[href^="https://galaxyroms.net/?scr="], :root a[href^="https://albionsoftwares.com/"], :root [href^="https://goldcometals.com/clk.trk"], :root [href^="https://www.dcpodj3k5.com/"], :root [data-mobile-ad-id], :root a[href^="http://espn.zlbu.net/"], :root a[data-redirect^="this.href='http://paid.outbrain.com/network/redir?"], :root div[data-subscript="Advertising"], :root [class^="Ad-adContainer"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root [data-d-ad-id], :root [data-ad-cls], :root [id^="ad-wrap-"], :root div[class^="advertisement-desktop"], :root [href^="http://join.hardcoreshemalevideo.com/"], :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root div[class^="local-feed-banner-ads"], :root [href^="http://residenceseeingstanding.com/"], :root div[class^="index_adBeforeContent_"], :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root .trc_rbox_border_elm .syndicatedItem, :root div[id^="js-dfp-"], :root a[href^="https://www.xvinlink.com/?a_fid="], :root a[href^="https://content.oneindia.com/www/delivery/"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root [data-template-type="nativead"], :root [class^="amp-ad-"], :root [href^="https://glersakr.com/"], :root a[href^="https://t.mobtya.com/"], :root [class*="__adv-block"], :root ark-top-ad, :root a[href^="https://blackorange.go2cloud.org/"], :root div[data-native-ad], :root AD-SLOT, :root div[id^="banner-ad-"], :root a[href^="https://a2.adform.net/"], :root a[data-redirect^="http://paid.outbrain.com/network/redir?"], :root div[id^="ad_position_"], :root a[href^="https://ovb.im/"], :root a[href^="http://hotcandyland.com/partner/"], :root [id^="ad_sky"], :root [lazy-ad="lefttop_banner"], :root a[href^="https://redsittalvetoft.pro/"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://mcdlks.com/"], :root a[href^="http://play4k.co/"], :root AMP-AD, :root a[href^="https://ausoafab.net/"], :root div[data-content="Advertisement"], :root [id*="ScriptRoot"], :root div[class^="AdhesionAd_"], :root .trc_rbox_div .syndicatedItem, :root a-ad, :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root [data-ad-module], :root [id^="bunyad-widget-ads-"], :root a[href^="https://bs.serving-sys.com"], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root LEADERBOARD-AD, :root [href^="/ucdownloader.php"], :root a[href^="https://spygasm.com/track?"], :root a[href^="https://agacelebir.com/"], :root .plistaList > .itemLinkPET, :root [href^="https://affiliate.fastcomet.com/"] > img, :root [href^="http://join.shemalepornstar.com/"], :root [data-advadstrackid], :root [href^="https://mypillow.com/"] > img, :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="https://awentw.com/"], :root a[href^="https://a-ads.com/campaigns/"], :root [class^="div-gpt-ad"], :root a[href^="https://go.xlivrdr.com"], :root [data-freestar-ad], :root [class*="__adspot-title-container"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root a[href^="https://join.virtualtaboo.com/track/"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="https://axdsz.pro/"], :root a[href^="http://bodelen.com/"], :root div[class^="SponsoredAds"], :root a[href^="https://americafirstpolls.com/"] { display: none !important; }</style><style></style><link rel="prefetch" href="https://elartedeldato.com/"></head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="8943e5e9194463ed1c09fcc5183168c9"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-classic cc-bottom cc-color-override--2108383050 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">Este sitio web utiliza cookies para garantizarle una mejor experiencia. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://elartedeldato.com/politica-de-privacidad/" rel="noopener noreferrer nofollow" target="_blank">Más información</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Entendido!</a></div><!--googleon: all--></div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/wowchemy-init.min.7f3e7639f4c7f2a2cf83b68ea7de7f08.js.descargar"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Buscar</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/#" aria-label="Cerrar"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Buscar..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Buscar...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="https://elartedeldato.com/">
+        <img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/logo_hucfddd6860c0b4900a5acb8e924657868_6422_0x70_resize_lanczos_3.png" alt="El Arte del Dato Bien Contado">
+      </a>
+      <a class="navbar-brand-title" href="https://elartedeldato.com/">El Arte del Dato Bien Contado</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Barra de navegación">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="https://elartedeldato.com/"><img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/logo_hucfddd6860c0b4900a5acb8e924657868_6422_0x70_resize_lanczos_3.png" alt="El Arte del Dato Bien Contado"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://elartedeldato.com/#calendario_adviento"><span>Calendario de Adviento 2021</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="https://elartedeldato.com/blog"><span>Blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://elartedeldato.com/#contacto"><span>Contacto</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/elartedeldato" target="_blank" rel="noopener" aria-label="twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://github.com/elartedeldato" target="_blank" rel="noopener" aria-label="github">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/#" aria-label="Buscar"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Cómo añadir facetas en ggplot2</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Última actualización el
+      
+    
+    Sun, 05 Dec 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min de lectura
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="https://elartedeldato.com/categoria/visualizacion/">Visualización</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 513px;">
+  <div style="position: relative">
+    <img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/featured-sueno-mamiferos-facetas_hudd00515977ef5fcde7b9cfe6030c1347_166665_720x0_resize_lanczos_3.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/shim.min.js.descargar"></script>
+<script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/react.min.js.descargar"></script>
+<script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/react-dom.min.js.descargar"></script>
+<script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/react-tools.js.descargar"></script>
+<script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/htmlwidgets.js.descargar"></script>
+<script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/reactable.js.descargar"></script>
+<p>Hasta ahora hemos trabajado con el <a href="http://elartedeldato.com/blog/como-modificar-un-titulo-en-ggplot2" target="_blank" rel="noopener">título principal</a> y los <a href="http://elartedeldato.com/blog/como-modificar-los-titulos-de-los-ejes-en-ggplot2" target="_blank" rel="noopener">títulos de los ejes</a>, pero más allá del texto, existen otros aspectos primordiales en un gráfico interesantes, como saber dividir el gráfico en paneles o facetas.</p>
+<p>Esta característica puede ser interesante cuando trabajamos con varias variables, donde alguna de ellas es categórica, y queremos comparar los datos en cada una de las categorías.</p>
+<pre><code class="language-r hljs"><span class="hljs-keyword">library</span>(ggplot2)
+<span class="hljs-keyword">library</span>(reactable)
+reactable(head(msleep))
+</code></pre>
+<div id="htmlwidget-1" class="reactable html-widget html-widget-static-bound" style="width:auto;height:auto;"><div class="ReactTable"><div class="rt-table" role="table"><div class="rt-thead -header" role="rowgroup" style="min-width: 1100px;"><div class="rt-tr" role="row"><div class="rt-align-left -cursor-pointer rt-th" role="columnheader" aria-label="Sort name" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-th-content">name</span><span class="rt-sort-right" aria-hidden="true"></span></div></div><div class="rt-align-left -cursor-pointer rt-th" role="columnheader" aria-label="Sort genus" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-th-content">genus</span><span class="rt-sort-right" aria-hidden="true"></span></div></div><div class="rt-align-left -cursor-pointer rt-th" role="columnheader" aria-label="Sort vore" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-th-content">vore</span><span class="rt-sort-right" aria-hidden="true"></span></div></div><div class="rt-align-left -cursor-pointer rt-th" role="columnheader" aria-label="Sort order" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-th-content">order</span><span class="rt-sort-right" aria-hidden="true"></span></div></div><div class="rt-align-left -cursor-pointer rt-th" role="columnheader" aria-label="Sort conservation" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-th-content">conservation</span><span class="rt-sort-right" aria-hidden="true"></span></div></div><div class="rt-align-right -cursor-pointer rt-th" role="columnheader" aria-label="Sort sleep_total" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-sort-left" aria-hidden="true"></span><span class="rt-th-content">sleep_total</span></div></div><div class="rt-align-right -cursor-pointer rt-th" role="columnheader" aria-label="Sort sleep_rem" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-sort-left" aria-hidden="true"></span><span class="rt-th-content">sleep_rem</span></div></div><div class="rt-align-right -cursor-pointer rt-th" role="columnheader" aria-label="Sort sleep_cycle" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-sort-left" aria-hidden="true"></span><span class="rt-th-content">sleep_cycle</span></div></div><div class="rt-align-right -cursor-pointer rt-th" role="columnheader" aria-label="Sort awake" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-sort-left" aria-hidden="true"></span><span class="rt-th-content">awake</span></div></div><div class="rt-align-right -cursor-pointer rt-th" role="columnheader" aria-label="Sort brainwt" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-sort-left" aria-hidden="true"></span><span class="rt-th-content">brainwt</span></div></div><div class="rt-align-right -cursor-pointer rt-th" role="columnheader" aria-label="Sort bodywt" aria-sort="none" tabindex="0" style="flex: 100 0 auto; width: 100px;"><div class="rt-sort-header"><span class="rt-sort-left" aria-hidden="true"></span><span class="rt-th-content">bodywt</span></div></div></div></div><div class="rt-tbody" role="rowgroup" style="min-width: 1100px;"><div class="rt-tr-group"><div class="rt-tr" role="row"><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Cheetah</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Acinonyx</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">carni</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Carnivora</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">lc</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">12.1</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">11.9</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">50</div></div></div><div class="rt-tr-group"><div class="rt-tr" role="row"><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Owl monkey</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Aotus</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">omni</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Primates</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">17</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">1.8</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">7</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.0155</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.48</div></div></div><div class="rt-tr-group"><div class="rt-tr" role="row"><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Mountain beaver</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Aplodontia</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">herbi</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Rodentia</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">nt</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">14.4</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">2.4</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">9.6</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">1.35</div></div></div><div class="rt-tr-group"><div class="rt-tr" role="row"><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Greater short-tailed shrew</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Blarina</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">omni</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Soricomorpha</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">lc</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">14.9</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">2.3</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.133333333</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">9.1</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.00029</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.019</div></div></div><div class="rt-tr-group"><div class="rt-tr" role="row"><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Cow</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Bos</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">herbi</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Artiodactyla</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">domesticated</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">4</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.7</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.666666667</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">20</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.423</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">600</div></div></div><div class="rt-tr-group"><div class="rt-tr" role="row"><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Three-toed sloth</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Bradypus</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">herbi</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">Pilosa</div><div class="rt-td rt-align-left" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">14.4</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">2.2</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">0.766666667</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">9.6</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">​</div><div class="rt-td rt-align-right" role="cell" style="flex: 100 0 auto; width: 100px;">3.85</div></div></div></div></div><div class="pagination-bottom"></div></div></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"name":["Cheetah","Owl monkey","Mountain beaver","Greater short-tailed shrew","Cow","Three-toed sloth"],"genus":["Acinonyx","Aotus","Aplodontia","Blarina","Bos","Bradypus"],"vore":["carni","omni","herbi","omni","herbi","herbi"],"order":["Carnivora","Primates","Rodentia","Soricomorpha","Artiodactyla","Pilosa"],"conservation":["lc",null,"nt","lc","domesticated",null],"sleep_total":[12.1,17,14.4,14.9,4,14.4],"sleep_rem":["NA",1.8,2.4,2.3,0.7,2.2],"sleep_cycle":["NA","NA","NA",0.133333333,0.666666667,0.766666667],"awake":[11.9,7,9.6,9.1,20,9.6],"brainwt":["NA",0.0155,"NA",0.00029,0.423,"NA"],"bodywt":[50,0.48,1.35,0.019,600,3.85]},"columns":[{"accessor":"name","name":"name","type":"character"},{"accessor":"genus","name":"genus","type":"character"},{"accessor":"vore","name":"vore","type":"character"},{"accessor":"order","name":"order","type":"character"},{"accessor":"conservation","name":"conservation","type":"character"},{"accessor":"sleep_total","name":"sleep_total","type":"numeric"},{"accessor":"sleep_rem","name":"sleep_rem","type":"numeric"},{"accessor":"sleep_cycle","name":"sleep_cycle","type":"numeric"},{"accessor":"awake","name":"awake","type":"numeric"},{"accessor":"brainwt","name":"brainwt","type":"numeric"},{"accessor":"bodywt","name":"bodywt","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"8a110aac169a51f20381c58628ce7867","key":"8a110aac169a51f20381c58628ce7867"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<p>Podemos utilizar para las facetas la misma variable con la que mapeamos con anterioridad el color, véase la variable <code>vore</code>, que se refiere al género del animal, carnívoro, herbívoro o omnívoro.</p>
+<pre><code class="language-r hljs">ggplot(msleep, aes(x=sleep_total, y=sleep_rem, color=vore)) +      
+  geom_point() + 
+  labs(title=<span class="hljs-string">'El sueño de los mamíferos'</span>, 
+       subtitle=<span class="hljs-string">'Sueño REM frente a las horas totales de sueño'</span>, 
+       caption=<span class="hljs-string">'Proceedings of the National Academy of Sciences, 104 (3):1051-1056, 2007'</span>,
+       x=<span class="hljs-string">'Horas de sueño en total'</span>, y=<span class="hljs-string">'Horas de sueño en fase REM'</span>) + 
+  theme(plot.title=element_text(family=<span class="hljs-string">'Anton'</span>, size=<span class="hljs-number">20</span>),
+        plot.subtitle=element_text(family=<span class="hljs-string">'Anton'</span>),
+        axis.title.x = element_text(family=<span class="hljs-string">'Anton'</span>, face=<span class="hljs-string">'bold'</span>, hjust=<span class="hljs-number">1</span>),
+        axis.title.y = element_text(family=<span class="hljs-string">'Anton'</span>, face=<span class="hljs-string">'bold'</span>, hjust=<span class="hljs-number">1</span>)) -&gt; p
+p
+</code></pre>
+<p><img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/unnamed-chunk-2-1.png" width="672"></p>
+<p>La función <code>facet_wrap()</code> nos va a permitir dividir nuestro gráfico en paneles según la variable indicada como argumento.</p>
+<pre><code class="language-r hljs">p + facet_wrap(~vore)
+</code></pre>
+<p><img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/unnamed-chunk-3-1.png" width="672"></p>
+<p>Al tratarse de una variable también se puede indicar de la siguiente manera equivalente:</p>
+<pre><code class="language-r hljs">p + facet_wrap(<span class="hljs-string">'vore'</span>)
+</code></pre>
+<h2 id="añadir-facetas-sobre-dos-variables">Añadir facetas sobre dos variables</h2>
+<p>Podemos ahora tratar de cruzar las facetas por dos variables categóricas, por ejemplo, el género y la conservación del animal.</p>
+<pre><code class="language-r hljs">p + facet_wrap(conservation~vore)
+</code></pre>
+<p><img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/unnamed-chunk-5-1.png" width="672"></p>
+<p>Como vemos, el cruce lleva a un resultado complicado de entender. Puede que con otros datos, pudiera ser interesante esta perspectiva, sin embargo, con los del ejemplo, quedaría más organizado si una de las variables definiese las filas de los paneles, y la otra, las columnas. Eso es posible con la función <code>facet_grid()</code>.</p>
+<pre><code class="language-r hljs">p + facet_grid(conservation~vore)
+</code></pre>
+<p><img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/unnamed-chunk-6-1.png" width="672"></p>
+<p>O bien, de igual manera,</p>
+<pre><code class="language-r hljs">p + facet_grid(rows=vars(conservation), cols=vars(vore))
+</code></pre>
+<h2 id="cómo-modificar-la-escala-de-los-ejes-de-las-facetas">Cómo modificar la escala de los ejes de las facetas</h2>
+<p>Aunque existen diferentes opciones para personalizar las facetas, uno de los aspectos más relevantes es la escala de los ejes de las facetas. Ésto se puede hacer a través del argumento <code>scales.</code></p>
+<pre><code class="language-r hljs">p + facet_grid(conservation~vore, scales=<span class="hljs-string">'free'</span>)
+</code></pre>
+<p><img src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/unnamed-chunk-8-1.png" width="672"></p>
+<p>Utilizaríamos <code>'free'</code>, para indicar que ambos ejes tendrán escalas libres, o bien, <code>'free_x'</code> o <code>'free_y'</code> para dejar libres las escalas entre facetas del eje x o y respectivamente. Recuerda siempre de que el valor del argumento va entre comillas ;)</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/ggplot/">ggplot</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/diseno/">diseño</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/ggplot2/">ggplot2</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/grafico/">gráfico</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/visualizacion/">visualización</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/calendario-de-adviento-2021/">Calendario de Adviento 2021</a>
+  
+  <a class="badge badge-light" href="https://elartedeldato.com/etiqueta/facetas/">facetas</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/&amp;text=C%c3%b3mo%20a%c3%b1adir%20facetas%20en%20ggplot2" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/&amp;t=C%c3%b3mo%20a%c3%b1adir%20facetas%20en%20ggplot2" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=C%c3%b3mo%20a%c3%b1adir%20facetas%20en%20ggplot2&amp;body=https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/&amp;title=C%c3%b3mo%20a%c3%b1adir%20facetas%20en%20ggplot2" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=C%c3%b3mo%20a%c3%b1adir%20facetas%20en%20ggplot2%20https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/&amp;title=C%c3%b3mo%20a%c3%b1adir%20facetas%20en%20ggplot2" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://elartedeldato.com/"><img class="avatar mr-3 avatar-circle" src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/avatar_hu9fc9b27ed9ddc8a39d65adc14731042b_22682_270x270_fill_q75_lanczos_center.jpg" alt="Paula L. Casado"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://elartedeldato.com/">Paula L. Casado</a></h5>
+      <h6 class="card-subtitle">Data Scientist</h6>
+      <p class="card-text">Científica de datos especializada en visualización de datos.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://elartedeldato.com/#contacto">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/elartedeldato" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/elartedeldato" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/paulalopezcasado/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Relacionado</h3>
+    <ul>
+      
+      <li><a href="https://elartedeldato.com/blog/como-modificar-los-titutos-de-las-facetas-en-ggplot2/">Cómo modificar los títutos de las facetas en ggplot2</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-modificar-los-titulos-de-los-ejes-en-ggplot2/">Cómo modificar los títulos de los ejes en ggplot2</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-modificar-el-titulo-de-un-grafico-en-ggplot2/">Cómo modificar el título de un gráfico en ggplot2</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-anadir-el-titulo-de-un-grafico-en-ggplot2/">Cómo añadir el título de un gráfico en ggplot2</a></li>
+      
+      <li><a href="https://elartedeldato.com/blog/como-modificar-el-tema-en-ggplot/">Cómo modificar el tema en ggplot</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+  
+  
+
+  
+  <p class="powered-by">
+    
+      <a href="https://elartedeldato.com/politica-de-privacidad/">Política de privacidad</a>
+    
+    
+  </p>
+  
+
+  
+  <p class="powered-by">
+    Copyright © 2021 El arte del dato bien contado
+  </p>
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Citar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs latex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/#" target="_blank">
+          <i class="fas fa-copy"></i> Copiar
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="https://elartedeldato.com/blog/como-anadir-facetas-en-ggplot2/#" target="_blank">
+          <i class="fas fa-download"></i> Descargar
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/vendor-bundle.min.b73dfaac3b6499dc997741748a7c3fe2.js.descargar"></script>
+
+    
+    
+    
+      
+      
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/imagesloaded.pkgd.min.js.descargar" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/isotope.pkgd.min.js.descargar" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/highlight.min.js.descargar" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/r.min.js.descargar" crossorigin="anonymous"></script>
+        
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/python.min.js.descargar" crossorigin="anonymous"></script>
+        
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/latex.min.js.descargar" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/leaflet.min.js.descargar" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/fuse.min.js.descargar" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/jquery.mark.min.js.descargar" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/wowchemy.min.6816da1dce5e2821a26ab5838c507f32.js.descargar"></script>
+
+    
+  <script async="" defer="" src="./Cómo añadir facetas en ggplot2 _ El Arte del Dato Bien Contado_files/buttons.js.descargar"></script>
+
+
+
+
+
+
+</body></html>
