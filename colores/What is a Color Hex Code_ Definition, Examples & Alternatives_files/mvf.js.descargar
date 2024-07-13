@@ -1,0 +1,148 @@
+(function ($) {
+  'use strict';
+   $(document).ready(function () {
+	    if (typeof dataLayer !== 'undefined') {
+			setTimeout(function(){
+				initialWidgetLoad();
+			}, 5000);
+				var interactionOccurred = {};
+				var iframes = document.querySelectorAll('iframe');
+				if (iframes.length > 0) {
+					iframes.forEach(function(iframe) {
+						if (iframe.id.includes('mvf')) { // Check if iframe ID includes 'mvf'
+							window.addEventListener('message', function(event) {
+								// Check if the message is coming from the specific iframe
+								if (event.source === iframe.contentWindow) {
+									var eventData = event.data;
+									if (eventData.includes && eventData.includes('initialWidgetLoad') || eventData.includes('initialWidgetInteraction') || eventData.includes('pageChanged') || eventData.includes('resizeWidget')  || eventData.includes('isAutoScrollTempDisabled') ) {
+										return;
+									}
+									// console.log('Message from iframe:', eventData);
+									 var questionAnsweredStartIndex = eventData.indexOf('questionAnswered');
+									 console.log('handleEventdata:', eventData);
+									if (questionAnsweredStartIndex !== -1) {
+										var questionAnsweredData = eventData.substring(questionAnsweredStartIndex);
+											var jsonDataStartIndex = questionAnsweredData.indexOf(':');
+											if (jsonDataStartIndex !== -1) {
+												var jsonData = questionAnsweredData.substring(jsonDataStartIndex + 1);
+												// Parse the extracted JSON data
+												try {
+													var parsedData = JSON.parse(jsonData);
+													// Retrieve the "name" property
+													var qname = parsedData.name;
+													var pageNumber = parsedData.pageNumber;
+													var qValue = parsedData.value;
+														window.dataLayer.push({
+															event: 'MVF widget',
+															workflowName: 'MVF Form Interaction',
+															workflowStepNumber: 4,
+															workflowStepName: 'Question Answered',
+															workflowCompleteFlag: 0,
+															formId: inputData?.formId,
+															campaignId: inputData?.campaignId,
+															formStepNumber:  pageNumber,
+															formQuestion:  qname,
+															formValue:  qValue
+														});
+														if(pageNumber==1){
+															window.dataLayer.push({
+																event: 'MVF widget',
+																workflowName: 'MVF Form Interaction',
+																workflowStepNumber: 2,
+																workflowStepName: 'Initial Widget Interaction',
+																workflowCompleteFlag: 0,
+																formId: inputData?.formId,
+																campaignId: inputData?.campaignId
+															});
+														}
+														if(pageNumber==8){
+															window.dataLayer.push({
+																event: 'MVF widget',
+																workflowName: 'MVF Form Interaction',
+																workflowStepNumber: 3,
+																workflowStepName: 'Widget Visible',
+																workflowCompleteFlag: 0,
+																formId: inputData?.formId,
+																campaignId: inputData?.campaignId
+															});
+														}
+												} catch (error) {
+													console.error('Error parsing JSON:', error);
+												}
+											}
+									}
+									var formSubmitIndex = eventData.indexOf('formSubmit');
+									if (formSubmitIndex !== -1) {
+										var formSubmitData = eventData.substring(formSubmitIndex);
+										var formSubmitDataIndex = formSubmitData.indexOf(':');
+											if (formSubmitDataIndex !== -1) {
+													var formjsonData = formSubmitData.substring(formSubmitDataIndex + 1);
+												try {
+													var formparsedData = JSON.parse(formjsonData);
+													// Retrieve the "name" property
+													var subId = formparsedData.submissionId;
+													console.log('SubmissionId:', subId);
+														window.dataLayer.push({
+															event: 'MVF widget',
+															workflowName: 'MVF Form Interaction',
+															workflowStepNumber: 5,
+															workflowStepName: 'Form Submit',
+															workflowCompleteFlag: 1,
+															formId: inputData?.formId,
+															campaignId: inputData?.campaignId
+														});												
+												} catch (error) {
+													console.error('Error parsing JSON:', error);
+												}
+											}
+									}
+									var formErrorIndex = eventData.indexOf('formError');
+									if (formErrorIndex !== -1) {
+										var formErrorData = eventData.substring(formErrorIndex);
+										var formErrorDataIndex = formErrorData.indexOf(':');
+											if (formErrorDataIndex !== -1) {
+												var formErrorjsonData = formErrorData.substring(formErrorDataIndex + 1);
+												try {
+													var formErrorparsedData = JSON.parse(formErrorjsonData);
+													// Retrieve the "name" property
+													var errorpageNumber = formErrorparsedData.pageNumber;
+													console.log('errorpageNumber:', errorpageNumber);
+														window.dataLayer.push({
+															event: 'MVF widget',
+															workflowName: 'MVF Form Interaction',
+															workflowStepNumber: 0,
+															workflowStepName: 'Form Error',
+															workflowCompleteFlag: 1,
+															formId: inputData?.formId,
+															campaignId: inputData?.campaignId
+														});												
+												} catch (error) {
+													console.error('Error parsing JSON:', error);
+												}
+											}
+									}
+								}
+							});
+						}
+					});
+				}
+		}
+	});
+	const initialWidgetLoad = () => {
+		if (typeof formWidgetInfoObject !== 'undefined' && formWidgetInfoObject?.mvfFormWidgetLoaded) {
+				// if (!sessionStorage.getItem('mvfWidgetLoad')) {
+					// sessionStorage.setItem('mvfWidgetLoad', true);
+					console.log(formWidgetInfoObject?.mvfFormWidgetLoaded+'==Load');
+					window.dataLayer.push({
+						event: 'MVF widget',
+						workflowName: 'MVF Form Interaction',
+						workflowStepNumber: 1,
+						workflowStepName: 'Initial Widget Load',
+						workflowCompleteFlag: 0,
+						formId: inputData?.formId,
+						campaignId: inputData?.campaignId
+					});
+				// }	
+		}
+	}
+})(jQuery);

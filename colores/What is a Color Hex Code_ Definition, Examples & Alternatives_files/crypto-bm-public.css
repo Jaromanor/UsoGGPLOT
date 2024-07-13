@@ -1,0 +1,323 @@
+:root {
+    --crypto-bm-font-family: Arial, sans-serif;
+    --crypto-bm-font-weight: 400;
+    --crypto-bm-cta-button-bg: #F6791E;
+    --crypto-bm-button-hover-bg: #DF6A15;
+}
+
+.cbm-presale-toplist__wrapper {
+    margin-bottom: 40px;
+}
+
+.cbm-presale-toplist__offers-list {
+    display: flex;
+    flex-direction: column;
+    counter-reset: presale-toplist-heading;
+    gap: 12px;
+}
+
+.cbm-presale-toplist__offer-body {
+    position: relative;
+    display: grid;
+    padding: 20px;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    grid-template-columns: 150px 1fr 114px 90px 150px 140px;
+    grid-template-rows: 1fr;
+    gap: 0 32px;
+    grid-template-areas:
+    "logo-w-title pros launched meta purchase-methods link";
+}
+
+.cbm-presale-toplist__offer-body:before {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 130%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    content: counter(presale-toplist-heading);
+    counter-increment: presale-toplist-heading;
+    color: #060606;
+    border-right: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    border-radius: 0 0 4px 0;
+    background: #E8E8E8;
+}
+
+.cbm-presale-toplist__offer-logo-w-title {
+    display: flex;
+    align-items: center;
+    grid-area: logo-w-title;
+    gap: 12px;
+}
+
+.cbm-presale-toplist__offer-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.cbm-presale-toplist__offer-title,
+.cbm-presale-toplist__offer-title a {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 125%;
+    color: #404040;
+}
+
+.cbm-presale-toplist__offer-pros {
+    grid-area: pros;
+}
+
+.cbm-presale-toplist__offer-pros ul {
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.cbm-presale-toplist__offer-pros ul li {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    padding-bottom: 2px !important;
+    padding-left: 20px;
+    color: #404040;
+    background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.8041 10.0058L3.87481 10.0765L3.94552 10.0058L11.5252 2.42609L11.5959 2.35538L11.5252 2.28467L10.5335 1.29294L10.4628 1.22223L10.3921 1.29294L3.87481 7.81018L1.60786 5.54323L1.53715 5.47252L1.46644 5.54323L0.474699 6.53497L0.403989 6.60568L0.474699 6.67639L3.8041 10.0058Z' fill='%23F6791E' stroke='%23F6791E' stroke-width='0.2'/%3E%3C/svg%3E%0A") left 4px no-repeat;
+}
+
+.cbm-presale-toplist__offer-pros ul li:last-child {
+    padding-bottom: 0 !important;
+}
+
+.cbm-presale-toplist__offer-launched {
+    display: flex;
+    flex-direction: column;
+    grid-area: launched;
+    gap: 8px;
+}
+
+.cbm-presale-toplist__date-head,
+.cbm-presale-toplist__meta-head {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #737373;
+}
+
+.cbm-presale-toplist__date-body,
+.cbm-presale-toplist__meta-body {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 49px;
+    padding: 0 8px;
+    text-align: center;
+    color: #404040;
+    border-radius: 2px;
+    background: #F6F8FB;
+}
+
+.cbm-presale-toplist__offer-meta {
+    display: flex;
+    flex-direction: column;
+    grid-area: meta;
+    gap: 8px;
+}
+
+.cbm-presale-toplist__offer-purchase-methods {
+    display: flex;
+    flex-direction: column;
+    grid-area: purchase-methods;
+    gap: 8px;
+}
+
+.cbm-presale-toplist__offer-purchase-methods-title {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #737373;
+}
+
+.cbm-presale-toplist__offer-purchase-methods ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    list-style-type: none;
+    column-gap: 12px;
+}
+
+.cbm-presale-toplist__offer-purchase-methods ul li {
+    position: relative;
+    padding-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.cbm-presale-toplist__offer-purchase-methods ul li img {
+    width: auto;
+    height: 24px;
+    object-fit: contain;
+}
+
+.cbm-presale-toplist__offer-purchase-methods ul li:hover .cbm-presale-toplist__tooltip {
+    display: block;
+}
+
+.cbm-presale-toplist__offer-purchase-methods-more {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #404040;
+    text-decoration-line: underline;
+}
+
+.cbm-presale-toplist__offer-link {
+    align-self: center;
+    grid-area: link;
+}
+
+.cbm-presale-toplist__offer-cta-button {
+    font-family: var(--crypto-bm-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    color: #FFF;
+    border-radius: 2px;
+    background: var(--crypto-bm-cta-button-bg);
+}
+
+.cbm-presale-toplist__offer-cta-button:hover {
+    text-decoration: none;
+    color: #fff;
+    background: var(--crypto-bm-button-hover-bg);
+}
+
+.cbm-presale-toplist__tooltip {
+    font-size: 12px;
+    line-height: 18px;
+    position: absolute;
+    z-index: 1;
+    top: 38px;
+    left: 50%;
+    display: none;
+    width: max-content;
+    padding: 12px 16px;
+    transform: translateX(-50%);
+    color: #fff;
+    border-radius: 4px;
+    background: #060606;
+}
+
+.cbm-presale-toplist__tooltip:before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -8px;
+    content: '';
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #060606 transparent;
+}
+
+.cbm-presale-toplist__offer-terms {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 8px;
+    color: #737373;
+}
+
+@media screen and (min-width: 992px) {
+    .cbm-presale-toplist__wrapper.tiny .cbm-presale-toplist__offer-body {
+        grid-template-columns: 1fr 114px 90px 150px;
+        grid-template-rows: 40px 1fr;
+        gap: 16px 20px;
+        grid-template-areas:
+        "logo-w-title logo-w-title logo-w-title link"
+        "pros launched meta purchase-methods";
+    }
+
+    .cbm-presale-toplist__wrapper.tiny .cbm-presale-toplist__offer-cta-button {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .cbm-presale-toplist__offer-body {
+        grid-template-columns: 1fr 114px;
+        grid-template-rows: auto;
+        gap: 16px 12px;
+        grid-template-areas:
+        "logo-w-title launched"
+        "pros pros"
+        "meta meta"
+        "purchase-methods purchase-methods"
+        "link link";
+    }
+
+    .cbm-presale-toplist__offer-logo-w-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .cbm-presale-toplist__offer-logo img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cbm-presale-toplist__offer-launched {
+        gap: 6px;
+    }
+
+    .cbm-presale-toplist__date-body {
+        height: 38px;
+    }
+
+    .cbm-presale-toplist__offer-meta {
+        gap: 6px;
+    }
+
+    .cbm-presale-toplist__meta-head {
+        text-align: left;
+    }
+
+    .cbm-presale-toplist__meta-body {
+        display: block;
+        height: auto;
+        padding: 0;
+        text-align: left;
+        background: none;
+    }
+
+    .cbm-presale-toplist__offer-purchase-methods {
+        gap: 6px;
+    }
+
+    .cbm-presale-toplist__offer-cta-button {
+        height: 44px;
+    }
+}

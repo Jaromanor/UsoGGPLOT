@@ -1,0 +1,177 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+	jQuery('#loadmore').click(function(){
+		var datashow = jQuery(this).attr('data-show');
+		var dataurl = jQuery(this).attr('data-url');
+		var tabclick = jQuery(this).attr('tab-click');
+		jQuery.ajax({
+			url:  dataurl,
+			data: {'action':'ico_load_moredata', 'datashow': datashow, 'tabclick': tabclick}, 
+			type: 'post',           
+			success: function (data) {
+				// console.log(data);
+				var dataadd = parseFloat(datashow) + parseFloat('15');
+				jQuery('#loadmore').attr('data-show',dataadd);
+				jQuery('.table_content_inner').append(data);
+			   }   
+		}); 
+	});
+	jQuery('#searchboxtable').keyup(function(){
+		var dataval = jQuery(this).val();
+		if(dataval==''){
+			jQuery('#loadmore').show();
+		}else{
+			jQuery('#loadmore').hide();
+		}
+		var dataurl = jQuery(this).attr('data-url');
+		var dataid = jQuery(this).attr('data-id');
+		jQuery.ajax({
+			url:  dataurl,
+			data: {'action':'keyup_moredata', 'dataval': dataval, 'dataid': dataid}, 
+			type: 'post',           
+			success: function (data) {
+				// console.log(data);
+				jQuery('.table_content_inner tbody').html(data);
+			   }   
+		}); 
+	});
+	jQuery('.tablinks').click(function(){
+		var dataval = jQuery(this).attr('data-val');
+		var dataurl = jQuery(this).attr('data-url');
+		var dataid = jQuery(this).attr('data-id');
+		jQuery('.tablinks').removeClass('active_tab');
+		jQuery(this).addClass('active_tab');
+		jQuery('.top-table-sec-ico .feature-loaderimg').show();
+		jQuery.ajax({
+			url:  dataurl,
+			data: {'action':'click_btn', 'dataval': dataval, 'dataid': dataid}, 
+			type: 'post',           
+			success: function (data) {
+				jQuery('.top-table-sec-ico .feature-loaderimg').hide();
+				jQuery('.table_content_inner tbody').html(data);
+				jQuery('#loadmore').attr('tab-click',dataval);
+			   }   
+		}); 
+	});
+	jQuery('.shortcodebtntablinks').click(function(){
+		var dataval = jQuery(this).attr('data-val');
+		var dataurl = jQuery(this).attr('data-url');
+		var dataid = jQuery(this).attr('data-id');
+		var datapart = jQuery(this).attr('data-part');
+		var datatermid = jQuery(this).attr('data-termid');
+		jQuery('.top-table-sec_'+datatermid+' .feature-loaderimg').show();
+		jQuery('.top-table-sec_'+datatermid+' .shortcodebtntablinks').removeClass('active_tab');
+		jQuery(this).addClass('active_tab');
+		jQuery.ajax({
+			url:  dataurl,
+			data: {'action':'shortcode_click_btn', 'dataval': dataval, 'dataid': dataid, 'datapart': datapart}, 
+			type: 'post',           
+			success: function (data) {
+				jQuery('.top-table-sec_'+datatermid+' .feature-loaderimg').hide();
+				jQuery('.table_content_in_'+datatermid+' tbody').html(data);
+			   }   
+		}); 
+	});
+	
+ jQuery( "#start-date" ).datepicker({
+		defaultDate:"",
+		dateFormat: 'M dd, yy'
+	});
+	jQuery( "#end-date" ).datepicker({
+		defaultDate:"",
+		dateFormat: 'M dd, yy'
+	});
+	jQuery('body').on('click', '#icocoinsubmit', function() {
+		var dataurl = jQuery(this).attr('data-url');
+		var PresaleCointitle = jQuery('.PresaleCointitle').val();
+		var Presaleimg = jQuery('#Presaleimg').val();
+		var iconurlin = jQuery('.iconurlin').val();
+		var CurrentStagein = jQuery('.CurrentStagein').val();
+		var Platformin = jQuery('.Platformin').val();
+		var Platformimg = jQuery('#Platformimg').val();
+		var Platformurlin = jQuery('.Platformurlin').val();
+		var startdate = jQuery('#start-date').val();
+		var enddate = jQuery('#end-date').val();
+		var oriusdin = jQuery('.oriusdin').val();
+		var target_funding = jQuery('.target_funding').val();
+        if(PresaleCointitle ==''){
+			jQuery('.PresaleCointitle').next().show();
+			 return false;
+		}else if(Presaleimg==''){
+			jQuery('.PresaleCointitle').next().hide();
+			 jQuery('#Presaleimg').next().show();
+			 return false;
+		}else if(iconurlin==''){
+			jQuery('.iconurlin').next().show();
+			jQuery('#Presaleimg').next().hide();
+			return false;
+		}else if(CurrentStagein==''){
+			jQuery('.CurrentStagein').next().show();
+			jQuery('.iconurlin').next().hide();
+			return false;
+		}else if(Platformin==''){
+			jQuery('.Platformin').next().show();
+			jQuery('.CurrentStagein').next().hide();
+			return false;
+		}else if(Platformimg==''){
+			jQuery('#Platformimg').next().show();
+			jQuery('.Platformin').next().show();
+			return false;
+		}else if(Platformurlin==''){
+			jQuery('.Platformurlin').next().show();
+			jQuery('#Platformimg').next().hide();
+			return false;
+		}else if(startdate==''){
+			jQuery('#start-date').next().next().show();
+			jQuery('.Platformurlin').next().hide();
+			return false;
+		}else if(enddate==''){
+			jQuery('#end-date').next().next().show();
+			jQuery('#start-date').next().next().hide();
+			return false;
+		}else{
+			jQuery('.presale_submit_error').hide();
+			var dataurl = jQuery(this).attr('data-url');
+			file_data = jQuery("#Presaleimg").prop('files')[0];
+			file_data1 = jQuery("#Platformimg").prop('files')[0];
+			form_data = new FormData();
+			form_data.append('file', file_data);
+			form_data.append('file1', file_data1);
+			form_data.append('action', 'submit_presale_data');
+			form_data.append('PresaleCointitle',PresaleCointitle);
+			form_data.append('iconurlin',iconurlin);
+			form_data.append('CurrentStagein',CurrentStagein);
+			form_data.append('Platformin',Platformin);
+			form_data.append('Platformurlin',Platformurlin);
+			form_data.append('startdate',startdate);
+			form_data.append('enddate',enddate);
+			form_data.append('oriusdin',oriusdin);
+			form_data.append('target_funding',target_funding);
+			jQuery.ajax({
+				url:  dataurl,
+				// data: {'action':'submit_presale_data', 'PresaleCointitle': PresaleCointitle,'Presaleimg': Presaleimg, 'iconurlin': iconurlin, 'CurrentStagein': CurrentStagein, 'Platformin': Platformin, 'Platformimg': Platformimg, 'Platformurlin': Platformurlin, 'startdate': startdate, 'enddate': enddate, 'oriusdin': oriusdin}, 
+				type: 'post',
+				contentType: false,
+				processData: false,
+				data: form_data,				
+				success: function (data) {
+					// console.log(data);
+					jQuery('.presale_submit_result').show();
+					jQuery('.presale_submit_result').html(data);
+					jQuery('.PresaleCointitle').val('');
+					jQuery('#Presaleimg').val('');
+					jQuery('.iconurlin').val('');
+					jQuery('.CurrentStagein').val('');
+					jQuery('.Platformin').val('');
+					jQuery('#Platformimg').val('');
+					jQuery('.Platformurlin').val('');
+					jQuery('#start-date').val('');
+					jQuery('#end-date').val('');
+					jQuery('.oriusdin').val('');
+					jQuery('.target_funding').val('');
+					
+				   }   
+			}); 
+			return false;
+		}
+	});	
+});

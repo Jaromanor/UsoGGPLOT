@@ -1,0 +1,165 @@
+ul.lSGallery li.active {
+    border: 2px solid #000;
+    /*outline: medium none;
+    padding: 3px;*/
+}
+
+#gwts-gwl-thumbrig {
+    max-width:900px;
+    margin:0 auto; /*center aligned*/
+    padding:0;
+    font-size:0; /* Remember to change it back to normal font size if have captions */
+    list-style:none;
+    /*background-color:#000;*/
+}
+#gwts-gwl-thumbrig li {
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    width:25%;
+    vertical-align:middle;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+        
+/* The wrapper for each item */
+.gwts-gwl-thumbrig-cell {
+    /*margin:12px;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+    display:block;
+    position: relative;
+    overflow:hidden;
+}
+        
+/* If have the image layer */
+.gwts-gwl-thumbrig-img {
+    display:block;
+    width: 100%;
+    height: auto;
+    border:none;
+    transform:scale(1);
+    transition:all 1s;
+}
+
+#gwts-gwl-thumbrig li:hover .gwts-gwl-thumbrig-img {
+    transform:scale(1.05);
+}
+        
+/* If have the overlay layer */
+.gwts-gwl-thumbrig-overlay {
+    position: absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #3DC0F1 url(img/link.png) no-repeat center 20%;
+    background-size:50px 50px;
+    opacity:0;
+    filter:alpha(opacity=0);/*For IE6 - IE8*/
+    transition:all 0.6s;
+}
+#gwts-gwl-thumbrig li:hover .gwts-gwl-thumbrig-overlay {
+    opacity:0.8;
+}
+
+/* If have captions */
+.gwts-gwl-thumbrig-text {
+    display:block;
+    padding:0 30px;
+    box-sizing:border-box;
+    position:absolute;
+    left:0;
+    width:100%;
+    text-align:center;
+    text-transform:capitalize;
+    font-size:18px;
+    font-weight:bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight:normal!important;
+    top:40%;
+    color:white;
+    opacity:0;
+    filter:alpha(opacity=0);/*For older IE*/
+    transform:translateY(-20px);
+    transition:all .3s;
+}
+#gwts-gwl-thumbrig li:hover .gwts-gwl-thumbrig-text {
+    transform:translateY(0px);
+    opacity:0.9;
+}
+
+@media (max-width: 9000px) {
+    #gwts-gwl-thumbrig li {
+        width:25%;
+    }
+}
+
+@media (max-width: 700px) {
+    #gwts-gwl-thumbrig li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 550px) {
+    #gwts-gwl-thumbrig li {
+        width:50%;
+    }
+}
+.lSSlideWrapper ul#gwts-gwl-img-gallery {
+    height: auto;
+}
+
+.lSAction > a:hover {
+    box-shadow: none;
+}
+.lSAction > a {
+    box-shadow: none!important;
+}
+.zoom {
+    display: inline-block;
+}
+
+/*.gwts-gwl-slidergal li {    
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}*/
+
+/*.lSSlideOuter li.lslide, .lSSlideOuter li.clone {
+    min-height: 350px;
+    max-height: 100%;
+}*/
+
+/*.lSSlideOuter li.lslide, .lSSlideOuter li.clone {
+min-height: auto;
+max-height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}*/
+
+/*.lSSlideOuter li img{
+vertical-align: middle;
+}
+.lSSlideOuter.vertical li {
+min-height: auto;
+}
+.lSSlideOuter.vertical .lSPager.lSGallery li img {
+margin: 0 auto;
+}*/
+
+.gwts-gwl-slidergal li, .lSPager li, .lSGallery li {
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul.lSPager.lSGallery {
+    width: 100% !important;
+}
+
+.lslide > img {
+    width: 100%;
+}

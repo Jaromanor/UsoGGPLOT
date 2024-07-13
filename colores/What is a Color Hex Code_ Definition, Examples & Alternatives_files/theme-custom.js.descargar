@@ -1,0 +1,1017 @@
+jQuery(function($) {
+  jQuery('.hellobar-close').on('click', function() {
+    jQuery(this).parent().remove();
+  });
+   jQuery('.to-the-top.jan-to-top').on('click', function() {
+		jQuery("html, body").animate({ scrollTop: 0 });
+  }); 
+  jQuery('.btn.header_buttons.toggle_searchbar.p-1.header-auto-close-toggle,.btn.header_buttons.toggle_searchbar.p-1.header-auto-close-toggle.mobile_search_icon').on('click', function() {
+		jQuery("#search-bar-wrapper-mobile").toggleClass("show");
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+			'event':"Search",
+			'workflowName': "Search Start"
+		});
+  });
+  jQuery('#sinlgeconttop').on('click', function() {
+		jQuery("#collapseMenu").toggleClass("show");
+  });
+  jQuery('.dictionary-search').on('click', function() {
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+			'event':"Search",
+			'workflowName': "Search Start"
+		});
+  });
+  jQuery('.nav-link.jan-nav-collapse-item__link.content-index-item.collapsed.sinlgeconttopsec').on('click', function() {
+    jQuery(this).next().toggleClass("show");
+     jQuery(this).next().show();
+  });
+
+  jQuery('.header_close-searchbar-btn--desk').on('click', function() {
+		jQuery("#search-bar-wrapper-mobile").removeClass("show");
+  });
+  
+  jQuery('#footer-close-ad').on('click', function() {
+		jQuery(".footer_inner_ads").hide();
+		jQuery("footer").removeClass("footer-ads-show");
+  });
+  
+  
+  jQuery(document).on("click",".mega-header-search-desk",function() {
+        jQuery(".search-modal").show();
+        jQuery(".search-modal").addClass('active');
+    });  
+
+	jQuery(window).scroll(function() {
+		if (jQuery(document).scrollTop() > 50) {
+			jQuery("#ez-toc-container").addClass("toc-sticky");
+		} 
+		else {
+			jQuery("#ez-toc-container").removeClass("toc-sticky");
+		}
+	});
+	
+	jQuery('.post-author.meta-wrapper .meta-text').addClass('new-custom-meta');
+	jQuery('.post-author.meta-wrapper .meta-text').append(jQuery('#custom-user-detail').html());
+	
+	
+  if(localStorage.getItem("popState") == "shown"){
+       jQuery(".overlaycl").hide();
+      //localStorage.setItem("popState","shown")
+    }else{
+		 jQuery(".overlaycl").show();
+	}
+  jQuery(".popup-close").click(function(e) 
+  {
+	jQuery(".overlaycl").hide(); 
+	localStorage.setItem("popState","shown")
+  }); 
+jQuery('.moretagarticles-button.ms-home-page-loadmore button').click(function(){
+	jQuery(this).css('opacity', '0.5');
+	jQuery('.moretagarticles-button.ms-home-page-loadmore').addClass('mspage-loadmore');
+	jQuery('.ms-latestnews-second').slideDown('slow');
+	jQuery(this).css('opacity', '1');
+	show_article_page();
+	// jQuery('.moretagarticles-button.ms-home-page-loadmore.ms-load-more-ancher').show();
+});
+
+
+  jQuery('.action-loadmorelatest').click(function(){
+	  var dataoffset = jQuery(this).attr('dataoffset');
+	  var setofset = parseInt(dataoffset) + parseInt('10');
+	  var datasite = jQuery(this).attr('datasite');
+	  var dataslug = jQuery(this).attr('dataslug');
+	  var datatype = jQuery(this).attr('datatype');
+	  var datatexo = jQuery(this).attr('datatexo');
+	  jQuery(this).attr("dataoffset",setofset);
+	  var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+	 jQuery.ajax({
+        url:  ajaxurl,
+        data: {'action':'load_moredata', 'dataoffset': dataoffset, 'dataslug': dataslug, 'datatype': datatype, 'datatexo': datatexo}, 
+        type: 'post',  
+		beforeSend: function(){
+        jQuery('.action-loadmorelatest').text('Loading More Articles');
+        jQuery('.action-loadmorelatest').css('opacity', '0.5');
+		},        	
+        success: function (data) {
+			if(data=='0'){
+				jQuery('.action-loadmorelatest').hide();
+			}else{
+				jQuery('.load_more_data_ul').append(data);
+				  jQuery('.action-loadmorelatest').text('Load More Articles')
+				 jQuery('.action-loadmorelatest').css('opacity', 1);
+				// jQuery(this).attr("dataoffset",setofset);
+			   }   
+	       }   
+    });  
+  });
+
+  jQuery('#jan-filter').on('click', function(){
+  	jQuery('#filters-form').toggle();
+  })
+  
+  jQuery('#jan-filter-inputTopics').on('change', function(){
+    var catID = jQuery(this).val() ? jQuery(this).val() : '';
+    var authorID = jQuery('#jan-filter-inputExperts').val() ? jQuery('#jan-filter-inputExperts').val() : '';
+    var datasite = jQuery(this).attr('data-site');
+    var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+    jQuery.ajax({
+      url:  ajaxurl,
+      data: {
+        'action':'getFilteredQA', 
+        'catID': catID,
+        'authorID': authorID,
+      }, 
+      type: 'post',  
+      beforeSend: function(){
+        jQuery('.action-load-more-qa').hide();
+        jQuery('.ajax-loading').show();
+        jQuery('.filteredQA').html('');
+      },        
+      success: function (data) {
+        jQuery('.ajax-loading').hide();
+        var response = JSON.parse(data);
+        if(response.found_posts <= 20){
+          jQuery('.action-load-more-qa').hide();
+        }
+        if(response.found_posts > 0){
+          jQuery('.action-load-more-qa').show();
+          jQuery('.filteredQA').html(response.html);
+        }else{
+            jQuery('.action-load-more-qa').hide();
+           jQuery('.filteredQA').html('No results found!');
+        }
+      }     
+    });  
+  })
+  jQuery('#jan-filter-inputExperts').on('change', function(){
+    var authorID = jQuery(this).val() ? jQuery(this).val() : '';
+    var catID = jQuery('#jan-filter-inputTopics').val() ? jQuery('#jan-filter-inputTopics').val() : '';
+    var datasite = jQuery(this).attr('data-site');
+    var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+    jQuery.ajax({
+      url:  ajaxurl,
+      data: {
+        'action':'getFilteredQA', 
+        'catID': catID,
+        'authorID': authorID,
+      }, 
+      type: 'post',  
+      beforeSend: function(){
+        jQuery('.action-load-more-qa').hide();
+        jQuery('.ajax-loading').show();
+        jQuery('.filteredQA').html('');
+      },        
+      success: function (data) {
+        jQuery('.ajax-loading').hide();
+        var response = JSON.parse(data);
+        if(response.found_posts <= 20){
+          jQuery('.action-load-more-qa').hide();
+        }else{
+          jQuery('.action-load-more-qa').show();
+
+        }
+        if(response.found_posts > 0){
+          jQuery('.filteredQA').html(response.html);
+        }else{
+            jQuery('.action-load-more-qa').hide();
+           jQuery('.filteredQA').html('No results found!');
+        }
+      }   
+    });  
+  })
+  //load more QA Ajax
+  jQuery(document).find('.action-load-more-qa').click(function(){
+    var dataoffset = jQuery(this).attr('data-offset');
+    var setofset = parseInt(dataoffset) + 20;
+    var datasite = jQuery(this).attr('data-site');
+
+    var catID = jQuery(document).find('#jan-filter-inputTopics').val();
+    var authorID = jQuery(document).find('#jan-filter-inputExperts').val();
+    jQuery(this).attr("data-offset",setofset);
+    var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+    jQuery.ajax({
+      url:  ajaxurl,
+      data: {
+        'action':'loadMoreQA', 
+        'dataoffset': dataoffset, 
+        'catID': catID,
+        'authorID': authorID,
+      }, 
+      type: 'post',  
+      beforeSend: function(){
+        jQuery('.action-load-more-qa').text('Loading More Q&As +');
+        jQuery('.action-load-more-qa').css('opacity', '0.5');
+      },        
+      success: function (data) {
+        jQuery('.action-load-more-qa').text('Load More Q&As +')
+        jQuery('.action-load-more-qa').css('opacity', 1);
+        jQuery('.filteredQA').append(data);
+      }   
+    });  
+  });
+	
+jQuery(document).find('.action-loadmoreterms').click(function(){
+    var dataoffset = jQuery(this).attr('data-offset');
+    var setofset = parseInt(dataoffset) + 15;
+    var datasite = jQuery(this).attr('data-site');
+    var dataletter = jQuery(this).attr('data-letter');
+	if(dataletter ==1){
+		var data_letter = '#';
+	}else{
+		var data_letter = dataletter;
+	}
+    var catID = jQuery(document).find('#jan-filter-inputTopics').val();
+    var authorID = jQuery(document).find('#jan-filter-inputExperts').val();
+    jQuery(this).attr("data-offset",setofset);
+    var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+    jQuery.ajax({
+      url:  ajaxurl,
+      data: {
+        'action':'aplha_term_loadMore', 
+        'dataoffset': dataoffset, 
+        'dataletter': dataletter, 
+      }, 
+      type: 'post',  
+      beforeSend: function(){
+        jQuery('#collapseDictionary-'+dataletter).find('.action-loadmoreterms').text('Loading More Term');
+        jQuery('#collapseDictionary-'+dataletter).find('.action-loadmoreterms').css('opacity', '0.5');
+      },        
+      success: function (data) {
+        jQuery('#collapseDictionary-'+dataletter).find('.action-loadmoreterms').text('Load More "'+data_letter+'" Terms')
+         jQuery('#collapseDictionary-'+dataletter).find('.action-loadmoreterms').css('opacity', 1);
+		if(data=='0'){
+			  jQuery('#collapseDictionary-'+dataletter +' ul').after('<div class="alert alert-warning">No more "'+data_letter+'" terms found</div>');
+			 jQuery('#collapseDictionary-'+dataletter).find('.action-loadmoreterms').hide();
+		}else{
+			  jQuery('#collapseDictionary-'+dataletter+ ' ul' ).append(data);
+		}
+      console.log('#collapseDictionary-'+dataletter+ ' ul');
+      }   
+    });  
+  });	
+
+jQuery('.ez-toc-link').click(function() {
+	jQuery('.ez-toc-link').removeClass('active-toc');
+	jQuery(this).addClass('active-toc'); 
+})
+/* if(jQuery(window).width() < 767) {
+jQuery(window).scroll(function() {
+        if(jQuery(window).scrollTop() > jQuery(".term-recently").offset().top+jQuery(".term-recently ").height()){
+            jQuery(".jan-nav-terms").show();
+        }else{
+            jQuery(".jan-nav-terms").hide();
+        }
+    if(jQuery(window).scrollTop() > jQuery(".action-loadmoreterms").offset().top+jQuery(".action-loadmoreterms").height()){
+            jQuery(".jan-nav-terms").hide();
+        }else{
+           
+        }
+    });
+} */
+jQuery('#topics-list a.article-tag-link').click(function(){
+    var dataitem = jQuery(this).attr('href');
+     var itemId = dataitem.substring(1, dataitem.length);
+   console.log(jQuery(this).attr('href')); 
+    jQuery('#article-topics-wrapper .topic-articles').each(function(){
+       var datacont = jQuery(this).attr('data-container');
+         //jQuery('#article-topics-wrapper .topic-articles').attr('data-loaded',false)
+		 //jQuery('#article-topics-wrapper .topic-articles').addClass('d-none');
+       // if(datacont == itemId){
+            // jQuery(this).attr('data-loaded',true);
+            // jQuery(this).removeClass('d-none');
+        // }else{
+			 // jQuery(this).addClass('d-none');
+			     // jQuery(this).attr('data-loaded',false);
+		// }
+    });
+});
+
+ jQuery('.action-moretagarticles').click(function(){
+	  var dataoffset = jQuery(this).attr('dataoffset');
+	  var dataslug = jQuery(this).attr('data-slug');
+	  var datatag = jQuery(this).attr('data-tag');
+	  var setofset = parseInt(dataoffset) + parseInt('10');
+	  var datasite = jQuery(this).attr('datasite');
+	  jQuery(this).attr("dataoffset",setofset);
+	  var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+	 jQuery.ajax({
+        url:  ajaxurl,
+        data: {'action':'load_moretagarticles', 'dataoffset': dataoffset,'datatag': datatag,'dataslug': dataslug}, 
+        type: 'post',  
+		beforeSend: function(){
+        jQuery('.action-moretagarticles').text('Loading More Articles');
+        jQuery('.action-moretagarticles').css('opacity', '0.5');
+		},        	
+        success: function (data) {
+			if(data=='no result Found'){
+				jQuery('.cat_id'+datatag).append(data);
+				jQuery('.action-moretagarticles').hide();
+			}else{
+				jQuery('.cat_id'+datatag).append(data);
+				  jQuery('.action-moretagarticles').text('Load More Articles')
+				 jQuery('.action-moretagarticles').css('opacity', 1);
+				// jQuery(this).attr("dataoffset",setofset);
+			   }   
+	       }   
+    });  
+  });
+jQuery(document).find('.more_btn_cat_filter').click(function(){
+	jQuery(this).toggleClass('more_btn_active');
+	jQuery('.more_cat_filter').toggleClass('more_cat_filter_show');
+});
+jQuery(document).find('.new_filter_sec li a').click(function(){
+	jQuery('.new_filter_sec li').removeClass('filter_active');
+	jQuery('.new_filter_sec li a').removeClass('filter_active');
+	jQuery(this).addClass('filter_active');
+	var datasite = jQuery(this).attr('site_url');
+	var dataID = jQuery(this).attr('data-id');
+	var datatopstory = jQuery(this).attr('data-topstory');
+	var dataslug = jQuery(this).attr('data-slug');
+	var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+	jQuery.ajax({
+		url:  ajaxurl,
+		data: {
+		  'action':'newsFilter', 
+		  'catID': dataID,
+		  'datatopstory': datatopstory,
+		  'dataslug': dataslug,
+		}, 
+		type: 'post',  
+		beforeSend: function(){
+		  // jQuery('.news-loader-int').show();
+		},        
+		success: function (data) {
+			jQuery('.news-loader-int').hide();
+			jQuery('.new_filter_data').html(data);
+		}   
+	  });  
+});
+jQuery(document).find('.slot_gride_filter li a').click(function(){
+	jQuery('.slot_gride_filter li').removeClass('filter_active');
+	jQuery('.slot_gride_filter li a').removeClass('filter_active');
+	jQuery(this).addClass('filter_active');
+	var datasite = jQuery(this).attr('site_url');
+	var dataID = jQuery(this).attr('data-id');
+	var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+	jQuery.ajax({
+		url:  ajaxurl,
+		data: {
+		  'action':'slotGrideFilter', 
+		  'catID': dataID,
+		}, 
+		type: 'post',
+		beforeSend: function(){
+		  // jQuery('.news-loader-int').show();
+		},        
+		success: function (data) {
+			jQuery('.slot_gride_filter_data').html(data);
+		}   
+	  });  
+});
+jQuery(document).find('.review_article_action').click(function(){
+	var datasite = jQuery(this).attr('datasite');
+	var datashow = jQuery(this).attr('datashow');
+	var dataoffset = jQuery(this).attr('dataoffset');
+	var dataAuthorID = jQuery(this).attr('dataAuthorID');
+	var beforeSend = jQuery(this).attr('beforeSend');
+	var afterSend = jQuery(this).attr('afterSend');
+	var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+	jQuery.ajax({
+		url:  ajaxurl,
+		data: {
+		  'action':'review_article_Filter', 
+		  'datashow': datashow,
+		  'dataoffset': dataoffset,
+		  'dataAuthorID': dataAuthorID,
+		}, 
+		type: 'post',  
+		beforeSend: function(){
+			jQuery('.review_article_action').text(beforeSend);
+			jQuery('.review_article_action').css('opacity', '0.5');
+		},
+		success: function (data) {
+			var res = JSON.parse(data);
+            var totalCount = res.total_count;
+			if(res.html=='No More Articles'){
+					jQuery('.review_article_action').hide();
+				}
+			if(res.success){
+				
+					jQuery('.articles-leftinner').append(res.html);
+					jQuery('.review_article_action').text(afterSend);
+					jQuery('.review_article_action').css('opacity', 1);
+					var setofset = parseInt(dataoffset) + 10;
+					jQuery('.review_article_action').attr("dataoffset",setofset);
+					if(totalCount < 10){
+						jQuery('.review_article_action').hide();
+					}
+				
+			}
+		}  
+	  });  
+});
+ //Download Page JS
+ jQuery(document).find('.action-load-more-download').click(function(){
+      var dataoffset = jQuery(this).attr('data-offset');
+      var setofset = parseInt(dataoffset) + 12;
+      var datasite = jQuery(this).attr('data-site');
+
+      var catID = jQuery(document).find('#filter-downloads-cat').val();
+      var sortOrder = jQuery(document).find('#sortDownloads').val();
+      jQuery(this).attr("data-offset",setofset);
+      var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+      jQuery.ajax({
+        url:  ajaxurl,
+        data: {
+          'action':'loadMoreDownloads', 
+          'dataoffset': dataoffset, 
+          'catID': catID,
+          'sortOrder': sortOrder
+        }, 
+        type: 'post',  
+        beforeSend: function(){
+          jQuery('.action-load-more-download').text('Loading More Downloads');
+          jQuery('.action-load-more-download').css('opacity', '0.5');
+        },        
+        success: function (data) {
+          var response = JSON.parse(data);
+          if(response.total == 12){
+            jQuery('.action-load-more-download').show();
+              jQuery('.action-load-more-download').text('Load More Downloads')
+            jQuery('.action-load-more-download').css('opacity', 1);
+            console.log(response.html)
+            jQuery('.filteredDownloads').append(response.html);
+          }else{
+            jQuery('.action-load-more-download').text('Load More Downloads')
+            jQuery('.action-load-more-download').css('opacity', 1);
+            jQuery('.action-load-more-download').hide();
+            jQuery('.filteredDownloads').append(response.html);
+          }
+       
+        }   
+      });  
+    });
+
+    jQuery('#filter-downloads-cat').on('change', function(){
+      var catID = jQuery(this).val() ? jQuery(this).val() : '';
+      var sortOrder = jQuery(document).find('#sortDownloads').val();
+      var datasite = jQuery(this).attr('data-site');
+
+      var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+      jQuery.ajax({
+        url:  ajaxurl,
+        data: {
+          'action':'getFilteredDownloads', 
+          'catID': catID,
+          'sortOrder' : sortOrder
+        }, 
+        type: 'post',  
+        beforeSend: function(){
+          jQuery('.action-load-more-download').hide();
+          jQuery('.ajax-loading').show();
+          jQuery('.filteredDownloads').html('');
+        },        
+        success: function (data) {
+          jQuery('.ajax-loading').hide();
+          var response = JSON.parse(data);
+          if(response.total == 12){
+            jQuery('.action-load-more-download').show();
+            jQuery('.filteredDownloads').html(response.html);
+          }else{
+            jQuery('.action-load-more-download').hide();
+            jQuery('.filteredDownloads').html(response.html);
+          }
+        }     
+      });  
+    });
+
+    jQuery('#sortDownloads').on('change', function(){
+      var sortOrder = jQuery(this).val() ? jQuery(this).val() : '';
+      var datasite = jQuery(this).attr('data-site');
+      var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+      var catID = jQuery(document).find('#filter-downloads-cat').val();
+      jQuery.ajax({
+        url:  ajaxurl,
+        data: {
+          'action':'getFilteredDownloads', 
+          'catID': catID,
+          'sortOrder': sortOrder
+        }, 
+        type: 'post',  
+        beforeSend: function(){
+          jQuery('.action-load-more-download').hide();
+          jQuery('.ajax-loading').show();
+          jQuery('.filteredDownloads').html('');
+        },        
+        success: function (data) {
+          jQuery('.ajax-loading').hide();
+          var response = JSON.parse(data);
+          if(response.total == 12){
+            jQuery('.action-load-more-download').show();
+            jQuery('.filteredDownloads').html(response.html);
+          }else{
+            jQuery('.action-load-more-download').hide();
+            jQuery('.filteredDownloads').html(response.html);
+          }
+        }     
+      });  
+    })
+    //Download Page JS End Here 
+
+    //Webinar JS Start
+    jQuery(document).find('.action-load-more-webinars').click(function(){
+      var dataoffset = jQuery(this).attr('data-offset');
+      var setofset = parseInt(dataoffset) + 12;
+      var datasite = jQuery(this).attr('data-site');
+
+      var catID = jQuery(document).find('#filter-webinars-cat').val();
+      var meta = jQuery(document).find('#filter-by-meta').val();
+      jQuery(this).attr("data-offset",setofset);
+      var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+      jQuery.ajax({
+        url:  ajaxurl,
+        data: {
+          'action':'loadMoreWebinars', 
+          'dataoffset': dataoffset, 
+          'catID': catID,
+          'meta': meta
+        }, 
+        type: 'post',  
+        beforeSend: function(){
+          jQuery('.action-load-more-webinars').text('Loading More Webinars');
+          jQuery('.action-load-more-webinars').css('opacity', '0.5');
+        },        
+        success: function (data) {
+          var response = JSON.parse(data);
+          if(response.total == 12){
+            jQuery('.action-load-more-webinars').show();
+              jQuery('.action-load-more-webinars').text('Load More Webinars')
+            jQuery('.action-load-more-webinars').css('opacity', 1);
+            jQuery('.filteredWebinars').append(response.html);
+          }else{
+            jQuery('.action-load-more-webinars').text('Load More Webinars')
+            jQuery('.action-load-more-webinars').css('opacity', 1);
+            jQuery('.action-load-more-webinars').hide();
+            jQuery('.filteredWebinars').append(response.html);
+          }
+       
+        }   
+      });  
+    });
+
+    jQuery('#filter-webinars-cat').on('change', function(){
+      var catID = jQuery(this).val() ? jQuery(this).val() : '';
+      var meta = jQuery(document).find('#filter-by-meta').val();
+      var datasite = jQuery(this).attr('data-site');
+
+      var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+      jQuery.ajax({
+        url:  ajaxurl,
+        data: {
+          'action':'getFilteredWebinars', 
+          'catID': catID,
+          'meta' : meta
+        }, 
+        type: 'post',  
+        beforeSend: function(){
+          jQuery('.action-load-more-webinars').hide();
+          jQuery('.ajax-loading').show();
+          jQuery('.filteredWebinars').html('');
+        },        
+        success: function (data) {
+          jQuery('.ajax-loading').hide();
+          var response = JSON.parse(data);
+          if(response.total == 12){
+            jQuery('.action-load-more-webinars').show();
+            jQuery('.filteredWebinars').html(response.html);
+          }else{
+            jQuery('.action-load-more-webinars').hide();
+            jQuery('.filteredWebinars').html(response.html);
+          }
+        }     
+      });  
+    });
+
+    jQuery('#filter-by-meta').on('change', function(){
+      var catID = jQuery(document).find('#filter-webinars-cat').val();
+      var meta = jQuery(this).val() ? jQuery(this).val() : '';
+      var datasite = jQuery(this).attr('data-site');
+      var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+      jQuery.ajax({
+        url:  ajaxurl,
+        data: {
+          'action':'getFilteredWebinars', 
+          'catID': catID,
+          'meta': meta
+        }, 
+        type: 'post',  
+        beforeSend: function(){
+          jQuery('.action-load-more-download').hide();
+          jQuery('.ajax-loading').show();
+          jQuery('.filteredWebinars').html('');
+        },        
+        success: function (data) {
+          jQuery('.ajax-loading').hide();
+          var response = JSON.parse(data);
+          if(response.total == 12){
+            jQuery('.action-load-more-webinars').show();
+            jQuery('.filteredWebinars').html(response.html);
+          }else{
+            jQuery('.action-load-more-webinars').hide();
+            jQuery('.filteredWebinars').html(response.html);
+          }
+        }     
+      });  
+    })
+    //webinar js end
+
+
+    jQuery('#taglist').change(function() {
+      var opti = jQuery(this).find('option:selected');
+      var value = opti.val();
+      var carurl = opti.attr('data-link');
+		if(carurl){
+		window.location.href = carurl;
+	  }
+	  
+       // jQuery('#article-topics-wrapper .topic-articles').each(function(){
+         // var datacont = jQuery(this).attr('data-container');
+               // if(datacont == text){
+              // jQuery(this).attr('data-loaded',true);
+              // jQuery(this).removeClass('d-none');
+          // }else{
+         // jQuery(this).addClass('d-none');
+             // jQuery(this).attr('data-loaded',false);
+      // }
+      // });
+  });
+  
+  jQuery("document").ready(function() {
+	var AdsCount = jQuery(".article-ads-sidebar").children().length;
+	var TopcontentHeight = jQuery("#sidebar-wrapper .jan-box.jan-bg-dotted").height() + jQuery("#sidebar-wrapper .jan-list--border-dashed").height();
+	var ArticleHeight = jQuery(".sinlge-body-cont").height() - TopcontentHeight;
+	jQuery(".article-ads-sidebar .widget.widget_block").height(ArticleHeight / AdsCount);
+  });
+
+});
+
+//NEW-DESIGN-JS-START
+
+jQuery(document).ready(function() {
+	 // if (jQuery(window).width() < 768) {
+	// jQuery('.accordButcl').click(function() {
+		// jQuery('.accordButcl').removeClass('on'); 
+	 	// jQuery('.accordiCont, .footer-one .menu-betting-container').slideUp('normal');
+   
+		// if(jQuery(this).next().is(':hidden') == true) {
+			// jQuery(this).addClass('on');
+			// jQuery(this).next().slideDown('normal');
+		 // } 
+		  
+	 // }); 
+	// jQuery('.accordButcl').mouseover(function() {
+		// jQuery(this).addClass('over');
+		
+	// }).mouseout(function() {
+		// jQuery(this).removeClass('over');										
+	// });
+	// jQuery('.accordiCont, .footer-one .menu-betting-container').hide();
+// }
+
+if(jQuery(window).width() >= 768){
+		jQuery('.accordiCont').show();	
+	}else{
+		jQuery('.accordiCont').hide();	
+	}
+	jQuery('.accordButcl').click(function() {
+		if(jQuery(window).width() >= 768) return;
+		jQuery('.accordButcl').removeClass('on'); 
+		jQuery('.accordiCont').slideUp('normal');
+		if(jQuery(this).next().is(':hidden') == true) {
+			jQuery(this).addClass('on');
+			jQuery(this).next().slideDown('normal');
+		}
+	}); 
+	window.addEventListener('resize', function(event) {
+		if (jQuery(window).width() < 768) {
+			jQuery('.accordButcl').removeClass('on'); 
+			jQuery('.accordiCont').hide();
+
+		}else{
+			jQuery('.accordiCont').show();
+		} 
+	}, true);
+
+
+ jQuery(".show-more").click(function(){
+	 if(jQuery(".author-bio").hasClass('less-more')){
+		 jQuery(".author-bio").removeClass('less-more');
+	 }else{
+		 jQuery(this).animate();
+		 jQuery(this).parent().addClass('less-more');
+	 }
+});
+
+});
+function show_article_page(){
+	jQuery('.moretagarticles-button.ms-home-page-loadmore.mspage-loadmore button').click(function(){
+		jQuery(this).css('opacity', '0.5');
+		jQuery(this).hide();
+		jQuery('.ms-latestnews-second-phase').slideDown('slow');
+		jQuery(this).css('opacity', '1');
+		jQuery('.moretagarticles-button.ms-home-page-loadmore.ms-load-more-ancher').show();
+	});
+}
+function guide_load_more(){
+	jQuery('.action-moreguide').click(function(){
+				  var dataoffset = jQuery(this).attr('dataoffset');
+				  var datashow = jQuery(this).attr('datashow');
+				  var datatag = jQuery(this).attr('data-tag');
+				  var setofset = parseInt(dataoffset) + parseInt('10');
+				  var datasite = jQuery(this).attr('datasite');
+				  jQuery('.action-moreguide').attr('dataoffset',setofset);
+				  var ajaxurl = datasite +'/wp-admin/admin-ajax.php';
+				 jQuery.ajax({
+					url:  ajaxurl,
+					data: {'action':'load_moreguides', 'dataoffset': dataoffset,'datatag': datatag}, 
+					type: 'post',  
+					beforeSend: function(){
+					jQuery('.action-moreguide').css('opacity', '0.5');
+					},        	
+					success: function (data) {
+						var response = JSON.parse(data);
+						if(response.success){
+							jQuery('.topic-articles-load').append(response.html);
+							jQuery('.action-moreguide').css('opacity', 1);
+							jQuery('.action-moreguide').attr('dataoffset',setofset);
+						}else{
+							jQuery('.topic-articles-load').append(response.html);
+							jQuery('.action-moreguide').hide();
+						}  
+					}   
+				});  
+			});
+}
+function openslot(evt, slotName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("slot-leftinner-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("slot-tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(slotName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+jQuery(document).ready(function () {
+	if (jQuery(window).width() > 991) {
+    size_li = jQuery(".hub-expert-box").size();
+    x=5;
+    jQuery('.hub-expert-box:lt('+x+')').show();
+    jQuery('#loadMore').click(function () {
+        x= (x+5 <= size_li) ? x+5 : size_li;
+        jQuery('.hub-expert-box:lt('+x+')').show();
+         jQuery('#showLess').show();
+        if(x == size_li){
+            jQuery('#loadMore').hide();
+        }
+    });
+    //jQuery('#showLess').click(function () {
+      //  x=(x-5<0) ? 5 : x-5;
+       // jQuery('.hub-expert-box').not(':lt('+x+')').hide();
+       // jQuery('#loadMore').show();
+       //  jQuery('#showLess').show();
+        if(x == 5){
+            jQuery('#showLess').hide();
+        }
+   // });
+  } 
+	jQuery( '#dictionarykeyword' ).focus(function() {
+		jQuery('#datafetchhistory .search-list').show();		
+		jQuery('#datafetchhistory .search-list .explore_all_term_URL').show();
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+			'event':"Search",
+			'workflowName': "Search Start"
+		});
+	});
+	jQuery('#dictionarykeyword').keyup(function(){
+		jQuery('#datafetchhistory .search-list .explore_all_term_URL').hide();
+		jQuery('#datafetchhistory .search-list .search-loading').show();
+		jQuery('#datafetchhistory .search-list').show();
+		var dataval = jQuery(this).val();
+		if(dataval==''){
+			jQuery('#datafetchhistory .search-list').hide();
+		}
+		var dataurl = jQuery(this).attr('data-url');
+		jQuery.ajax({
+				url:  dataurl,
+				data: {'action':'dictionary_keyup_moredata', 'dataval': dataval}, 
+				type: 'post',           
+				success: function (data) {
+					// console.log(data);
+					jQuery('.dictionary_post_data').show();
+					jQuery('#datafetchhistory .search-list .search-loading').hide();
+					jQuery('.dictionary_post_data').html(data);
+				   }   
+			});	
+	});
+	jQuery('#hubkeyword').keyup(function(){
+		var dataval = jQuery(this).val();
+		var dataurl = jQuery(this).attr('data-url');
+		var catid = jQuery(this).attr('catid');	
+		var catname = jQuery(this).data('catname') ? jQuery(this).data('catname') : 'category';
+		jQuery.ajax({
+				url:  dataurl,
+				data: {'action':'catgoryhub_keyup_moredata', 'dataval': dataval, 'catid': catid, catname: catname}, 
+				type: 'post',           
+				success: function (data) {
+					console.log(data);
+					jQuery('.dictionary_post_data').show();
+					jQuery('.search-list').show();
+					jQuery('.dictionary_post_data').html(data);
+				   }   
+			});
+	});
+	jQuery(document).on('click', '.country_code_right', function () {
+		let current = jQuery(this).parent();
+		let couponValue = jQuery(this).parent().addClass('copyedtextcustom').find('.coupon_code').first().text();
+			navigator.clipboard.writeText(couponValue);
+			setTimeout(function () {
+				current.removeClass('copyedtextcustom');
+			}, 1000);
+	});
+
+	jQuery('.campaign-compact-table .coupon-code__copy-btn').on('click', function () {
+		const wrapper = jQuery(this).siblings('.coupon-code__wrapper').first();
+		const coupon_code = jQuery(wrapper).find('.coupon-code').first();
+		const coupon_code_copied = jQuery(wrapper).find('.coupon-code_copied').first();
+
+		navigator.clipboard.writeText(coupon_code.text());
+
+		jQuery(coupon_code).hide();
+		jQuery(coupon_code_copied).show();
+
+		setTimeout(function () {
+			jQuery(coupon_code_copied).hide();
+			jQuery(coupon_code).show();
+		}, 1000);
+	});
+	jQuery( '#search-input' ).focus(function() {
+		jQuery('#datafetchhistory .search-list').show();
+				
+	}); 
+	
+	jQuery( '.close-search-item' ).click(function() {
+		var key = jQuery(this).attr('data-key');
+		// console.log(key);
+		jQuery.removeCookie(key);
+		jQuery(this).parent().hide();
+	});
+
+
+
+
+jQuery('.jan-nav-collapse-item .plusicon').click(function() {
+	//jQuery(this).removeClass('on'); 
+	jQuery('.jan-nav-collapse-item .plusicon').removeClass('on'); 
+	jQuery('.collapsedowin').slideUp('normal');
+
+	if(jQuery(this).parent().find('.collapsedowin').is(':hidden') == true) {
+		//jQuery(this).find('.jan-nav-collapse-item .plusicon').addClass('on');
+		jQuery(this).addClass('on');
+		jQuery(this).parent().find('.collapsedowin').slideDown('normal');
+	 } 
+	  
+ }); 
+jQuery('.jan-nav-collapse-item .plusicon').mouseover(function() {
+	jQuery(this).addClass('over');
+	
+}).mouseout(function() {
+	jQuery(this).removeClass('over');										
+});	
+
+	
+});
+
+
+jQuery(document).ready(function(){
+  jQuery('.award-guide-toggle').click(function() {
+  jQuery('.award-inner').slideToggle('slow', function() {
+    jQuery('.award-guide-toggle').toggleClass('toggle-show', jQuery(this).is(':visible'));
+  });
+});
+var btn = jQuery('.to-the-top');
+jQuery(window).scroll(function() {
+  if (jQuery(window).scrollTop() > 300) {
+    btn.addClass('showtop');
+  } else {
+    btn.removeClass('showtop');
+  }
+});
+jQuery('#guidelist').change(function()  {
+	jQuery('.ajax-loading').show();
+	jQuery('.topic-articles').hide();
+	var curval = jQuery(this).children("option:selected").val();
+	var dataurl = jQuery(this).children("option:selected").attr('data-url');
+	var dataname = jQuery(this).children("option:selected").attr('data-name');
+	var catid = jQuery(this).children("option:selected").attr('data-catid');
+	var datapage = jQuery(this).children("option:selected").attr('data-page');
+	var datalink = jQuery(this).children("option:selected").attr('data-link');
+	 var ajaxurl = dataurl +'/wp-admin/admin-ajax.php';
+	 if(curval=='all_guide'){
+		 window.location = datalink;
+	 }else{
+		jQuery.ajax({
+				url:  ajaxurl,
+				data: {'action':'all_guide_moredata', 'curval': curval, 'dataname': dataname, 'catid': catid, 'datapage': datapage, 'datalink': datalink}, 
+				type: 'post',           
+				success: function (data) {
+					jQuery('.topic-articles').show();
+					jQuery('.topic-articles').html(data);
+					jQuery('.ajax-loading').hide();
+					guide_load_more();
+				   }   
+			}); 
+	 }	
+  
+});
+
+
+
+jQuery('#howtolist').change(function()  {
+	jQuery('.ajax-loading').show();
+	jQuery('.topic-articles').hide();
+	var curval = jQuery(this).children("option:selected").val();
+	var dataurl = jQuery(this).children("option:selected").attr('data-url');
+	var dataname = jQuery(this).children("option:selected").attr('data-name');
+	var catid = jQuery(this).children("option:selected").attr('data-catid');
+	var datapage = jQuery(this).children("option:selected").attr('data-page');
+	var datalink = jQuery(this).children("option:selected").attr('data-link');
+	 var ajaxurl = dataurl +'/wp-admin/admin-ajax.php';
+		jQuery.ajax({
+				url:  ajaxurl,
+				data: {'action':'all_howto_moredata', 'curval': curval, 'dataname': dataname, 'catid': catid, 'datapage': datapage, 'datalink': datalink}, 
+				type: 'post',           
+				success: function (data) {
+					jQuery('.topic-articles').show();
+					jQuery('.topic-articles').html(data);
+					jQuery('.ajax-loading').hide();
+				   }   
+			}); 
+  
+});
+
+if (jQuery('.social-sharing').length) {
+    jQuery('.social-sharing-button').on('click', function () {
+      jQuery(this).closest('.social-sharing').addClass('social-sharing--opened');
+    });
+    jQuery('body').on('click', function (event) {
+      if (jQuery(event.target).closest('.social-sharing').length === 0) {
+        jQuery('.social-sharing').removeClass('social-sharing--opened');
+      }
+    });
+    };
+	jQuery('#nav-terms .jan-js-term-letter').click(function(){
+		var bsTarget = jQuery(this).attr('data-bs-target');
+		jQuery('#dictionaryTerms .collapse').removeClass('show');
+		jQuery(bsTarget).addClass('show');
+	});
+	jQuery('.disclaimer_author_sec .btn_with_tooltip__btn').click(function(){
+		jQuery('.btn_with_tooltip__tip').addClass('disclaimer_show');
+	});
+	jQuery('.disclaimer_author_sec .disclaimer-close-icon').click(function(){
+		jQuery('.btn_with_tooltip__tip').removeClass('disclaimer_show');
+	});
+	jQuery('.trust_mobilecl .trust_mobilecl_label').click(function(){
+		jQuery('.btn_with_tooltip__tip').removeClass('disclaimer_show');
+		jQuery('.trust_mobilecl_tip').slideToggle();
+		jQuery('.trust_mobilecl_label').toggleClass("trust_open");
+	});
+	jQuery('.trust_desktop .trust_mobilecl_label').click(function(){
+		jQuery('.btn_with_tooltip__tip').removeClass('disclaimer_show');
+		jQuery('.trust_mobilecl_tip').slideToggle();
+		jQuery('.trust_mobilecl_label').toggleClass("trust_open");
+	});
+	if (jQuery('#top_global_key_disclaimer').length) {
+		var dataurl = jQuery('#top_global_key_disclaimer').attr('data-url');
+		var ajaxurl = dataurl +'/wp-admin/admin-ajax.php';
+		jQuery.ajax({
+				url:  ajaxurl,
+				data: {'action':'top_get_global_disclaimer_GB'}, 
+				type: 'post',           
+				success: function (data) {
+						if(data==''){
+							jQuery('#top_global_key_disclaimer').hide();
+						}else{
+							jQuery('#top_global_key_disclaimer').html(data);
+						}
+				   }   
+			});
+	}
+});
+

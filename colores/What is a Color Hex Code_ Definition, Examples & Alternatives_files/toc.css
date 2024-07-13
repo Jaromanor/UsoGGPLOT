@@ -1,0 +1,456 @@
+/* Scrollbar */
+.overflow-auto::-webkit-scrollbar {
+	width: .35rem;
+}
+.ms_hidetoc {
+display: none;
+}
+.overflow-auto::-webkit-scrollbar-thumb {
+	background-color: rgba(27, 27, 27, .4);
+	border-radius: 3px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.icon-chevron-down {
+	/* background-image: url("./../../../wp-content/plugins/table-of-contents/assets/images/chevron-down.svg"); */
+	background-repeat: no-repeat, repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.icon-chevron-up {
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 10px;
+	background-size: 17px;
+}
+
+.toc-sticky {
+	border-top: 1px solid #E8E8E8;
+	z-index: 2001;
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin-top: 0;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+
+.toc-sticky.sticky {
+	display: block;
+}
+
+.toc-sticky .toc-sticky__open {
+	margin: 25px 0;
+	padding: 10px 0;
+	height: 45px;
+}
+
+.toc-sticky__open button {
+	box-shadow: inherit !important;
+}
+
+.toc-sticky__open button {
+	margin-right: 0;
+	background: transparent !important;
+	border: none;
+}
+
+.toc-sticky.sticky .toc-sticky__open {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.toc-sticky__open button {
+	min-width: 16px;
+	height: 16px;
+	display: flex !important;
+	justify-content: center;
+	align-items: center !important;
+	order: 2;
+	padding: 0 !important;
+	top: -5px;
+	position: relative;
+	right: -5px;
+}
+
+.toc-sticky .toc-sticky__open button {
+	transition: width 3s;
+}
+
+.toc-sticky__container {
+	padding-right: 0;
+	padding-left: 0;
+	cursor: pointer;
+}
+
+.toc-sticky__container__disperse {
+padding-top: 0;
+}
+
+.toc-sticky .toc-sticky__btn-top {
+	display: none;
+	padding-bottom: 80px;
+}
+
+.toc-sticky .toc-sticky__btn-top .btn {
+	padding: 0;
+}
+
+.toc-sticky .toc-sticky__btn-top button {
+	text-decoration: inherit;
+}
+
+.toc-sticky .toc-sticky__btn-top button p {
+	margin-right: 8px;
+}
+
+
+/* Steps
+   Source: https://codepen.io/funcion/pen/QQdGXB
+*/
+.StepProgress {
+	position: relative;
+	padding-left: 35px;
+	list-style: none;
+	margin-left: inherit !important; /*canceling the edge of global styles*/
+}
+
+.StepProgress::before {
+	display: inline-block;
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 1px;
+	width: 10px;
+	height: 100%;
+	border-left: 1px dashed #0077cc;
+	opacity: 0.4;
+}
+
+.StepProgress-item {
+	position: relative;
+}
+#multiCollapse1 {
+	padding-left: 10px;
+}
+
+
+.StepProgress-item:not(:first-child, :last-child) a {
+	padding: 15px 0;
+}
+
+.StepProgress-item:not(:last-child) {
+border-bottom: 1px solid #E0E0E0;
+}
+
+.StepProgress-item:first-child  a {
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+
+.StepProgress-item:last-child .StepProgress-item__group a{
+	padding-top: 15px;
+}
+
+.StepProgress-item:last-child {
+	height: auto;
+}
+
+.StepProgress-sub-item a {
+	padding: 15px 0!important;
+}
+
+.StepProgress-item__group {
+	padding-right: 1.5rem;
+	position: relative;
+}
+
+.StepProgress-item__group .StepProgress-item__arrow {
+background-color: transparent !important;
+border-left: 1px solid #E0E0E0;
+}
+
+.StepProgress-item__group a {
+	display: flex;
+}
+
+.StepProgress-sub-item a {
+	display: flex;
+}
+
+.StepProgress-item__arrow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 15px 10px;
+}
+
+.StepProgress-item li:not(:last-child)::after {
+	margin-bottom: 15px;
+}
+
+.StepProgress-item a {
+	color: #000;
+	text-decoration: inherit;
+}
+
+.StepProgress-item::before {
+	display: inline-block;
+	content: '';
+	position: absolute;
+	left: -24px;
+	bottom: -22px;
+	height: 100%;
+	width: 10px;
+}
+
+.StepProgress-item::after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 15px;
+	left: -29px;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #E8E8E8;
+	border-radius: 50%;
+	background-color: #FFF;
+}
+
+.StepProgress-item:first-child::after {
+	top: 5px !important;
+}
+
+.StepProgress-item:first-child::before {
+	height: calc(100% + 13px);
+}
+
+.StepProgress-item.is-done::before {
+	border-left: 2px solid #0077cc;
+}
+
+.StepProgress-item.is-done::after {
+	font-size: 10px;
+	color: #FFF;
+	text-align: center;
+	border: 2px solid #0077cc;
+	background-color: #0077cc;
+}
+
+.StepProgress-item__link {
+	line-height: 1;
+	cursor: pointer;
+	padding: 15px 0;
+}
+
+.StepProgress-sub-item .StepProgress-item__link {
+	font-size: 14px;
+}
+
+.current > * > .StepProgress-item__link {
+	font-weight: 600;
+	font-family: 'Inter', sans-serif;
+}
+
+.StepProgress-item.current::before {
+	border-left: 2px solid #0077cc;
+}
+
+.StepProgress .StepProgress-item:last-child::before {
+	display: none;
+}
+
+.StepProgress-item.current::after {
+	width: 12px;
+	height: 12px;
+	top: 13px;
+	left: -29px;
+	font-size: 14px;
+	text-align: center;
+	color: #0077cc;
+	border: 2px solid #0077cc;
+	background-color: #0077cc;
+}
+
+.StepProgress-sub-list {
+	list-style: none;
+	margin-left: -23px !important;
+	padding-left: 45px;
+	background-color: #F6F9FF;
+	width: inherit !important;
+	display: inherit !important;
+	margin-bottom: -1px !important;
+}
+
+.StepProgress-sub-item {
+	position: relative;
+}
+
+.StepProgress-sub-item::before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 15px;
+	left: -21px;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #1C2642;
+	border-radius: 50%;
+	background-color: #FFF;
+}
+
+.StepProgress-sub-item.current::before,
+.StepProgress-sub-item.is-done::before {
+	background-color: #1C2642;
+}
+
+.collapse-action-btn {
+border: none;
+background-color: #000 !important;
+color: #000;
+display: flex;
+align-items: center;
+}
+
+.collapse-action-btn i {
+	display: inline-block;
+	transition: 0.3s;
+	transform: rotate(180deg);
+}
+
+.collapse-action-btn i.up {
+	transform: rotate(0deg);
+	transition: 0.3s;
+}
+
+.toc-sticky__container span#toc-current-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+.toc-sticky span {
+	margin-top: 0 !important;
+}
+
+#main-content .sticky {
+	padding: inherit !important;
+}
+
+.toc-sticky__container li {
+margin-top: 0 !important;
+color: #1C2642;
+font-size: 16px;
+margin-bottom: 0;
+}
+
+.toc-sticky__container ol {
+	margin-top: 0;
+	text-indent: 0 !important;
+	padding-left: 25px !important;
+	margin-bottom: 0;
+}
+
+.toc-sticky__open span {
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+	font-weight: 600;
+	font-family: 'Inter', sans-serif;
+	order: 1;
+}
+
+.toc-sticky .toc-sticky__btn-top p {
+	margin-bottom: inherit !important;
+}
+.toc-sticky__container.container {
+	padding: 0;
+}
+.toc-sticky__open {
+	justify-content: space-between;
+}
+
+/*Fix collapsible on ol tag*/
+ol.collapse:not(.show) {
+	display: none !important;
+}
+
+/* Display permanent TOC title only when TOC section IS NOT sticky */
+section.toc-sticky span#toc-current-title {
+	display: none !important;
+}
+
+section.toc-sticky span.toc-main-title-permanent {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	color: #000;
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+section.toc-sticky.sticky span.toc-main-title-permanent {
+	display: none;
+}
+
+section.toc-sticky.sticky span#toc-current-title {
+	display: block !important;
+}
+
+section.toc-sticky span#toc-current-title {
+	display: none !important;
+}
+
+section.toc-sticky span.toc-main-title-permanent {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	color: #000;
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+section.toc-sticky.sticky span.toc-main-title-permanent {
+	display: none;
+}
+
+section.toc-sticky.sticky span#toc-current-title {
+	display: block !important;
+}
+
+/* -------------------------------------------------------- */
+
+@media (min-width: 1200px) {
+	.toc-sticky__container {
+		max-width: 1104px;
+	}
+}
+
+@media (max-width: 479px) {
+	#content ol {
+		padding-left: 35px;
+	}
+
+	.toc-sticky.sticky .toc-sticky__container {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+
+	.toc-sticky .toc-sticky__btn-top {
+		display: flex;
+	}
+}
+
+/*ol.StepProgress li.StepProgress-item.is-done > ol.StepProgress-sub-list {*/
+/*  display: none;*/
+/*}*/
+
+/*ol.StepProgress li.StepProgress-item.is-done > ol.StepProgress-sub-list {*/
+/*  display: none;*/
+/*}*/

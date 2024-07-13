@@ -1,0 +1,64 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.reference-content-body{
+	display: none;
+}
+.reference-content-collapsible-heading {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: url(../images/arrow-down.png) 99% center no-repeat;
+    position: inherit;
+    z-index: 9;
+    padding: 10px 26px 10px 0px;
+    display: inline-block;
+    width: 100%;
+	border-bottom: 1px solid #D9D9D9;
+}
+.reference-content-collapsible-heading h2 {
+	margin: 0 !important;
+}
+.reference-content-body {
+	padding: 10px 0 0;
+}
+
+.reference-content-collapsible-heading.collapsed.expanded {
+ 	background: url(../images/arrow-up.png) 99% center no-repeat;
+}
+
+.collapse-icon {
+    margin-left: 5px; /* Adjust the spacing between the heading and the icon as needed */
+    width: 10px; /* Set the width of the icon */
+    height: 10px; /* Set the height of the icon */
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    font-size: 16px;
+}
+
+.collapsed .collapse-icon {
+    transform: rotate(-45deg); /* Rotate the square to form a collapsed triangle */
+}
+
+.expanded .collapse-icon {
+    transform: rotate(180deg); /* Rotate the square to form an expanded triangle */
+}
+
+.collapsed .reference-body {
+    display: none;
+}
+
+.expanded .reference-body {
+    display: block;
+}
+
+.reference-content {
+	position: inherit;
+	margin: 1rem 0 2rem;
+}
+
+
+

@@ -1,0 +1,9 @@
+// slotslaunch-slots.js
+
+// Define sl_json as an empty object
+var sl_json = {
+    aggregateRating: {
+        ratingValue: 0,
+        ratingCount: 0
+    }
+};
